@@ -1,0 +1,2576 @@
+!<arch>
+//                                              118       `
+ft_lstaddfront.c/
+ft_strtrim_one.c/
+ft_strreplacen.c/
+ft_puthexa_lower.c/
+ft_puthexa_upper.c/
+get_next_line_utils.c/
+
+ft_isalpha.c/   0           0     0     644     1957      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/22 15:03:23 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/15 18:20:51 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+static const int	g_lookup_table[256] = {
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
+	0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+	1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+};
+
+int	ft_isalpha(int c)
+{
+	return (g_lookup_table[(u_int8_t)c]);
+}
+
+int	ft_isalphastr(const char *str)
+{
+	size_t	i;
+	int		r;
+
+	i = ft_strlen(str);
+	r = 1;
+	while (i--)
+		r &= g_lookup_table[(u_int8_t)str[i]];
+	return (r);
+}
+
+ft_isdigit.c/   0           0     0     644     1976      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/22 14:50:23 by vtestut            #+#    #+#             */
+/*   Updated: 2023/01/22 15:22:34 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+static const int	g_lookup_table[256] = {
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+	1, 1, 1, 1, 1, 1, 1, 1, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0
+};
+
+int	ft_isdigit(int c)
+{
+	return (g_lookup_table[(u_int8_t)c]);
+}
+
+int	ft_isdigitstr(const char *str)
+{
+	size_t	i;
+	int		r;
+
+	i = ft_strlen(str);
+	r = 1;
+	while (i--)
+		r &= g_lookup_table[(u_int8_t)str[i]];
+	return (r);
+}
+ft_isalphanum.c/0           0     0     644     1008      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalphanum.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 20:52:36 by vtestut           #+#    #+#             */
+/*   Updated: 2023/11/01 20:52:48 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_ctype.h"
+
+int	ft_isalphanum(int c)
+{
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (c);
+	return (0);
+}
+ft_isspace.c/   0           0     0     644     1045      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/01 19:27:36 by vtestut          #+#    #+#             */
+/*   Updated: 2023/08/01 19:31:56 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_ctype.h"
+#include "ft_string.h"
+
+int	ft_isspace(int c)
+{
+	static const char	*spaces = "\t\n\v\f\r ";
+
+	return (ft_strchr(spaces, c) != NULL);
+}
+
+ft_lstat.c/     0           0     0     644     1212      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstat.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/14 18:09:54 by vtestut          #+#    #+#             */
+/*   Updated: 2023/06/16 18:21:21 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+#include "ft_math.h"
+
+t_list	ft_lstat(t_list lst, int index)
+{
+	size_t	i;
+	size_t	at;
+
+	i = ft_absi(index);
+	if ((int)i >= ft_lstsize(lst))
+		return ((t_list){.list = NULL});
+	if (index < 0)
+		at = ft_lstsize(lst) + index;
+	else
+		at = index;
+	while (at--)
+		lst.list = lst.list->next;
+	return (lst);
+}
+ft_lstdup.c/    0           0     0     644     1447      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/26 14:45:32 by vtestut          #+#    #+#             */
+/*   Updated: 2023/11/23 18:38:59 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+#include "ft_string.h"
+
+t_list	ft_lstdup(t_list lst, void *(*dup)(void *), void (*del)(void *))
+{
+	t_list	new;
+	t_list	tmp;
+	t_list	iter;
+	void	*content;
+
+	new = (t_list){.list = NULL};
+	iter = lst;
+	while (iter.list)
+	{
+		content = dup(iter.list->content);
+		if (!content)
+		{
+			ft_lstclear(new, del);
+			return ((t_list){.list = NULL});
+		}
+		tmp = ft_lstnew(content);
+		if (!tmp.list)
+		{
+			ft_lstclear(new, del);
+			return ((t_list){.list = NULL});
+		}
+		ft_lstaddback(&new, tmp);
+		iter.list = iter.list->next;
+	}
+	return (new);
+}
+
+ft_lstaddback.c/0           0     0     644     1078      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstaddback.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/06 00:04:02 by vtestut            #+#    #+#             */
+/*   Updated: 2023/10/11 16:01:18 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+
+void	ft_lstaddback(t_list *lst, t_list new)
+{
+	t_list	last;
+
+	last = ft_lstlast(*lst);
+	if (!last.list)
+		lst->list = new.list;
+	else
+		last.list->next = new.list;
+}
+/0              0           0     0     644     1029      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstaddfront.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 23:48:13 by vtestut            #+#    #+#             */
+/*   Updated: 2023/06/14 12:59:21 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+
+void	ft_lstaddfront(t_list *lst, t_list new)
+{
+	t_list	tmp;
+
+	tmp = *lst;
+	new.list->next = tmp.list;
+	*lst = new;
+}
+
+ft_lstclear.c/  0           0     0     644     1118      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/14 18:02:51 by vtestut          #+#    #+#             */
+/*   Updated: 2023/06/14 18:04:31 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+
+void	ft_lstclear(t_list lst, void (*f)(void *content))
+{
+	t_list	tmp;
+
+	if (!lst.list)
+		return ;
+	while (lst.list)
+	{
+		tmp.list = lst.list->next;
+		f(lst.list->content);
+		free(lst.list);
+		lst = tmp;
+	}
+}
+ft_lstnew.c/    0           0     0     644     1149      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 23:46:13 by vtestut            #+#    #+#             */
+/*   Updated: 2023/06/14 12:59:08 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+
+t_list	ft_lstnew(void *content)
+{
+	t_list	new;
+
+	new.list = malloc(sizeof(struct s_list));
+	if (!new.list)
+		return ((t_list){.list = NULL});
+	ft_memset(new.list, 0, sizeof(struct s_list));
+	new.list->content = content;
+	return (new);
+}
+
+ft_lstsize.c/   0           0     0     644     1033      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 23:52:02 by vtestut            #+#    #+#             */
+/*   Updated: 2023/06/14 12:59:03 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+
+int	ft_lstsize(t_list lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst.list)
+	{
+		++i;
+		lst.list = lst.list->next;
+	}
+	return (i);
+}
+
+ft_lstindex.c/  0           0     0     644     1086      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstindex.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/16 16:39:34 by vtestut          #+#    #+#             */
+/*   Updated: 2023/06/16 16:40:45 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+
+int	ft_lstindex(t_list lst, t_list nd)
+{
+	int	i;
+
+	i = 0;
+	while (lst.list)
+	{
+		if (lst.list == nd.list)
+			return (i);
+		++i;
+		lst.list = lst.list->next;
+	}
+	return (-1);
+}
+ft_lstiteri.c/  0           0     0     644     1118      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstiteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/06 15:59:37 by vtestut            #+#    #+#             */
+/*   Updated: 2023/06/14 12:59:17 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+
+int	ft_lstiteri(t_list lst, int (*f)(size_t index, void *content))
+{
+	size_t	i;
+
+	i = 0;
+	while (lst.list)
+	{
+		if (!f(i++, lst.list->content))
+			return (0);
+		lst.list = lst.list->next;
+	}
+	return (1);
+}
+ft_lstappend.c/ 0           0     0     644     1054      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstappend.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/15 22:14:44 by vtestut          #+#    #+#             */
+/*   Updated: 2023/06/15 22:16:29 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+
+void	ft_lstappend(t_list lst, t_list new)
+{
+	t_list	tmp;
+
+	tmp.list = lst.list->next;
+	lst.list->next = new.list;
+	new.list->next = tmp.list;
+}
+ft_lstlast.c/   0           0     0     644     1065      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 23:53:22 by vtestut            #+#    #+#             */
+/*   Updated: 2023/06/14 12:59:13 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_list.h"
+
+t_list	ft_lstlast(t_list lst)
+{
+	if (!lst.list)
+		return ((t_list){.list = NULL});
+	while (lst.list->next)
+		lst.list = lst.list->next;
+	return (lst);
+}
+
+ft_min.c/       0           0     0     644     993       `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/04 18:29:04 by vtestut            #+#    #+#             */
+/*   Updated: 2023/07/04 18:29:08 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_math.h"
+
+int	ft_min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	else
+		return (b);
+}
+
+ft_digitat.c/   0           0     0     644     1122      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_digitat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 18:34:08 by vtestut            #+#    #+#             */
+/*   Updated: 2023/06/27 16:03:07 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_math.h"
+
+int	ft_digitat(int val, int *d, int n)
+{
+	int	i;
+
+	if (n < 0)
+		return (0);
+	else if (val < 0)
+		val *= -1;
+	i = 0;
+	while (i < n)
+	{
+		val /= 10;
+		++i;
+	}
+	if (d)
+		*d = val % 10;
+	return (val % 10);
+}
+ft_getdigits.c/ 0           0     0     644     1069      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_getdigits.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 16:11:55 by vtestut            #+#    #+#             */
+/*   Updated: 2023/06/27 16:12:40 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_math.h"
+
+int	ft_getdigits(int val)
+{
+	int	n;
+
+	if (val < 0)
+		val *= -1;
+	if (!val)
+		return (1);
+	n = 0;
+	while (val)
+	{
+		val /= 10;
+		++n;
+	}
+	return (n);
+}
+
+ft_absi.c/      0           0     0     644     1046      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_absi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/08 22:03:06 by vtestut            #+#    #+#             */
+/*   Updated: 2023/05/08 22:03:24 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+//
+// Created by vtestut on 08/05/23.
+//
+#include "ft_math.h"
+
+unsigned int	ft_absi(int val)
+{
+	if (val < 0)
+		return (-val);
+	else
+		return (val);
+}
+ft_powi.c/      0           0     0     644     1082      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_powi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/07 20:31:10 by vtestut            #+#    #+#             */
+/*   Updated: 2023/07/10 01:51:53 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_math.h"
+
+int	ft_powi(int base, int power)
+{
+	int	ret;
+
+	if (!base)
+		return (0);
+	else if (power == 0)
+		return (1);
+	ret = base;
+	while (--power)
+		ret *= base;
+	return (ret);
+}
+ft_calloc.c/    0           0     0     644     1091      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 20:54:15 by vtestut           #+#    #+#             */
+/*   Updated: 2023/11/01 20:54:19 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_stdlib.h"
+#include "ft_string.h"
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*r;
+
+	r = malloc(nmemb * size);
+	if (!r)
+		return (NULL);
+	ft_bzero(r, size * nmemb);
+	return (r);
+}
+
+ft_realloc.c/   0           0     0     644     1475      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/12 13:59:54 by vtestut          #+#    #+#             */
+/*   Updated: 2023/10/12 17:58:56 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_stdlib.h"
+#include "ft_string.h"
+
+void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
+{
+	void	*new_ptr;
+
+	if (!ptr)
+	{
+		new_ptr = malloc(new_size);
+		if (!new_ptr)
+			return (NULL);
+		ft_memset(new_ptr, 0, new_size);
+		return (new_ptr);
+	}
+	else if (!new_size)
+		return (free(ptr), NULL);
+	new_ptr = malloc(new_size);
+	if (!new_ptr)
+		return (free(ptr), NULL);
+	if (new_size < old_size)
+		ft_memcpy(new_ptr, ptr, new_size);
+	else
+	{
+		ft_memcpy(new_ptr, ptr, old_size);
+		ft_memset(new_ptr + old_size, 0, new_size - old_size);
+	}
+	free(ptr);
+	return (new_ptr);
+}
+
+ft_atoi_long.c/ 0           0     0     644     1536      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_long.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/02 17:12:46 by vtestut           #+#    #+#             */
+/*   Updated: 2023/11/28 14:43:47 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_stdlib.h"
+
+static bool	check_out_of_range(int neg, unsigned long long num, bool *error)
+{
+	if ((neg == 1 && num > LONG_MAX)
+		|| (neg == -1 && num > -(unsigned long)LONG_MIN))
+		*error = true;
+	return (*error);
+}
+
+int	ft_atoi_long(const char *str, bool *error)
+{
+	unsigned long long	num;
+	int					neg;
+	int					i;
+
+	num = 0;
+	neg = 1;
+	i = 0;
+	while (str[i] && ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		neg *= -1;
+		i++;
+	}
+	while (str[i] && ft_isdigit(str[i]))
+	{
+		num = (num * 10) + (str[i] - '0');
+		if (check_out_of_range(neg, num, error))
+			break ;
+		i++;
+	}
+	return (num * neg);
+}
+ft_strtoi.c/    0           0     0     644     2628      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtol.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/07 20:22:26 by vtestut            #+#    #+#             */
+/*   Updated: 2023/07/26 14:44:36 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_stdlib.h"
+#include "ft_string.h"
+#include "ft_math.h"
+#include <limits.h>
+
+static const char		*g_base_8 = "01234567";
+static const char		*g_base_10 = "0123456789";
+static const char		*g_base_16 = "0123456789abcdef";
+
+typedef unsigned int	t_ui;
+
+typedef struct s_ninfo {
+	unsigned int	cutoff;
+	unsigned int	acc;
+	unsigned int	cutlim;
+	int				neg;
+	int				base;
+}	t_ninfo;
+
+static char	*set_base(int base)
+{
+	if (base == 8)
+		return ((char *)g_base_8);
+	else if (base == 10)
+		return ((char *)g_base_10);
+	else if (base == 16)
+		return ((char *)g_base_16);
+	else
+		return (NULL);
+}
+
+static int	init(const char *s, char **endptr, t_ninfo *ninfo, int base)
+{
+	if (!ft_strlen(s))
+		return (0);
+	else if (*s == '-')
+		ninfo->neg = 1;
+	else
+		ninfo->neg = 0;
+	ninfo->acc = 0;
+	ninfo->cutoff = INT_MAX + ninfo->neg;
+	ninfo->cutlim = ninfo->cutoff % base;
+	ninfo->cutoff /= base;
+	ninfo->base = base;
+	*endptr = (char *)s;
+	if (*s == '+' || *s == '-')
+	{
+		if (ft_strlen(s) == 1)
+			return (0);
+		else
+			++(*endptr);
+	}
+	return (1);
+}
+
+static int	loop(char **endptr, t_ninfo *n, const char *base)
+{
+	unsigned int	val;
+	char			*tmp;
+
+	tmp = ft_strchr(base, **endptr);
+	if (!tmp)
+		return (0);
+	val = tmp - base;
+	if (n->acc > n->cutoff || (n->acc == n->cutoff && val > n->cutlim))
+		return (0);
+	else
+	{
+		n->acc *= n->base;
+		n->acc += (unsigned long)val;
+	}
+	++(*endptr);
+	return (1);
+}
+
+int	ft_strtoi(const char *s, char **endptr, int base)
+{
+	const char		*_base;
+	t_ninfo			ninfo;
+
+	_base = set_base(base);
+	if (!_base)
+		return (0);
+	if (!init(s, endptr, &ninfo, base))
+		return (0);
+	while (**endptr && loop(endptr, &ninfo, _base))
+		(void)0;
+	if (ninfo.neg)
+		return ((int)ninfo.acc * -1);
+	else
+		return ((int)(ninfo.acc));
+}
+ft_atoi.c/      0           0     0     644     1107      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/07 20:57:30 by vtestut            #+#    #+#             */
+/*   Updated: 2023/07/10 01:52:08 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_stdlib.h"
+#include "ft_string.h"
+
+int	ft_atoi(char *str)
+{
+	long	val;
+	char	*_restrict;
+
+	val = ft_strtol(str, &_restrict, 10);
+	if (_restrict != str + ft_strlen(str))
+		return (0);
+	return ((int)val);
+}
+
+ft_strtol.c/    0           0     0     644     2210      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtol.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/07 20:22:26 by vtestut            #+#    #+#             */
+/*   Updated: 2023/07/26 14:44:36 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_stdlib.h"
+#include "ft_string.h"
+#include "ft_math.h"
+#include <limits.h>
+
+static const char	*g_base_8 = "01234567";
+static const char	*g_base_10 = "0123456789";
+static const char	*g_base_16 = "0123456789abcdef";
+
+static char	*set_base(int base)
+{
+	if (base == 8)
+		return ((char *)g_base_8);
+	else if (base == 10)
+		return ((char *)g_base_10);
+	else if (base == 16)
+		return ((char *)g_base_16);
+	else
+		return (NULL);
+}
+
+static void	strtol_init(long *result, long *incr, const char **str, int *neg)
+{
+	*result = 0;
+	*incr = 1;
+	*neg = 1;
+	if (**str == '-')
+	{
+		*neg = -1;
+		++(*str);
+	}
+	else if (**str == '+')
+		++(*str);
+}
+
+long	ft_strtol(const char *s, char **endptr, int base)
+{
+	const char	*_base;
+	long		incr;
+	long		val;
+	long		result;
+	int			negative;
+
+	if (!ft_strlen(s) || ((*s == '+' || *s == '-') && ft_strlen(s) == 1))
+		return (0);
+	_base = set_base(base);
+	strtol_init(&result, &incr, &s, &negative);
+	*endptr = (char *)s + ft_strlen(s) - 1;
+	result = ft_strchr(_base, *(*endptr--)) - _base;
+	while (s >= *endptr)
+	{
+		if (incr > ((LONG_MAX + (negative == -1)) / base))
+			return (0);
+		incr *= base;
+		val = incr * (ft_strchr(_base, **endptr) - _base);
+		if (result > ((LONG_MAX + (negative == -1)) - val))
+			return (0);
+		result += val;
+		--(*endptr);
+	}
+	return (negative * result);
+}
+ft_strcat.c/    0           0     0     644     1250      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/07 17:48:58 by vtestut            #+#    #+#             */
+/*   Updated: 2023/05/08 16:36:41 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strcat(const char *s1, const char *s2)
+{
+	size_t	n1;
+	size_t	n2;
+	char	*new;
+
+	if (!s1)
+		n1 = 0;
+	else
+		n1 = ft_strlen(s1);
+	if (!s2)
+		n2 = 0;
+	else
+		n2 = ft_strlen(s2);
+	new = malloc(n1 + n2 + 1);
+	if (!new)
+		return (NULL);
+	new[n1 + n2] = 0;
+	ft_memcpy(new, s1, n1);
+	ft_memcpy(new + n1, s2, n2);
+	return (new);
+}
+/18             0           0     0     644     1133      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim_one.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 15:54:55 by vtestut            #+#    #+#             */
+/*   Updated: 2023/12/09 20:26:22 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+int	ft_strtrim_one(char *str, const char *set)
+{
+	char	*iter;
+	char	charset[2];
+
+	charset[1] = 0;
+	iter = ft_strchr1(str, set);
+	if (iter)
+	{
+		charset[0] = *iter;
+		return (ft_strtrim(str, charset));
+	}
+	return (0);
+}
+
+ft_strinsert.c/ 0           0     0     644     1386      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strinsert.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/30 17:30:57 by vtestut          #+#    #+#             */
+/*   Updated: 2023/11/11 19:36:15 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strinsert(const char *str, const char *begin, const char *what)
+{
+	size_t	strlen;
+	size_t	wlen;
+	size_t	offset;
+	char	*new;
+
+	strlen = ft_strlen(str);
+	wlen = ft_strlen(what);
+	offset = begin - str;
+	new = malloc(strlen + wlen + 1);
+	if (!new)
+		return (NULL);
+	ft_memcpy(new, str, offset);
+	ft_memcpy(new + offset, what, wlen);
+	if (begin < str + ft_strlen(str))
+		ft_memcpy(new + offset + wlen, begin, ft_strlen(begin));
+	new[strlen + wlen] = 0;
+	return (new);
+}
+ft_strremoven.c/0           0     0     644     1251      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strremoven.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/28 14:44:11 by vtestut          #+#    #+#             */
+/*   Updated: 2023/11/28 14:44:40 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strremoven(const char *src, size_t begin, size_t n)
+{
+	char	*new;
+	size_t	srclen;
+
+	srclen = ft_strlen(src);
+	new = malloc(srclen - n + 1);
+	if (!new)
+		return (NULL);
+	ft_memcpy(new, src, begin);
+	if (begin + n < srclen)
+		ft_memcpy(new + begin, src + begin + n, srclen - begin - n);
+	new[srclen - n] = '\0';
+	return (new);
+}
+
+ft_memcpy.c/    0           0     0     644     1223      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/22 15:21:53 by vtestut            #+#    #+#             */
+/*   Updated: 2023/05/08 16:36:11 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t	i;
+
+	i = n / sizeof(u_int64_t);
+	while (i--)
+		*((u_int64_t *)dest + i) = *((const u_int64_t *)src + i);
+	i = n % sizeof(u_int64_t);
+	while (i--)
+		*((u_int8_t *)dest + n - i - 1) = *((const u_int8_t *)src + n - i - 1);
+	return (dest);
+}
+
+ft_strncpy.c/   0           0     0     644     1187      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/17 15:37:32 by vtestut           #+#    #+#             */
+/*   Updated: 2023/07/10 01:51:21 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strncpy(char *dest, const char *src, size_t n)
+{
+	char	*dest_start;
+	size_t	i;
+
+	dest_start = dest;
+	i = 0;
+	while (*src != '\0' && i < n)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+		i++;
+	}
+	while (i < n)
+	{
+		*dest = '\0';
+		dest++;
+		i++;
+	}
+	return (dest_start);
+}
+
+ft_memelemset.c/0           0     0     644     1097      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memelemset.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/18 14:42:23 by vtestut          #+#    #+#             */
+/*   Updated: 2023/06/18 14:45:19 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+void	*ft_memelemset(void *dest, void *src, size_t srclen, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((char *)dest)[i] = ((char *)src)[i % srclen];
+		++i;
+	}
+	return (dest);
+}
+
+ft_strtrim.c/   0           0     0     644     1372      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 15:23:11 by vtestut            #+#    #+#             */
+/*   Updated: 2023/12/09 13:41:05 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+int	ft_strtrim(char *str, const char *set)
+{
+	char	*iter;
+	int		removed;
+	size_t	n;
+
+	iter = str;
+	while (*iter && ft_strchr(set, *iter))
+		iter++;
+	n = ft_strlen(iter);
+	removed = iter - str;
+	ft_memmove(str, iter, n + 1);
+	if (!n)
+		return (removed);
+	iter = str + ft_strlen(str) - 1;
+	while (*iter && ft_strchr(set, *iter))
+	{
+		*iter = '\0';
+		iter--;
+	}
+	removed += ft_strlen(iter);
+	ft_memset(iter + 1, '\0', ft_strlen(iter + 1));
+	return (removed);
+}
+ft_memmove.c/   0           0     0     644     1118      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/01 18:07:57 by vtestut            #+#    #+#             */
+/*   Updated: 2023/07/09 04:39:54 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	char	*buff;
+
+	buff = malloc(n);
+	if (!buff)
+		return (NULL);
+	ft_memcpy(buff, src, n);
+	ft_memcpy(dest, buff, n);
+	free(buff);
+	return (dest);
+}
+ft_strcmp.c/    0           0     0     644     1191      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/15 21:30:30 by vtestut            #+#    #+#             */
+/*   Updated: 2023/10/12 16:09:56 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *s2 && *s1 == *s2)
+	{
+		++s1;
+		++s2;
+	}
+	return (*s1 - *s2);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	while (n-- > 1 && *s1 && *s2 && *s1 == *s2)
+	{
+		++s1;
+		++s2;
+	}
+	return (*s1 - *s2);
+}
+
+ft_strremove.c/ 0           0     0     644     1306      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strremove.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/30 17:19:55 by vtestut          #+#    #+#             */
+/*   Updated: 2023/11/11 19:43:57 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strremove(const char *str, const char *begin, const char *end)
+{
+	size_t	nstr;
+	size_t	ndel;
+	char	*new;
+
+	nstr = ft_strlen(str);
+	if (!end)
+		ndel = ft_strlen(begin);
+	else
+		ndel = end - begin;
+	new = malloc(nstr - ndel + 1);
+	if (!new)
+		return (NULL);
+	ft_memcpy(new, str, begin - str);
+	ft_memcpy(new + (begin - str), end, ft_strlen(end));
+	new[nstr - ndel] = 0;
+	return (new);
+}
+ft_countc.c/    0           0     0     644     1280      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_countc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 18:27:58 by vtestut            #+#    #+#             */
+/*   Updated: 2023/05/08 16:36:19 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+size_t	ft_countc(const char *str, int c)
+{
+	size_t	i;
+	size_t	count;
+
+	i = ft_strlen(str);
+	count = 0;
+	while (i--)
+		if (c == str[i])
+			++count;
+	return (count);
+}
+
+size_t	ft_countcs(const char *str, const char *charset)
+{
+	size_t	i;
+	size_t	count;
+
+	i = ft_strlen(charset);
+	count = 0;
+	while (i--)
+		count += ft_countc(str, charset[i]);
+	return (count);
+}
+ft_strcpy.c/    0           0     0     644     1105      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/17 15:37:27 by vtestut           #+#    #+#             */
+/*   Updated: 2023/06/17 15:37:28 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strcpy(char *dest, const char *src)
+{
+	char	*dest_start;
+
+	dest_start = dest;
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return (dest_start);
+}
+
+ft_strlen.c/    0           0     0     644     1127      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/22 15:21:43 by vtestut            #+#    #+#             */
+/*   Updated: 2023/05/06 15:34:56 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (*str++)
+		++i;
+	return (i);
+}
+
+size_t	ft_strnlen(const char *str, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (n-- && *str++)
+		++i;
+	return (i);
+}
+
+ft_strreplace.c/0           0     0     644     1220      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strreplace.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/30 17:30:54 by vtestut          #+#    #+#             */
+/*   Updated: 2023/06/30 17:30:54 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strreplace(const char *str, const char *begin,
+			const char *end, const char *what)
+{
+	char	*new;
+	char	*tmp;
+
+	tmp = ft_strremove(str, begin, end);
+	if (!tmp)
+		return (NULL);
+	new = ft_strinsert(tmp, tmp + (begin - str), what);
+	if (!new)
+		return (free(tmp), NULL);
+	free(tmp);
+	return (new);
+}
+ft_bzero.c/     0           0     0     644     1047      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 20:53:08 by vtestut           #+#    #+#             */
+/*   Updated: 2023/11/01 20:53:14 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*p;
+
+	p = (unsigned char *)s;
+	while (n != 0)
+	{
+		*p = '\0';
+		p++;
+		n--;
+	}
+}
+
+ft_memset.c/    0           0     0     644     1222      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/22 15:21:47 by vtestut            #+#    #+#             */
+/*   Updated: 2023/05/08 16:36:37 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+void	*ft_memset(void *dest, int c, size_t n)
+{
+	size_t		i;
+	u_int64_t	v64;
+
+	v64 = 0x0101010101010101 * (u_int8_t)c;
+	i = n / sizeof(u_int64_t);
+	while (i--)
+		*((u_int64_t *)dest + i) = v64;
+	i = n % (sizeof(u_int64_t));
+	while (i--)
+		*((u_int8_t *)dest + n - 1 - i) = (u_int8_t)c;
+	return (dest);
+}
+ft_substr.c/    0           0     0     644     1333      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 20:53:28 by vtestut           #+#    #+#             */
+/*   Updated: 2023/11/01 20:53:33 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*res;
+	char	*src;
+	size_t	reslen;
+
+	if (!s)
+		return (NULL);
+	if (ft_strlen(s) < (size_t)start)
+		return (ft_strdup(""));
+	src = (char *)s + start;
+	if (ft_strlen(src) < len)
+		reslen = ft_strlen(src) + 1;
+	else
+		reslen = len + 1;
+	res = malloc(reslen * sizeof(char));
+	if (!res)
+		return (NULL);
+	ft_strlcpy(res, src, reslen);
+	return (res);
+}
+
+ft_strchr.c/    0           0     0     644     1088      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/15 21:36:24 by vtestut            #+#    #+#             */
+/*   Updated: 2023/05/08 16:36:46 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strchr(const char *str, int c)
+{
+	size_t	i;
+
+	i = ft_strlen(str);
+	while (i-- && *str != c)
+		++str;
+	if (*str == c)
+		return ((char *)str);
+	return (NULL);
+}
+ft_itoa.c/      0           0     0     644     1290      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/26 14:45:20 by vtestut          #+#    #+#             */
+/*   Updated: 2023/07/26 14:45:20 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+#include <pthread.h>
+
+char	*ft_itoa(int64_t val)
+{
+	static __thread char	buff[21] = {0};
+	size_t					i;
+	char					c;
+	int						neg;
+
+	ft_memset(&buff, 0, 21);
+	i = 19;
+	if (!val)
+	{
+		buff[i] = '0';
+		return (buff + i);
+	}
+	neg = val < 1;
+	while (val)
+	{
+		c = (char)(val % 10);
+		buff[i--] = c + 48;
+		val /= 10;
+	}
+	if (neg)
+		buff[i] = '-';
+	else
+		i++;
+	return (buff + i);
+}
+ft_strjoin.c/   0           0     0     644     1261      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 20:53:45 by vtestut           #+#    #+#             */
+/*   Updated: 2023/11/01 20:53:52 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+#include "ft_stdlib.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*s;
+	size_t	len;
+	int		i;
+
+	len = ft_strlen(s1) + ft_strlen(s2);
+	s = ft_calloc(len + 1, sizeof(char));
+	if (!s)
+		return (NULL);
+	len = 0;
+	while (s1[len])
+	{
+		s[len] = s1[len];
+		len++;
+	}
+	i = 0;
+	while (s2[i])
+	{
+		s[len + i] = s2[i];
+		i++;
+	}
+	return (s);
+}
+
+/36             0           0     0     644     1195      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strreplacen.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 19:25:08 by vtestut          #+#    #+#             */
+/*   Updated: 2023/11/13 19:25:10 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strreplacen(const char *src, size_t begin,
+			size_t n, const char *what)
+{
+	char	*new;
+	char	*tmp;
+
+	tmp = ft_strremoven(src, begin, n);
+	if (!tmp)
+		return (NULL);
+	new = ft_strinsertn(tmp, begin, what);
+	if (!new)
+		return (free(tmp), NULL);
+	free(tmp);
+	return (new);
+}
+
+rotate.c/       0           0     0     644     2000      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/11 20:15:10 by vtestut            #+#    #+#             */
+/*   Updated: 2023/05/17 23:03:56 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+#include "ft_math.h"
+
+static void	r_clock(void *arr, int direction, size_t nelem, size_t size)
+{
+	char	*tmp;
+	void	*juncture;
+
+	tmp = malloc(size * direction);
+	if (!tmp)
+		return ;
+	juncture = arr + (nelem - direction) * size;
+	ft_memcpy(tmp, juncture, direction * size);
+	ft_memmove(arr + direction * size, arr, (nelem - direction) * size);
+	ft_memcpy(arr, tmp, direction * size);
+	free(tmp);
+}
+
+static void	r_rclock(void *arr, int direction, size_t nelem, size_t size)
+{
+	char	*tmp;
+
+	tmp = malloc(size * direction);
+	if (!tmp)
+		return ;
+	ft_memcpy(tmp, arr, direction * size);
+	ft_memmove(arr, arr + direction * size, (nelem - direction) * size);
+	ft_memcpy(arr + (nelem - direction) * size, tmp, direction * size);
+	free(tmp);
+}
+
+void	rotate(void *arr, int direction, size_t n, size_t size)
+{
+	int	dir;
+
+	dir = direction % (int)n;
+	if (ft_absi(dir) > n / 2)
+	{
+		if (direction < 0)
+			r_clock(arr, (int)n + dir, n, size);
+		else
+			r_rclock(arr, (int)n - dir, n, size);
+	}
+	else if (dir < 0)
+		r_rclock(arr, (int)ft_absi(dir), n, size);
+	else
+		r_clock(arr, dir, n, size);
+}
+ft_strinsertn.c/0           0     0     644     1354      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strinsertn.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/28 14:44:55 by vtestut          #+#    #+#             */
+/*   Updated: 2023/11/28 14:45:29 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strinsertn(const char *src, size_t begin, const char *what)
+{
+	char	*new;
+	size_t	srclen;
+	size_t	whatlen;
+
+	srclen = ft_strlen(src);
+	whatlen = ft_strlen(what);
+	new = malloc(srclen + whatlen + 1);
+	if (!new)
+		return (NULL);
+	ft_memcpy(new, src, begin);
+	ft_memcpy(new + begin, what, whatlen);
+	if (srclen > begin)
+		ft_memcpy(new + begin + whatlen, src + begin, srclen - begin);
+	new[srclen + whatlen] = '\0';
+	return (new);
+}
+ft_strchr1.c/   0           0     0     644     1073      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr1.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/10 01:51:36 by vtestut          #+#    #+#             */
+/*   Updated: 2023/07/10 01:51:39 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strchr1(const char *str, const char *charset)
+{
+	while (*str)
+	{
+		if (ft_strchr(charset, *str))
+			return ((char *)str);
+		++str;
+	}
+	return (NULL);
+}
+
+ft_memdup.c/    0           0     0     644     1052      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/27 14:28:08 by vtestut          #+#    #+#             */
+/*   Updated: 2023/07/27 14:28:09 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+void	*ft_memdup(void *src, size_t n)
+{
+	void	*dst;
+
+	dst = malloc(n);
+	if (!dst)
+		return (NULL);
+	ft_memcpy(dst, src, n);
+	return (dst);
+}
+ft_strdup.c/    0           0     0     644     1323      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 23:31:43 by vtestut            #+#    #+#             */
+/*   Updated: 2023/05/08 16:36:54 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	*ft_strdup(const char *str)
+{
+	char	*new;
+	size_t	i;
+
+	i = ft_strlen(str);
+	new = malloc(i + 1);
+	if (!new)
+		return (NULL);
+	ft_memcpy(new, str, i);
+	new[i] = 0;
+	return (new);
+}
+
+char	*ft_strndup(const char *str, size_t n)
+{
+	char	*new;
+	size_t	i;
+
+	i = ft_strlen(str);
+	if (n < i)
+		i = n;
+	new = malloc(i + 1);
+	if (!new)
+		return (NULL);
+	ft_memcpy(new, str, i);
+	new[i] = 0;
+	return (new);
+}
+
+ft_strlcpy.c/   0           0     0     644     1193      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 20:54:02 by vtestut           #+#    #+#             */
+/*   Updated: 2023/11/01 20:54:06 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	srclen;
+
+	srclen = ft_strlen(src);
+	if (dstsize == 0)
+		return (srclen);
+	i = 0;
+	while (i < (dstsize - 1) && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (srclen);
+}
+
+ft_putstrfd.c/  0           0     0     644     1022      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstrfd.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/11 00:15:52 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/15 17:31:48 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+void	ft_putstrfd(const char *str, int fd)
+{
+	if (!write(fd, NULL, 0))
+		write(fd, str, ft_strlen(str));
+}
+ft_split.c/     0           0     0     644     1053      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 23:26:55 by vtestut            #+#    #+#             */
+/*   Updated: 2023/02/05 23:30:02 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+char	**ft_split(const char *str, int c)
+{
+	char	charset[2];
+
+	charset[0] = c;
+	charset[1] = 0;
+	return (ft_splitcs(str, charset));
+}
+
+ft_splitcs.c/   0           0     0     644     2700      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_splitcs.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 16:27:39 by vtestut            #+#    #+#             */
+/*   Updated: 2023/02/06 18:17 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+typedef struct s_words {
+	const char		*start;
+	size_t			len;
+}	t_word;
+
+static char	**g_retv;
+
+static void	free_all(char **r, t_list lst)
+{
+	char	**atmp;
+	t_list	tmp;
+
+	while (lst.list)
+	{
+		tmp.list = lst.list->next;
+		if (lst.list->content)
+			free(lst.list->content);
+		free(lst.list);
+		lst = tmp;
+	}
+	if (!r)
+		return ;
+	atmp = r;
+	while (*r)
+		free(*(r++));
+	free(atmp);
+}
+
+static t_word	*allocate_word(const char **str, const char *charset)
+{
+	t_word	*word;
+	size_t	i;
+
+	word = malloc(sizeof(t_word));
+	if (!word)
+		return (NULL);
+	word->start = *str;
+	i = 0;
+	while (!ft_strchr(charset, *(*str)++))
+		++i;
+	word->len = i;
+	return (word);
+}
+
+static t_list	create_words(const char *str, const char *charset)
+{
+	t_word		*new;
+	t_list		lst;
+	const char	*end;
+
+	end = str + ft_strlen(str);
+	lst = (t_list){.list = NULL};
+	while (str < end)
+	{
+		if (!ft_strchr(charset, *str))
+		{
+			new = allocate_word(&str, charset);
+			if (!new)
+				return (free_all(NULL, lst), (t_list){.list = NULL});
+			ft_lstaddback(&lst, ft_lstnew((void *)new));
+		}
+		else
+			++str;
+	}
+	ft_lstaddback(&lst, ft_lstnew(NULL));
+	return (lst);
+}
+
+static int	func_iter(size_t i, void *content)
+{
+	t_word	word;
+
+	if (!content)
+		return (g_retv[i] = NULL, 1);
+	word = *(t_word *)content;
+	g_retv[i] = ft_strndup(word.start, word.len);
+	if (!g_retv[i])
+		return (0);
+	return (1);
+}
+
+char	**ft_splitcs(const char *str, const char *charset)
+{
+	t_list	words;
+	char	**retv;
+
+	if (!str)
+		return (NULL);
+	words = create_words(str, charset);
+	if (!words.list)
+		return (NULL);
+	retv = malloc(sizeof(char *) * (ft_lstsize(words)));
+	if (!retv)
+		return (free_all(NULL, words), NULL);
+	g_retv = retv;
+	if (!ft_lstiteri(words, func_iter))
+		return (free_all(retv, words), NULL);
+	free_all(NULL, words);
+	return (retv);
+}
+ft_toupper.c/   0           0     0     644     1012      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/01 18:17:28 by vtestut            #+#    #+#             */
+/*   Updated: 2023/03/15 21:36:18 by vtestut           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_string.h"
+
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
+}
+ft_printf.c/    0           0     0     644     2058      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/20 14:03:45 by vtestut          #+#    #+#             */
+/*   Updated: 2023/01/18 15:56:10 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+static size_t	conversion(const char *c, size_t *i, va_list *ap)
+{
+	*i = *i + 1;
+	if (*(c + 1) == 'c')
+		return (ft_putchar((char) va_arg(*ap, int)));
+	else if (*(c + 1) == 's')
+		return (ft_putstr(va_arg(*ap, const char *)));
+	else if (*(c + 1) == 'p')
+		return (ft_putadress(va_arg(*ap, void *)));
+	else if (*(c + 1) == 'd' || *(c + 1) == 'i')
+		return (ft_putnbr(va_arg(*ap, int)));
+	else if (*(c + 1) == 'u')
+		return (ft_putunbr(va_arg(*ap, unsigned int)));
+	else if (*(c + 1) == 'x')
+		return (ft_puthexa_lower(va_arg(*ap, int)));
+	else if (*(c + 1) == 'X')
+		return (ft_puthexa_upper(va_arg(*ap, int)));
+	else if (*(c + 1) == '%')
+		return (ft_putchar('%'));
+	else if (*(c + 1) && *(c + 2))
+		return (ft_putchar(*(c)) + ft_putchar(*(c + 1)));
+	else
+	{
+		*i -= 1;
+		return (-1);
+	}
+}
+
+int	ft_printf(const char *str, ...)
+{
+	int		len;
+	int		tmp;
+	va_list	ap;
+	size_t	i;
+
+	if (!str)
+		return (-1);
+	len = 0;
+	va_start(ap, str);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '%')
+			tmp = conversion(str + i, &i, &ap);
+		else
+			tmp = ft_putchar(str[i]);
+		if (tmp >= 0)
+			len += tmp;
+		else
+			len = tmp;
+		i++;
+	}
+	va_end(ap);
+	return (len);
+}
+ft_putadress.c/ 0           0     0     644     1283      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putadress.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/20 16:41:38 by vtestut          #+#    #+#             */
+/*   Updated: 2022/11/08 10:22:22 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+static size_t	printadress(const unsigned long n)
+{
+	if (n / 16)
+		return (printadress(n / 16) + printadress(n % 16));
+	else if (!(n / 10))
+		ft_putchar(n + '0');
+	else
+		ft_putchar((char) n - 10 + 'a');
+	return (1);
+}
+
+size_t	ft_putadress(void *adress)
+{
+	if (!adress)
+		return (ft_putstr("(nil)"));
+	ft_putstr("0x");
+	return (2 + printadress((unsigned long) adress));
+}
+
+ft_putchar.c/   0           0     0     644     975       `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/20 14:10:56 by vtestut          #+#    #+#             */
+/*   Updated: 2022/10/05 05:35:24 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+size_t	ft_putchar(const char c)
+{
+	return (write(1, &c, 1));
+}
+
+/54             0           0     0     644     1137      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_puthexa_lower.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/20 17:21:01 by vtestut          #+#    #+#             */
+/*   Updated: 2022/10/05 05:35:24 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+size_t	ft_puthexa_lower(const unsigned int n)
+{
+	if (n / 16)
+		return (ft_puthexa_lower(n / 16) + ft_puthexa_lower(n % 16));
+	else if (!(n / 10))
+		ft_putchar(n + '0');
+	else
+		ft_putchar((char) n - 10 + 'a');
+	return (1);
+}
+
+/74             0           0     0     644     1137      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_puthexa_upper.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/20 17:21:01 by vtestut          #+#    #+#             */
+/*   Updated: 2022/10/05 05:35:24 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+size_t	ft_puthexa_upper(const unsigned int n)
+{
+	if (n / 16)
+		return (ft_puthexa_upper(n / 16) + ft_puthexa_upper(n % 16));
+	else if (!(n / 10))
+		ft_putchar(n + '0');
+	else
+		ft_putchar((char) n - 10 + 'A');
+	return (1);
+}
+
+ft_putnbr.c/    0           0     0     644     1211      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/12 18:10:03 by vtestut          #+#    #+#             */
+/*   Updated: 2022/10/05 05:35:24 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+static size_t	print_nb(long nb)
+{
+	if (nb / 10)
+		return (print_nb(nb / 10) + print_nb(nb % 10));
+	else
+		return (ft_putchar(nb + '0'));
+}
+
+size_t	ft_putnbr(const int n)
+{
+	long	nb;
+
+	nb = n;
+	if (nb < 0)
+	{
+		nb = -nb;
+		return (ft_putchar('-') + print_nb(nb));
+	}
+	else
+		return (print_nb(nb));
+}
+
+ft_putstr.c/    0           0     0     644     1043      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/20 14:11:29 by vtestut          #+#    #+#             */
+/*   Updated: 2022/10/05 05:35:24 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+size_t	ft_putstr(const char *str)
+{
+	if (!str)
+		return (write(1, "(null)", 6));
+	else
+		return (write(1, str, ft_strlen(str)));
+}
+
+ft_putunbr.c/   0           0     0     644     1059      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/12 18:10:03 by vtestut          #+#    #+#             */
+/*   Updated: 2022/10/05 05:35:24 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+size_t	ft_putunbr(const unsigned int n)
+{
+	if (n / 10)
+		return (ft_putunbr(n / 10) + ft_putunbr(n % 10));
+	else
+		return (ft_putchar(n + '0'));
+}
+
+get_next_line.c/0           0     0     644     3213      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/09 10:30:09 by vtestut          #+#    #+#             */
+/*   Updated: 2022/11/15 14:14:46 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
+
+static t_fdList	*find_fdbegin(int fd, t_fdList **fd_list)
+{
+	t_fdList			*current;
+
+	if (!(*fd_list))
+		*fd_list = ftlst_new_fd(fd);
+	if (!(*fd_list))
+		return (NULL);
+	current = *fd_list;
+	while (current->next_fd && current->fd != fd)
+		current = current->next_fd;
+	if (current->fd != fd)
+	{
+		current->next_fd = ftlst_new_fd(fd);
+		current = current->next_fd;
+	}
+	return (current);
+}
+
+static int	read_file(int fd, t_bufferList *begin, t_bufferList *current)
+{
+	int	readed;
+
+	readed = 0;
+	if (begin && end_of_line(begin->content))
+		return (1);
+	else if (begin && (begin->content[0]))
+	{
+		begin->next = ftlst_new_buffer();
+		current = begin->next;
+	}
+	while (1)
+	{
+		readed = read(fd, current->content, BUFFER_SIZE);
+		if (readed <= 0)
+			break ;
+		(current->content)[readed] = '\0';
+		if (end_of_line(current->content))
+			break ;
+		current->next = ftlst_new_buffer();
+		current = current->next;
+	}
+	if (!(begin->content[0]))
+		return (0);
+	return (1);
+}
+
+static char	*join_buffers(t_bufferList *current)
+{
+	char			*line;
+	size_t			i;
+	size_t			j;
+
+	line = malloc(count_memory(current));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (current && current->content)
+	{
+		j = 0;
+		while ((current->content)[j] && (i == 0 || line[i - 1] != '\n'))
+			line[i++] = (current->content)[j++];
+		current = current->next;
+	}
+	line[i] = '\0';
+	return (line);
+}
+
+static void	clean_buffers(t_bufferList *current, t_fdList *current_fd)
+{
+	size_t			i;
+	size_t			j;
+	t_bufferList	*next;
+
+	while (current->next)
+	{
+		next = current->next;
+		free(current->content);
+		free(current);
+		current = next;
+		current_fd->begin = next;
+	}
+	i = 0;
+	while ((current->content)[i])
+	{
+		i++;
+		if ((current->content)[i - 1] == '\n')
+			break ;
+	}
+	j = 0;
+	while ((current->content)[i])
+		(current->content)[j++] = (current->content)[i++];
+	while (j <= BUFFER_SIZE)
+		(current->content)[j++] = '\0';
+}
+
+char	*get_next_line(int fd)
+{
+	static t_fdList		*fd_list;
+	t_fdList			*c_fd;
+	t_bufferList		*begin;
+	char				*line;
+
+	if (fd < 0 || BUFFER_SIZE < 1)
+		return (NULL);
+	c_fd = find_fdbegin(fd, &fd_list);
+	if (!c_fd)
+		return (NULL);
+	begin = c_fd->begin;
+	if (read_file(fd, begin, begin))
+		line = join_buffers(begin);
+	else
+		line = NULL;
+	clean_buffers(begin, c_fd);
+	fd_list = clean_fd_list(fd_list, c_fd);
+	return (line);
+}
+
+/94             0           0     0     644     2366      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/09 10:30:06 by vtestut          #+#    #+#             */
+/*   Updated: 2022/11/15 15:24:58 by vtestut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
+
+t_bufferList	*ftlst_new_buffer(void)
+{
+	t_bufferList	*new;
+
+	new = malloc(sizeof(t_bufferList));
+	if (!new)
+		return (NULL);
+	new->content = malloc(BUFFER_SIZE + 1);
+	if (!(new->content))
+		return (free(new), NULL);
+	(new->content)[0] = '\0';
+	new->next = 0;
+	return (new);
+}
+
+t_fdList	*ftlst_new_fd(int fd)
+{
+	t_fdList	*new;
+
+	new = malloc(sizeof(t_fdList));
+	if (!new)
+		return (NULL);
+	new->fd = fd;
+	new->begin = ftlst_new_buffer();
+	if (!(new->begin))
+		return (free(new), NULL);
+	new->next_fd = 0;
+	return (new);
+}
+
+int	end_of_line(char *content)
+{
+	size_t	i;
+
+	i = 0;
+	while (content[i])
+	{
+		if (content[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+size_t	count_memory(t_bufferList *current)
+{
+	size_t	memory;
+	size_t	i;
+
+	memory = 1;
+	while (current)
+	{
+		i = 0;
+		while ((current->content)[i])
+		{
+			memory++;
+			i++;
+			if ((current->content)[i - 1] == '\n')
+				break ;
+		}
+		if (i > 0 && (current->content)[i - 1] == '\n')
+		{
+			i++;
+			break ;
+		}
+		current = current->next;
+	}
+	return (memory);
+}
+
+t_fdList	*clean_fd_list(t_fdList *fd_list, t_fdList *c_fd)
+{
+	t_fdList	*tmp;
+
+	if (!((c_fd->begin->content)[0]))
+	{
+		free(c_fd->begin->content);
+		free(c_fd->begin);
+		if (fd_list == c_fd)
+			fd_list = fd_list->next_fd;
+		else
+		{
+			tmp = fd_list;
+			while (tmp->next_fd && tmp->next_fd != c_fd)
+				tmp = tmp->next_fd;
+			if (tmp->next_fd)
+				tmp->next_fd = tmp->next_fd->next_fd;
+		}
+		free(c_fd);
+	}
+	return (fd_list);
+}
