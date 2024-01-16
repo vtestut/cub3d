@@ -6,11 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:40:02 by virgile           #+#    #+#             */
-/*   Updated: 2022/11/24 12:03:38 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:44:44 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

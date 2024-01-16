@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/26 14:45:20 by vtestut          #+#    #+#             */
-/*   Updated: 2023/07/26 14:45:20 by vtestut         ###   ########.fr       */
+/*   Created: 2023/07/26 14:45:20 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 19:00:01 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
-#include <pthread.h>
+#include "ft_convert.h"
 
 char	*ft_itoa(int64_t val)
 {

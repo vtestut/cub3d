@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isalphastr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 15:03:23 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/16 18:09:57 by vtestut          ###   ########.fr       */
+/*   Created: 2024/01/16 17:53:46 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 17:54:22 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,14 @@ static const int	g_lookup_table[256] = {
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 };
 
-int	ft_isalpha(int c)
+int	ft_isalphastr(const char *str)
 {
-	return (g_lookup_table[(u_int8_t)c]);
+	size_t	i;
+	int		r;
+
+	i = ft_strlen(str);
+	r = 1;
+	while (i--)
+		r &= g_lookup_table[(u_int8_t)str[i]];
+	return (r);
 }

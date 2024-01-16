@@ -6,20 +6,12 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 20:30:17 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/15 17:59:47 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:32:42 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MATH_H
 # define FT_MATH_H
-
-/**
- * Raise base to the power power
- * @param base		the base to be raised
- * @param power 	the power to which raise it
- * @return
- */
-int				ft_powi(int base, int power);
 
 /**
  * Return the absolute value of val
@@ -55,6 +47,14 @@ int				ft_getdigits(int val);
 
 /**
  * Get the maximum value
+ * @param a
+ * @param b
+ * @return
+ */
+int				ft_max(int a, int b);
+
+/**
+ * Get the maximum value
  *
  * @param a
  * @param b
@@ -63,11 +63,11 @@ int				ft_getdigits(int val);
 int				ft_min(int a, int b);
 
 /**
- * Get the maximum value
- * @param a
- * @param b
+ * Raise base to the power power
+ * @param base		the base to be raised
+ * @param power 	the power to which raise it
  * @return
  */
-int				ft_max(int a, int b);
+int				ft_powi(int base, int power);
 
 #endif

@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_countcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 18:17:28 by vtestut            #+#    #+#             */
-/*   Updated: 2023/03/15 21:36:18 by vtestut           ###   ########.fr       */
+/*   Created: 2023/02/05 18:27:58 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 19:03:57 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-int	ft_toupper(int c)
+size_t	ft_countcs(const char *str, const char *charset)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+	size_t	i;
+	size_t	count;
+
+	i = ft_strlen(charset);
+	count = 0;
+	while (i--)
+		count += ft_countc(str, charset[i]);
+	return (count);
 }

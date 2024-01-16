@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 20:15:10 by vtestut            #+#    #+#             */
-/*   Updated: 2023/05/17 23:03:56 by vtestut           ###   ########.fr       */
+/*   Created: 2023/05/11 20:15:10 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 19:38:16 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
-#include "ft_math.h"
 
 static void	r_clock(void *arr, int direction, size_t nelem, size_t size)
 {

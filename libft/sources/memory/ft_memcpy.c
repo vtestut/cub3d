@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 15:21:53 by vtestut            #+#    #+#             */
-/*   Updated: 2023/05/08 16:36:11 by vtestut           ###   ########.fr       */
+/*   Created: 2023/01/22 15:21:53 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 18:45:05 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_memory.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

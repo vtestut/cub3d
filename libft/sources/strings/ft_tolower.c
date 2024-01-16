@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 23:31:43 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/16 19:26:47 by vtestut          ###   ########.fr       */
+/*   Created: 2022/09/26 13:01:53 by virgile           #+#    #+#             */
+/*   Updated: 2024/01/16 19:39:57 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-char	*ft_strdup(const char *str)
+int	ft_tolower(int c)
 {
-	char	*new;
-	size_t	i;
-
-	i = ft_strlen(str);
-	new = malloc(i + 1);
-	if (!new)
-		return (NULL);
-	ft_memcpy(new, str, i);
-	new[i] = 0;
-	return (new);
+	if (c >= 'A' && c <= 'Z')
+		c += ' ';
+	return (c);
 }

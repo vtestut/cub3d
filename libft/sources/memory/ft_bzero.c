@@ -6,11 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:53:08 by vtestut           #+#    #+#             */
-/*   Updated: 2023/11/01 20:53:14 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:44:26 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_memory.h"
 
 void	ft_bzero(void *s, size_t n)
 {

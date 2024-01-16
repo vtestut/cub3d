@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 23:31:43 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/16 19:26:47 by vtestut          ###   ########.fr       */
+/*   Created: 2023/05/07 20:57:30 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 18:59:55 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_convert.h"
 
-char	*ft_strdup(const char *str)
+int	ft_atoi(char *str)
 {
-	char	*new;
-	size_t	i;
+	long	val;
+	char	*_restrict;
 
-	i = ft_strlen(str);
-	new = malloc(i + 1);
-	if (!new)
-		return (NULL);
-	ft_memcpy(new, str, i);
-	new[i] = 0;
-	return (new);
+	val = ft_strtol(str, &_restrict, 10);
+	if (_restrict != str + ft_strlen(str))
+		return (0);
+	return ((int)val);
 }

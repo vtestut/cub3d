@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 15:21:47 by vtestut            #+#    #+#             */
-/*   Updated: 2023/05/08 16:36:37 by vtestut           ###   ########.fr       */
+/*   Created: 2023/01/22 15:21:47 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 18:45:41 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_memory.h"
 
 void	*ft_memset(void *dest, int c, size_t n)
 {

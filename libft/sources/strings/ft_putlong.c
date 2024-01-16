@@ -6,11 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 17:33:26 by vtestut           #+#    #+#             */
-/*   Updated: 2022/12/07 17:51:50 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:29:24 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 void	ft_putlong(unsigned int nb)
 {

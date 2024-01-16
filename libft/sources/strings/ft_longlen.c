@@ -6,11 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 17:44:45 by vtestut           #+#    #+#             */
-/*   Updated: 2022/12/07 17:51:37 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:29:08 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 int	ft_longlen(unsigned int n)
 {

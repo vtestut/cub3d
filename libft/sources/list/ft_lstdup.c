@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include "ft_string.h"
 
 t_list	ft_lstdup(t_list lst, void *(*dup)(void *), void (*del)(void *))
 {

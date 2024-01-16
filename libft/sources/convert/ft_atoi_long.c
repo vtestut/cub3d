@@ -6,11 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:12:46 by vtestut           #+#    #+#             */
-/*   Updated: 2023/11/28 14:43:47 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:59:46 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdlib.h"
+#include "ft_convert.h"
 
 static bool	check_out_of_range(int neg, unsigned long long num, bool *error)
 {

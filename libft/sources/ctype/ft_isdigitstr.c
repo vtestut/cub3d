@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_isdigistr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 14:50:23 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/16 18:09:48 by vtestut          ###   ########.fr       */
+/*   Created: 2024/01/16 18:07:07 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 18:07:40 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,14 @@ static const int	g_lookup_table[256] = {
 	0, 0, 0, 0, 0, 0
 };
 
-int	ft_isdigit(int c)
+int	ft_isdigitstr(const char *str)
 {
-	return (g_lookup_table[(u_int8_t)c]);
+	size_t	i;
+	int		r;
+
+	i = ft_strlen(str);
+	r = 1;
+	while (i--)
+		r &= g_lookup_table[(u_int8_t)str[i]];
+	return (r);
 }

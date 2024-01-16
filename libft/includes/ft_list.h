@@ -18,34 +18,8 @@
 # else
 #  include "ft_list_type.h"
 # endif
-# include <sys/types.h>
-# include <stdlib.h>
-# include "ft_string.h"
 
-/**
- * Create a new list
- * 
- * @param content		the new list content
- * 
- * @return the new list or NULL on failure
-*/
-t_list	ft_lstnew(void *content);
-
-/**
- * Free the element pointed to by lst and all subsequent elements 
- * and free it's content using f
- * 
- * @param lst	the element from which to delete
- * @param f		the function to free the contents
- * 
- * @warning		f must not be NULL
-*/
-void	ft_lstclear(t_list lst, void (*f)(void *));
-
-/**
- * Insert a new element at the beggining of the list
-*/
-void	ft_lstaddfront(t_list *lst, t_list new);
+# include "libft.h"
 
 /**
  * Push a new element at the end of the list
@@ -53,33 +27,19 @@ void	ft_lstaddfront(t_list *lst, t_list new);
 void	ft_lstaddback(t_list *lst, t_list new);
 
 /**
- * Get the number of elements in the list
- * 
- * @param lst		the list
- * 
- * @return the number of elements in the list or 0 is the list is empty or NULL
+ * Insert a new element at the beggining of the list
 */
-int		ft_lstsize(t_list lst);
+void	ft_lstaddfront(t_list *lst, t_list new);
 
 /**
- * Return the last element of the list
+ * Append new to lst
  * 
- * @param lst		the list
+ * @param lst	the element to which append
+ * @param new	the element to append
  * 
- * @return the last element of the list or NULL if the list is empty
+ * @warning new must not be NULL
 */
-t_list	ft_lstlast(t_list lst);
-
-/**
- * Iterate over the list and apply f over each element of the list 
- * with i being the push_swap_index of each element
- * 
- * @param lst		the list
- * @param f			the function to operate over each element
- * 
- * @return 1 if f successed over each element, 0 else
-*/
-int		ft_lstiteri(t_list lst, int (*f)(size_t i, void *content));
+void	ft_lstappend(t_list lst, t_list new);
 
 /**
  * Return the nth element of lst, push_swap_index can be negative in which case
@@ -93,14 +53,25 @@ int		ft_lstiteri(t_list lst, int (*f)(size_t i, void *content));
 t_list	ft_lstat(t_list lst, int index);
 
 /**
- * Append new to lst
+ * Free the element pointed to by lst and all subsequent elements 
+ * and free it's content using f
  * 
- * @param lst	the element to which append
- * @param new	the element to append
+ * @param lst	the element from which to delete
+ * @param f		the function to free the contents
  * 
- * @warning new must not be NULL
+ * @warning		f must not be NULL
 */
-void	ft_lstappend(t_list lst, t_list new);
+void	ft_lstclear(t_list lst, void (*f)(void *));
+
+/**
+ * Duplicate the list
+ * 
+ * @param lst		the list to duplicate
+ * @param elem_size	the size of each element
+ * 
+ * @return the duplicated list or NULL on failure
+*/
+t_list	ft_lstdup(t_list lst, void *(*dup)(void *), void (*del)(void *));
 
 /**
  * Return the push_swap_index of the current node
@@ -116,13 +87,41 @@ void	ft_lstappend(t_list lst, t_list new);
 int		ft_lstindex(t_list begin, t_list nd);
 
 /**
- * Duplicate the list
+ * Iterate over the list and apply f over each element of the list 
+ * with i being the push_swap_index of each element
  * 
- * @param lst		the list to duplicate
- * @param elem_size	the size of each element
+ * @param lst		the list
+ * @param f			the function to operate over each element
  * 
- * @return the duplicated list or NULL on failure
+ * @return 1 if f successed over each element, 0 else
 */
-t_list	ft_lstdup(t_list lst, void *(*dup)(void *), void (*del)(void *));
+int		ft_lstiteri(t_list lst, int (*f)(size_t i, void *content));
+
+/**
+ * Return the last element of the list
+ * 
+ * @param lst		the list
+ * 
+ * @return the last element of the list or NULL if the list is empty
+*/
+t_list	ft_lstlast(t_list lst);
+
+/**
+ * Create a new list
+ * 
+ * @param content		the new list content
+ * 
+ * @return the new list or NULL on failure
+*/
+t_list	ft_lstnew(void *content);
+
+/**
+ * Get the number of elements in the list
+ * 
+ * @param lst		the list
+ * 
+ * @return the number of elements in the list or 0 is the list is empty or NULL
+*/
+int		ft_lstsize(t_list lst);
 
 #endif

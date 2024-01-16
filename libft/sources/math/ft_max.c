@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 13:01:53 by virgile           #+#    #+#             */
-/*   Updated: 2022/11/08 22:02:38 by vtestut          ###   ########.fr       */
+/*   Created: 2024/01/16 18:32:10 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 18:34:00 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_math.h"
 
-int	ft_tolower(int c)
+int	ft_min(int a, int b)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += ' ';
-	return (c);
+	if (a > b)
+		return (a);
+	else
+		return (b);
 }

@@ -6,12 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:53:45 by vtestut           #+#    #+#             */
-/*   Updated: 2023/11/01 20:53:52 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:57:18 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
-#include "ft_stdlib.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -1,33 +1,55 @@
-##########	PROGRAM		##########
+##########	PROGRAM		#######################################################
 
-NAME = cub3d
+NAME		=	cub3d
 
-##########	SOURCES		##########
+##########	SOURCES		#######################################################
 
-SRC =	main.c
+PATH_SRCS	=	sources/
+PATH_SRCS	+=	sources/parsing/
+PATH_SRCS	+=	sources/raycasting/
+PATH_SRCS	+=	sources/utils/
 
-##########	PARAMS		##########
+SRCS		=	main.c
+SRCS		+=	
 
-CC = clang
-CFLAGS = -Wall 
-CFLAGS += -Wextra
-CFLAGS += -Werror 
-CFLAGS += -g #-fsanitize=address
+vpath %.c $(PATH_SRCS)
+
+##########	OBJECTS		#######################################################
+
+PATH_OBJS	=	objects
+OBJS		=	$(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
 
 OBJ_DIR = obj
-SRC_DIR = src
-INC_DIR = -I inc -I libft
-
-MLX_DIR = minilibx-linux
-MLX = libmlx.a 
-
-LIBFTPATH = -L libft -lft
-LIBS = ${INCLUDE} ${LIBFTPATH}
-
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 DPD = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.d))
 
-##########	RULES		##########
+##########	INCLUDES	#######################################################
+
+INC_DIR		=	-I inc -I libft
+INCLUDES	=	includes
+HEADER		=	${INCLUDES}/cub3d.h
+
+##########	MLX			#######################################################
+
+MLX_DIR		=	minilibx-linux
+MLX			=	libmlx.a
+
+##########	LIBFT		#######################################################
+
+LIBFTPATH	=	-L libft -lft
+LIBS		=	${INCLUDE} ${LIBFTPATH}
+
+##########	COMPILATION	#######################################################
+
+CFLAGS		=	-Wall
+CFLAGS		+=	-Wextra 
+CFLAGS		+=	-Werror 
+CFLAGS		+=	-g #-fsanitize=address
+
+CC			=	clang
+AR			=	ar rcs
+
+##########	RULES		#######################################################
 
 .c.o:
 	${CC} ${CFLAGS} -c$< -o ${<:.c=.o}

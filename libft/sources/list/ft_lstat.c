@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include "ft_math.h"
 
 t_list	ft_lstat(t_list lst, int index)
 {

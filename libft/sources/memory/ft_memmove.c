@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 18:07:57 by vtestut            #+#    #+#             */
-/*   Updated: 2023/07/09 04:39:54 by vtestut         ###   ########.fr       */
+/*   Created: 2023/02/01 18:07:57 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 18:45:31 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_memory.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

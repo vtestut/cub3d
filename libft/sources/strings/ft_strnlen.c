@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalphanum.c                                    :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 20:52:36 by vtestut           #+#    #+#             */
-/*   Updated: 2023/11/01 20:52:48 by vtestut          ###   ########.fr       */
+/*   Created: 2023/01/22 15:21:43 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 19:24:44 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ctype.h"
+#include "ft_string.h"
 
-int	ft_isalphanum(int c)
+size_t	ft_strnlen(const char *str, size_t n)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (c);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (n-- && *str++)
+		++i;
+	return (i);
 }

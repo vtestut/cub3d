@@ -6,12 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:54:15 by vtestut           #+#    #+#             */
-/*   Updated: 2023/11/01 20:54:19 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:48:05 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdlib.h"
-#include "ft_string.h"
+#include "ft_memory.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

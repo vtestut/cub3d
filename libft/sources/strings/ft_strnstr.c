@@ -6,11 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:18:45 by virgile           #+#    #+#             */
-/*   Updated: 2022/11/17 18:05:34 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:31:00 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

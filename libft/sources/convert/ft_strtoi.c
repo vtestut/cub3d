@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtol.c                                        :+:      :+:    :+:   */
+/*   ft_strtoi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 20:22:26 by vtestut            #+#    #+#             */
-/*   Updated: 2023/07/26 14:44:36 by vtestut         ###   ########.fr       */
+/*   Created: 2023/05/07 20:22:26 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/16 19:00:09 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdlib.h"
-#include "ft_string.h"
-#include "ft_math.h"
-#include <limits.h>
+#include "ft_convert.h"
 
 static const char		*g_base_8 = "01234567";
 static const char		*g_base_10 = "0123456789";

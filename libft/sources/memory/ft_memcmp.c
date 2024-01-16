@@ -6,11 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:46:37 by virgile           #+#    #+#             */
-/*   Updated: 2022/11/16 17:05:50 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:44:49 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
