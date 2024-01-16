@@ -3,3 +3,5 @@ obj
 objects
 libft.a
 wolfy
+.vscode
+.gitignore
