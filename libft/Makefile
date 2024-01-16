@@ -4,94 +4,136 @@ NAME = libft.a
 
 ##########	SOURCES		#######################################################
 
-SRCS_LIBFT	:=	./sources/ft_ctype/ft_isalpha.c\
-				./sources/ft_ctype/ft_isdigit.c\
-				./sources/ft_ctype/ft_isalphanum.c\
-				./sources/ft_ctype/ft_isspace.c\
-				./sources/ft_list/ft_lstat.c\
-				./sources/ft_list/ft_lstdup.c\
-				./sources/ft_list/ft_lstaddback.c\
-				./sources/ft_list/ft_lstaddfront.c\
-				./sources/ft_list/ft_lstclear.c\
-				./sources/ft_list/ft_lstnew.c\
-				./sources/ft_list/ft_lstsize.c\
-				./sources/ft_list/ft_lstindex.c\
-				./sources/ft_list/ft_lstiteri.c\
-				./sources/ft_list/ft_lstappend.c\
-				./sources/ft_list/ft_lstlast.c\
-				./sources/ft_math/ft_min.c\
-				./sources/ft_math/ft_digitat.c\
-				./sources/ft_math/ft_getdigits.c\
-				./sources/ft_math/ft_absi.c\
-				./sources/ft_math/ft_powi.c\
-				./sources/ft_stdlib/ft_calloc.c\
-				./sources/ft_stdlib/ft_realloc.c\
-				./sources/ft_stdlib/ft_atoi_long.c\
-				./sources/ft_stdlib/ft_strtoi.c\
-				./sources/ft_stdlib/ft_atoi.c\
-				./sources/ft_stdlib/ft_strtol.c\
-				./sources/ft_string/ft_strcat.c\
-				./sources/ft_string/ft_strtrim_one.c\
-				./sources/ft_string/ft_strinsert.c\
-				./sources/ft_string/ft_strremoven.c\
-				./sources/ft_string/ft_memcpy.c\
-				./sources/ft_string/ft_strncpy.c\
-				./sources/ft_string/ft_memelemset.c\
-				./sources/ft_string/ft_strtrim.c\
-				./sources/ft_string/ft_memmove.c\
-				./sources/ft_string/ft_strcmp.c\
-				./sources/ft_string/ft_strremove.c\
-				./sources/ft_string/ft_countc.c\
-				./sources/ft_string/ft_strcpy.c\
-				./sources/ft_string/ft_strlen.c\
-				./sources/ft_string/ft_strreplace.c\
-				./sources/ft_string/ft_bzero.c\
-				./sources/ft_string/ft_memset.c\
-				./sources/ft_string/ft_substr.c\
-				./sources/ft_string/ft_strchr.c\
-				./sources/ft_string/ft_itoa.c\
-				./sources/ft_string/ft_strjoin.c\
-				./sources/ft_string/ft_strreplacen.c\
-				./sources/ft_string/rotate.c\
-				./sources/ft_string/ft_strinsertn.c\
-				./sources/ft_string/ft_strchr1.c\
-				./sources/ft_string/ft_memdup.c\
-				./sources/ft_string/ft_strdup.c\
-				./sources/ft_string/ft_strlcpy.c\
-				./sources/ft_string/ft_putstrfd.c\
-				./sources/ft_string/ft_split.c\
-				./sources/ft_string/ft_splitcs.c\
-				./sources/ft_string/ft_toupper.c
+PATH_SRCS = sources/
+PATH_SRCS += sources/ctype/
+PATH_SRCS += sources/list/
+PATH_SRCS += sources/math/
+PATH_SRCS += sources/memory/
+PATH_SRCS += sources/output/
+PATH_SRCS += sources/stdlib/
+PATH_SRCS += sources/strings/
+PATH_SRCS += sources/ft_printf/
+PATH_SRCS += sources/get_next_line/
 
-SRCS_PRINTF :=	./sources/ft_printf/ft_printf.c\
-				./sources/ft_printf/ft_putadress.c\
-				./sources/ft_printf/ft_putchar.c\
-				./sources/ft_printf/ft_puthexa_lower.c\
-				./sources/ft_printf/ft_puthexa_upper.c\
-				./sources/ft_printf/ft_putnbr.c\
-				./sources/ft_printf/ft_putstr.c\
-				./sources/ft_printf/ft_putunbr.c
+SRCS	=	ft_isalpha.c
+SRCS	+=	ft_isdigit.c
+SRCS	+=	ft_isalphanum.c
+SRCS	+=	ft_isspace.c
+SRCS	+=	ft_lstat.c
+SRCS	+=	ft_lstdup.c
+SRCS	+=	ft_lstaddback.c
+SRCS	+=	ft_lstaddfront.c
+SRCS	+=	ft_lstclear.c
+SRCS	+=	ft_lstnew.c
+SRCS	+=	ft_lstsize.c
+SRCS	+=	ft_lstindex.c
+SRCS	+=	ft_lstiteri.c
+SRCS	+=	ft_lstappend.c
+SRCS	+=	ft_lstlast.c
+SRCS	+=	ft_min.c
+SRCS	+=	ft_digitat.c
+SRCS	+=	ft_getdigits.c
+SRCS	+=	ft_absi.c
+SRCS	+=	ft_powi.c
+SRCS	+=	ft_calloc.c
+SRCS	+=	ft_realloc.c
+SRCS	+=	ft_atoi_long.c
+SRCS	+=	ft_strtoi.c
+SRCS	+=	ft_atoi.c
+SRCS	+=	ft_strtol.c
+SRCS	+=	ft_strcat.c
+SRCS	+=	ft_strtrim_one.c
+SRCS	+=	ft_strinsert.c
+SRCS	+=	ft_strremoven.c
+SRCS	+=	ft_memcpy.c
+SRCS	+=	ft_strncpy.c
+SRCS	+=	ft_memelemset.c
+SRCS	+=	ft_strtrim.c
+SRCS	+=	ft_memmove.c
+SRCS	+=	ft_strcmp.c
+SRCS	+=	ft_strremove.c
+SRCS	+=	ft_countc.c
+SRCS	+=	ft_strcpy.c
+SRCS	+=	ft_strlen.c
+SRCS	+=	ft_strreplace.c
+SRCS	+=	ft_bzero.c
+SRCS	+=	ft_memset.c
+SRCS	+=	ft_substr.c
+SRCS	+=	ft_strchr.c
+SRCS	+=	ft_itoa.c
+SRCS	+=	ft_strjoin.c
+SRCS	+=	ft_strreplacen.c
+SRCS	+=	ft_rotate.c
+SRCS	+=	ft_strinsertn.c
+SRCS	+=	ft_strchr1.c
+SRCS	+=	ft_memdup.c
+SRCS	+=	ft_strdup.c
+SRCS	+=	ft_strlcpy.c
+SRCS	+=	ft_putstrfd.c
+SRCS	+=	ft_split.c
+SRCS	+=	ft_splitcs.c
+SRCS	+=	ft_toupper.c
+SRCS	+=	ft_printf.c
+SRCS	+=	ft_putadress.c
+SRCS	+=	ft_putchar.c
+SRCS	+=	ft_puthexa_lower.c
+SRCS	+=	ft_puthexa_upper.c
+SRCS	+=	ft_putnbr.c
+SRCS	+=	ft_putstr.c
+SRCS	+=	ft_putunbr.c
+SRCS	+=	get_next_line.c
+SRCS	+=	get_next_line_utils.c
 
-SRCS_GNL	:=	./sources/ft_gnl/get_next_line.c\
-				./sources/ft_gnl/get_next_line_utils.c
+vpath %.c $(PATH_SRCS)
 
-SRCS_ALL 	:= ${SRCS_LIBFT} ${SRCS_PRINTF} ${SRCS_GNL}
+##########	OBJECTS		#######################################################
 
-##########	PARAMS		#######################################################
+PATH_OBJS = objects
+OBJS = $(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
 
-CC      	:= 	cc
-CFLAGS  	:= 	-Wall\
-				-Werror\
-				-Wextra\
-				-I\
-				./
+##########	INCLUDES	#######################################################
 
-OBJ_DIR		:=	objects
-SRC_DIR		:=	sources
-INC_DIR		:=	includes
+INCLUDES = includes
+HEADER = 	$(INCLUDES)/libft.h\
+			$(INCLUDES)/ft_ctype.h\
+			$(INCLUDES)/ft_list_type.h\
+			$(INCLUDES)/ft_list.h\
+			$(INCLUDES)/ft_math.h\
+			$(INCLUDES)/ft_printf.h\
+			$(INCLUDES)/ft_stdlib.h\
+			$(INCLUDES)/ft_string.h\
+			$(INCLUDES)/get_next_line.h
 
-OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS_ALL:.c=.o))
-DPD = $(addprefix $(OBJ_DIR)/,$(SRCS_ALL:.c=.d))
+##########	COMPILATION	#######################################################
+
+CFLAGS = -Wall -Wextra -Werror 
+CC = cc
+AR = ar rcs
 
 ##########	RULES		#######################################################
 
+all:  $(NAME)
+	@echo "\nLA LIBFT EST COMPILEE !\n"
+
+$(NAME): $(OBJS)
+	$(AR) $@ $^
+
+$(OBJS): $(PATH_OBJS)/%.o: %.c $(HEADER)
+	@mkdir -p $(PATH_OBJS)
+	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
+
+clean:
+	 $(RM) -R $(PATH_OBJS)
+
+fclean: clean
+	rm -rf $(NAME)	
+
+re: fclean all
+
+# variables spéciales
+# $@ fait référence au nom de la cible
+# $< nom première dépendance
+# $^ liste dépendance
+# $? liste dépendance plus récentes que la cible
+# $* nom fichier, sans son extension
+# CIBLES > DEPENDANCES > REGLES
