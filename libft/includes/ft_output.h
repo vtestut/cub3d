@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrfd.c                                      :+:      :+:    :+:   */
+/*   ft_output.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 00:15:52 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/15 17:31:48 by vtestut          ###   ########.fr       */
+/*   Created: 2022/11/09 10:43:43 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/17 14:17:59 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#ifndef OUTPUT_H
+# define OUTPUT_H
 
-void	ft_putstrfd(const char *str, int fd)
-{
-	if (!write(fd, NULL, 0))
-		write(fd, str, ft_strlen(str));
-}
+# include "libft.h"
+
+void	ft_putchar_fd(char c, int fd);
+
+void	ft_putendl_fd(char *s, int fd);
+
+void	ft_putnbr_fd(int n, int fd);
+
+void	ft_putstr_fd(const char *str, int fd);
+
+#endif

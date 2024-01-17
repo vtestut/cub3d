@@ -6,11 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:16:04 by vtestut           #+#    #+#             */
-/*   Updated: 2022/11/24 12:05:43 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/17 14:12:23 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_output.h"
 
 static void	calcul(int nb, int fd)
 {

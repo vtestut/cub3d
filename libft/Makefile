@@ -15,79 +15,107 @@ PATH_SRCS 	+=	sources/strings/
 PATH_SRCS 	+=	sources/ft_printf/
 PATH_SRCS 	+=	sources/get_next_line/
 
-SRCS		=	ft_isalpha.c
-SRCS		+=	ft_isalphastr.c
-SRCS		+=	ft_isdigit.c
-SRCS		+=	ft_isdigitstr.c
-SRCS		+=	ft_isspace.c
-SRCS		+=	ft_lstat.c
-SRCS		+=	ft_lstdup.c
-SRCS		+=	ft_lstaddback.c
-SRCS		+=	ft_lstaddfront.c
-SRCS		+=	ft_lstclear.c
-SRCS		+=	ft_lstnew.c
-SRCS		+=	ft_lstsize.c
-SRCS		+=	ft_lstindex.c
-SRCS		+=	ft_lstiteri.c
-SRCS		+=	ft_lstappend.c
-SRCS		+=	ft_lstlast.c
-SRCS		+=	ft_max.c
-SRCS		+=	ft_min.c
-SRCS		+=	ft_digitat.c
-SRCS		+=	ft_getdigits.c
-SRCS		+=	ft_absi.c
-SRCS		+=	ft_powi.c
-SRCS		+=	ft_calloc.c
-SRCS		+=	ft_realloc.c
-SRCS		+=	ft_atoi_long.c
-SRCS		+=	ft_strtoi.c
-SRCS		+=	ft_atoi.c
-SRCS		+=	ft_strtol.c
-SRCS		+=	ft_strcat.c
-SRCS		+=	ft_strtrim_one.c
-SRCS		+=	ft_strinsert.c
-SRCS		+=	ft_strremoven.c
-SRCS		+=	ft_memcpy.c
-SRCS		+=	ft_strncpy.c
-SRCS		+=	ft_memelemset.c
-SRCS		+=	ft_strtrim.c
-SRCS		+=	ft_memmove.c
-SRCS		+=	ft_strcmp.c
-SRCS		+=	ft_strndup.c
-SRCS		+=	ft_strremove.c
-SRCS		+=	ft_countc.c
-SRCS		+=	ft_countcs.c
-SRCS		+=	ft_strcpy.c
-SRCS		+=	ft_strlen.c
-SRCS		+=	ft_strnlen.c
-SRCS		+=	ft_strreplace.c
-SRCS		+=	ft_bzero.c
-SRCS		+=	ft_memset.c
-SRCS		+=	ft_substr.c
-SRCS		+=	ft_strchr.c
-SRCS		+=	ft_itoa.c
-SRCS		+=	ft_strjoin.c
-SRCS		+=	ft_strreplacen.c
-SRCS		+=	ft_rotate.c
-SRCS		+=	ft_strinsertn.c
-SRCS		+=	ft_strchr1.c
-SRCS		+=	ft_memdup.c
-SRCS		+=	ft_strdup.c
-SRCS		+=	ft_strlcpy.c
-SRCS		+=	ft_putstrfd.c
-SRCS		+=	ft_split.c
-SRCS		+=	ft_splitcs.c
-SRCS		+=	ft_toupper.c
-SRCS		+=	ft_printf.c
-SRCS		+=	ft_putadress.c
-SRCS		+=	ft_putchar.c
-SRCS		+=	ft_puthexa_lower.c
-SRCS		+=	ft_puthexa_upper.c
-SRCS		+=	ft_putnbr.c
-SRCS		+=	ft_putstr.c
-SRCS		+=	ft_putunbr.c
-SRCS		+=	get_next_line.c
-SRCS		+=	get_next_line_utils.c
+SRCS_CONV	=	ft_atoi_long.c
+SRCS_CONV	+=	ft_atoi.c
+SRCS_CONV	+=	ft_itoa.c
+SRCS_CONV	+=	ft_strtoi.c
+SRCS_CONV	+=	ft_strtol.c
+
+SRCS_CTYP	=	ft_isalnum.c
+SRCS_CTYP	+=	ft_isalpha.c
+SRCS_CTYP	+=	ft_isalphastr.c
+SRCS_CTYP	+=	ft_isascii.c
+SRCS_CTYP	+=	ft_isdigit.c
+SRCS_CTYP	+=	ft_isdigitstr.c
+SRCS_CTYP	+=	ft_isprint.c
+SRCS_CTYP	+=	ft_isspace.c
+
+SRCS_PRINTF	=	ft_printf.c
+SRCS_PRINTF	+=	ft_putadress.c
+SRCS_PRINTF	+=	ft_putchar.c
+SRCS_PRINTF	+=	ft_puthexa_lower.c
+SRCS_PRINTF	+=	ft_puthexa_upper.c
+SRCS_PRINTF	+=	ft_putnbr.c
+SRCS_PRINTF	+=	ft_putstr.c
+SRCS_PRINTF	+=	ft_putunbr.c
+
+SRCS_GNL	=	get_next_line.c
+SRCS_GNL	+=	get_next_line_utils.c
+
+SRCS_LST	=	ft_lstaddback.c
+SRCS_LST	+=	ft_lstaddfront.c
+SRCS_LST	+=	ft_lstappend.c
+SRCS_LST	+=	ft_lstat.c
+SRCS_LST	+=	ft_lstclear.c
+SRCS_LST	+=	ft_lstdup.c
+SRCS_LST	+=	ft_lstindex.c
+SRCS_LST	+=	ft_lstiteri.c
+SRCS_LST	+=	ft_lstlast.c
+SRCS_LST	+=	ft_lstnew.c
+SRCS_LST	+=	ft_lstsize.c
+
+SRCS_MATH	=	ft_absi.c
+SRCS_MATH	+=	ft_digitat.c
+SRCS_MATH	+=	ft_getdigits.c
+SRCS_MATH	+=	ft_max.c
+SRCS_MATH	+=	ft_min.c
+SRCS_MATH	+=	ft_powi.c
+
+SRCS_MEMO	=	ft_bzero.c
+SRCS_MEMO	+=	ft_calloc.c
+SRCS_MEMO	+=	ft_memchr.c
+SRCS_MEMO	+=	ft_memcmp.c
+SRCS_MEMO	+=	ft_memcpy.c
+SRCS_MEMO	+=	ft_memdup.c
+SRCS_MEMO	+=	ft_memelemset.c
+SRCS_MEMO	+=	ft_memmove.c
+SRCS_MEMO	+=	ft_memset.c
+SRCS_MEMO	+=	ft_realloc.c
+
+SRCS_OUTP	=	ft_putchar_fd.c
+SRCS_OUTP	+=	ft_putendl_fd.c
+SRCS_OUTP	+=	ft_putnbr_fd.c
+SRCS_OUTP	+=	ft_putstr_fd.c
+
+SRCS_STR	=	ft_countc.c
+SRCS_STR	+=	ft_countcs.c
+SRCS_STR	+=	ft_intlen.c
+SRCS_STR	+=	ft_longlen.c
+SRCS_STR	+=	ft_putlong.c
+SRCS_STR	+=	ft_rotate.c
+SRCS_STR	+=	ft_split.c
+SRCS_STR	+=	ft_splitcs.c
+SRCS_STR	+=	ft_strcat.c
+SRCS_STR	+=	ft_strchr.c
+SRCS_STR	+=	ft_strchr1.c
+SRCS_STR	+=	ft_strcmp.c
+SRCS_STR	+=	ft_strcpy.c
+SRCS_STR	+=	ft_strdup.c
+SRCS_STR	+=	ft_strinsert.c
+SRCS_STR	+=	ft_strinsertn.c
+SRCS_STR	+=	ft_striteri.c
+SRCS_STR	+=	ft_strjoin.c
+SRCS_STR	+=	ft_strlcat.c
+SRCS_STR	+=	ft_strlcpy.c
+SRCS_STR	+=	ft_strlen.c
+SRCS_STR	+=	ft_strmapi.c
+SRCS_STR	+=	ft_strncmp.c
+SRCS_STR	+=	ft_strncpy.c
+SRCS_STR	+=	ft_strndup.c
+SRCS_STR	+=	ft_strnlen.c
+SRCS_STR	+=	ft_strnstr.c
+SRCS_STR	+=	ft_strrchr.c
+SRCS_STR	+=	ft_strremove.c
+SRCS_STR	+=	ft_strremoven.c
+SRCS_STR	+=	ft_strreplace.c
+SRCS_STR	+=	ft_strreplacen.c
+SRCS_STR	+=	ft_strtrim_one.c
+SRCS_STR	+=	ft_strtrim.c
+SRCS_STR	+=	ft_substr.c
+SRCS_STR	+=	ft_tolower.c
+SRCS_STR	+=	ft_toupper.c
+
+SRCS = ${SRCS_CONV} ${SRCS_CTYP} ${SRCS_LST} ${SRCS_MATH} ${SRCS_MEMO} ${SRCS_OUTP} ${SRCS_GNL} ${SRCS_PRINTF} ${SRCS_STR}
 
 vpath %.c $(PATH_SRCS)
 
@@ -100,19 +128,23 @@ OBJS		=	$(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
 
 INCLUDES	=	includes
 HEADER		=	$(INCLUDES)/libft.h\
+				$(INCLUDES)/ft_convert.h\
 				$(INCLUDES)/ft_ctype.h\
 				$(INCLUDES)/ft_list_type.h\
 				$(INCLUDES)/ft_list.h\
 				$(INCLUDES)/ft_math.h\
-				$(INCLUDES)/ft_printf.h\
-				$(INCLUDES)/ft_convert.h\
-				$(INCLUDES)/ft_string.h\
 				$(INCLUDES)/ft_memory.h\
+				$(INCLUDES)/ft_output.h\
+				$(INCLUDES)/ft_printf.h\
+				$(INCLUDES)/ft_string.h\
 				$(INCLUDES)/get_next_line.h
 
 ##########	COMPILATION	#######################################################
 
-CFLAGS 		=	-Wall -Wextra -Werror 
+CFLAGS 		=	-Wall
+CFLAGS 		+=	-Wextra
+CFLAGS 		+=	-Werror
+
 CC			=	cc
 AR			=	ar rcs
 

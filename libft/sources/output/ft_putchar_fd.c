@@ -6,11 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:09:51 by vtestut           #+#    #+#             */
-/*   Updated: 2022/11/21 16:47:17 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/17 14:12:10 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_output.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
