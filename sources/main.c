@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 14:58:34 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/17 15:06:58 by vtestut          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-int main()
+int main(int argc, char **argv)
 {
-	ft_printf("la taille de hello est de %d\n", t_strlen("hello"));
-	ft_putstr("string\n");
-	ft_putstr_fd("deuxieme string", 2);
-	printf("vrai printf\n");
+	t_recup	recup;
+	
 	return 0;
 }

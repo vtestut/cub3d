@@ -25,7 +25,7 @@ DPD = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.d))
 
 ##########	INCLUDES	#######################################################
 
-INC_DIR		=	-I inc -I libft
+INC_DIR		=	-I includes -I libft
 INCLUDES	=	includes
 HEADER		=	${INCLUDES}/cub3d.h
 
@@ -51,28 +51,21 @@ AR			=	ar rcs
 
 ##########	RULES		#######################################################
 
-.c.o:
-	${CC} ${CFLAGS} -c$< -o ${<:.c=.o}
+all: ${NAME}
 
-all:
-	${MAKE} -C libft/
-	@$(MAKE) -j $(NAME)
+${NAME}: ${OBJS}
+	${CC} ${CFLAGS} -o $@ $^ ${LIBS} -L ${MLX_DIR} -lmlx -lm -lbsd -lX11 -lXext
 
-$(NAME): $(OBJ)
-		${CC} ${CFLAGS} -o ${NAME} ${OBJ} ${LIBS} ${INC_DIR} -L ${MLX_DIR} -lmlx -lm -lbsd -lX11 -lXext
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-		@mkdir -p $(OBJ_DIR)
-		${CC} $(CFLAGS) $(INC_DIR) -I $(MLX_DIR) -c $< -o $@
+$(PATH_OBJS)/%.o: %.c
+	@mkdir -p $(@D)
+	${CC} ${CFLAGS} ${INC_DIR} -c -o $@ $<
 
 clean:
-	@rm -rf $(OBJ_DIR)
+	rm -rf $(PATH_OBJS)
 
-fclean:	clean
-	@rm -rf $(NAME)
+fclean: clean
+	rm -f ${NAME}
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
-
--include $(DPD)
+.PHONY: all clean fclean re

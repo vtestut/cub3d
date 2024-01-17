@@ -9,8 +9,9 @@
 # include <fcntl.h>
 # include <string.h>
 # include <math.h>
+
 # include "../minilibx-linux/mlx.h"
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 
 # define ROTATE_LEFT	65361
 # define ROTATE_RIGHT	65363
