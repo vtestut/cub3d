@@ -10,7 +10,17 @@ PATH_SRCS	+=	sources/raycasting/
 PATH_SRCS	+=	sources/utils/
 
 SRCS		=	main.c
-SRCS		+=	
+SRCS		+=	01.pars_init.c
+SRCS		+=	02.pars_arg.c
+SRCS		+=	03.pars_map1.c
+SRCS		+=	04.pars_manage1.c
+SRCS		+=	05.pars_manage2.c
+SRCS		+=	06.pars_manage3.c
+SRCS		+=	07.pars_manage4.c
+SRCS		+=	08.pars_map7.c
+SRCS		+=	09.pars_map8.c
+SRCS		+=	free.c
+
 
 vpath %.c $(PATH_SRCS)
 

@@ -6,21 +6,51 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:53:08 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/16 18:44:26 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/19 19:07:20 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_memory.h"
 
+// void	ft_bzero(void *s, size_t n)
+// {
+// 	unsigned char	*p;
+
+// 	p = (unsigned char *)s;
+// 	while (n != 0)
+// 	{
+// 		*p = '\0';
+// 		p++;
+// 		n--;
+// 	}
+// }
+
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*p;
+	size_t	cnt;
+	char	*str;
 
-	p = (unsigned char *)s;
-	while (n != 0)
+	str = (char *) s;
+	cnt = 0;
+	while (cnt < n)
 	{
-		*p = '\0';
-		p++;
-		n--;
+		str[cnt] = 0;
+		cnt++;
 	}
+	s = (void *) str;
 }
+
+//GPT
+// void	ft_bzero(void *s, size_t n)
+// {
+// 	size_t	cnt;
+// 	char	*str;
+
+// 	str = (char *) s;
+// 	cnt = 0;
+// 	while (cnt < n)
+// 	{
+// 		str[cnt] = 0;
+// 		cnt++;
+// 	}
+// }

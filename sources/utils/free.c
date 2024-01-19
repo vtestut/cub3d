@@ -1,24 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 15:51:33 by virgile           #+#    #+#             */
-/*   Updated: 2024/01/19 18:48:42 by vtestut          ###   ########.fr       */
+/*   Created: 2024/01/19 12:35:38 by vtestut           #+#    #+#             */
+/*   Updated: 2024/01/19 18:50:50 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "../../includes/cub3d.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strlen(const char *s)
 {
-	if (s1 == NULL || s2 == NULL)
-		return (0);
-	if (n > ft_strlen(s1))
-		n = ft_strlen(s1) + 1;
-	if (n > ft_strlen(s2))
-		n = ft_strlen(s2) + 1;
-	return (ft_memcmp(s1, s2, n));
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+void	ft_free_arr(void **array)
+{
+	int	i;
+
+	i = 0;
+	while (array && array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+}
+
+void	ft_free_texture(t_map_data *data)
+{
+	free(data->north_txt);
+	free(data->south_txt);
+	free(data->east_txt);
+	free(data->west_txt);
 }

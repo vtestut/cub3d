@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:59:04 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/16 18:59:21 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/19 18:42:49 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		ft_atoi_long(const char *str, bool *error);
  * @param str
  * @return
  */
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 
 /**
  * Get the string equivalent of val

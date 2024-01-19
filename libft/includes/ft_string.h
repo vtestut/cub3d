@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:29:09 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/16 19:30:42 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/19 19:05:15 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void		ft_putlong(unsigned int nb);
 */
 void	ft_rotate(void *arr, int direction, size_t n, size_t size);
 
-char		**ft_split(const char *str, int c);
+char	**ft_split(const char *str, int c);
 
-char		**ft_splitcs(const char *str, const char *charset);
+char	**ft_splitcs(const char *str, const char *charset);
 
 /**
  * @brief Allocate a new string being the concatenation of s1 and s2
@@ -191,7 +191,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
  * @warning		str must be null-terminated
  * @warning		str must not be null
  */
-size_t	ft_strlen(const char *str);
+// size_t	ft_strlen(const char *str);
 
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
