@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:29:09 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 19:05:15 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:43:20 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ size_t	ft_countc(const char *str, int c);
  */
 size_t	ft_countcs(const char *str, const char *charset);
 
-int			ft_intlen(int n);
+int		ft_intlen(int n);
 
-int			ft_longlen(unsigned int n);
+int		ft_longlen(unsigned int n);
 
-void		ft_putlong(unsigned int nb);
+void	ft_putlong(unsigned int nb);
 
 /**
  * Rotate the element of arr in the given direction
@@ -156,7 +156,7 @@ char	*ft_strinsert(const char *src, const char *begin, const char *what);
  */
 char	*ft_strinsertn(const char *src, size_t begin, const char *what);
 
-void		ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 /**
  * concatenates the given strings s1 and s2 and allocates sufficient
@@ -170,7 +170,7 @@ void		ft_striteri(char *s, void (*f)(unsigned int, char*));
  */
 char	*ft_strjoin(char const *s1, char const *s2);
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 /**
  * copies up to size - 1 characters from the given string src to the
@@ -191,9 +191,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
  * @warning		str must be null-terminated
  * @warning		str must not be null
  */
-// size_t	ft_strlen(const char *str);
+int		ft_strlen(const char *str);
 
-char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /**
  * Same as ft_strcmp but compare only the first n bytes of s1 and s2
@@ -202,7 +202,7 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * @param n
  * @return
  */
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, int n);
 
 /**
  * copies the string pointed to by src, to the buffer pointed to by dest.
@@ -245,7 +245,7 @@ char	*ft_strndup(const char *str, size_t n);
  */
 size_t	ft_strnlen(const char *str, size_t n);
 
-char		*ft_strnstr(const char *big, const char *little, size_t len);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 /**
  * Return a pointer to the last occurence of c in str
@@ -296,7 +296,8 @@ char	*ft_strremoven(const char *src, size_t begin, size_t n);
 char	*ft_strreplace(const char *src, const char *begin,
 			const char *end, const char *what);
 
-char		*ft_strreplacen(const char *src, size_t begin, size_t n, const char *what);
+char	*ft_strreplacen(const char *src, size_t begin, \
+		size_t n, const char *what);
 
 /**
  * Remove the first character of set in str from the righmost
@@ -327,7 +328,7 @@ int		ft_strtrim(char *str, const char *set);
  * @return		A pointer to the new string.
  * 				NULL if the memory allocation fails.
 */
-char	*ft_substr(char const *src, unsigned int start, size_t len);
+char	*ft_substr(char const *src, unsigned int start, int len);
 
 /**
  * @brief Return the lowercase equivalent of c

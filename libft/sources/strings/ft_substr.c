@@ -6,21 +6,21 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:53:28 by vtestut           #+#    #+#             */
-/*   Updated: 2023/11/01 20:53:33 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:11:20 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, int len)
 {
 	char	*res;
 	char	*src;
-	size_t	reslen;
+	int		reslen;
 
 	if (!s)
 		return (NULL);
-	if (ft_strlen(s) < (size_t)start)
+	if (ft_strlen(s) < (int)start)
 		return (ft_strdup(""));
 	src = (char *)s + start;
 	if (ft_strlen(src) < len)

@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:00:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 18:50:55 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:45:55 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,6 @@ typedef struct s_game
 //free
 void	ft_free_texture(t_map_data *data);
 void	ft_free_arr(void **array);
-int		ft_strlen(const char *s);
 
 //01 pars
 void	map_parsing(int argc, char **argv, t_game *game);

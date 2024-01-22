@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:59:04 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 18:42:49 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:41:43 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		ft_atoi(const char *str);
 */
 char	*ft_itoa(int64_t val);
 
-int			ft_strtoi(const char *str, char **endptr, int base);
+int		ft_strtoi(const char *str, char **endptr, int base);
 
 /**
  * Convert the initial portion of s into a long integer according to the

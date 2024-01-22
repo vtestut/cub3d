@@ -158,7 +158,7 @@ $(NAME): 		$(OBJS)
 
 $(OBJS): 		$(PATH_OBJS)/%.o: %.c $(HEADER)
 				@mkdir -p $(PATH_OBJS)
-				$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
+				@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
 
 clean:
 	 			$(RM) -R $(PATH_OBJS)

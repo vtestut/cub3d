@@ -6,21 +6,11 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:35:38 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 18:50:50 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:45:49 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 void	ft_free_arr(void **array)
 {

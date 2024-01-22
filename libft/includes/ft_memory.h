@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:36:59 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/16 18:47:31 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:43:02 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	ft_bzero(void *s, size_t n);
 */
 void	*ft_calloc(size_t nmemb, size_t size);
 
-void		*ft_memchr(const void *s, int c, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
 
-int			ft_memcmp(const void *s1, const void *s2, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, int n);
 
 /**
  * Copy n bytes from src to dest.

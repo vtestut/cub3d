@@ -6,16 +6,16 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:46:37 by virgile           #+#    #+#             */
-/*   Updated: 2024/01/16 18:44:49 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:43:54 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_memory.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, int n)
 {
-	size_t	i;
-	int		comp;
+	int	i;
+	int	comp;
 
 	i = 0;
 	while (i < n)

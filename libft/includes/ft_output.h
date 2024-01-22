@@ -6,12 +6,12 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:43:43 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/17 14:17:59 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:42:34 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OUTPUT_H
-# define OUTPUT_H
+#ifndef FT_OUTPUT_H
+# define FT_OUTPUT_H
 
 # include "libft.h"
 

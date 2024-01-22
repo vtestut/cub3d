@@ -6,13 +6,13 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:51:33 by virgile           #+#    #+#             */
-/*   Updated: 2024/01/19 18:48:42 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:05:57 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, int n)
 {
 	if (s1 == NULL || s2 == NULL)
 		return (0);
