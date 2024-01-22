@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:00:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/22 13:08:55 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/22 13:12:57 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ typedef struct s_map_data
 	char			*west_txt;
 	unsigned char	floor_color[3];
 	unsigned char	ceil_color[3];
-	int				pos_player_x;
-	int				pos_player_y;
+	int				pos_player_x; //! ??? 
+	int				pos_player_y; //! ???
 	int				map_max_x;
 	int				map_max_y;
 	int				map_index;

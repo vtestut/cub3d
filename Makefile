@@ -12,13 +12,13 @@ PATH_SRCS	+=	sources/utils/
 SRCS		=	main.c
 SRCS		+=	01.pars_init.c
 SRCS		+=	02.pars_arg.c
-SRCS		+=	03.pars_map1.c
-SRCS		+=	04.pars_manage1.c
-SRCS		+=	05.pars_manage2.c
-SRCS		+=	06.pars_manage3.c
-SRCS		+=	07.pars_manage4.c
-SRCS		+=	08.pars_map7.c
-SRCS		+=	09.pars_map8.c
+SRCS		+=	03.pars_map_start.c
+SRCS		+=	04.pars_map_fill_data.c
+SRCS		+=	05.pars_north_south.c
+SRCS		+=	06.pars_east_west.c
+SRCS		+=	07.pars_ceiling_floor.c
+SRCS		+=	08.pars_map_check.c
+SRCS		+=	09.pars_map_fill_utils.c
 SRCS		+=	free.c
 
 
@@ -35,7 +35,7 @@ DPD = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.d))
 
 ##########	INCLUDES	#######################################################
 
-INC_DIR		=	-I includes -I libft
+INC_DIR		=	-I includes -I libft -I minilibx
 INCLUDES	=	includes
 HEADER		=	${INCLUDES}/cub3d.h
 
