@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:00:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/20 14:45:55 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/22 13:08:55 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@
 # include "../minilibx-linux/mlx.h"
 # include "../libft/includes/libft.h"
 
-# define SCREEN_WIDTH 1920
-# define SCREEN_HEIGHT 1080
-
-# define PLAYER_SPEED 0.07
-# define ROTATION_SPEED 0.23
-
 # define TEXTURE_WIDTH 256
 # define TEXTURE_HEIGHT 256
 
@@ -39,13 +33,6 @@ typedef enum e_bg_color{
 	CLR_TOP,
 	CLR_BOT,
 }	t_bg_color;
-
-typedef enum e_txt_side{
-	TXT_NORTH,
-	TXT_SOUTH,
-	TXT_WEST,
-	TXT_EAST
-}	t_txt_side;
 
 typedef struct s_map_data
 {
@@ -79,12 +66,6 @@ typedef struct s_vector_d
 	double	y;
 }	t_vector_d;
 
-typedef struct s_vector_i
-{
-	int	x;
-	int	y;
-}	t_vector_i;
-
 typedef struct s_player
 {
 	t_vector_d	pos;
@@ -92,43 +73,10 @@ typedef struct s_player
 	t_vector_d	plane;
 }	t_player;
 
-typedef struct s_matrix
-{
-	double	a;
-	double	b;
-	double	c;
-	double	d;
-}	t_matrix;
-
-typedef struct s_texture_draw
-{
-	double		wall_x;
-	double		step;
-	t_vector_i	texture_coord;
-	double		texture_pos;
-}	t_texture_draw;
-
-typedef struct s_raycast
-{
-	t_vector_d	ray_dir;
-	t_vector_d	delta_dist;
-	t_vector_d	side_dist;
-	t_vector_i	map_pos;
-	t_vector_i	step;
-	double		wall_dist;
-	bool		wall_hit;
-	int			side;
-	int			line_height;
-	int			draw_start;
-	int			draw_end;
-}	t_raycast;
-
 typedef struct s_game
 {
 	t_player	player;
 	t_map_data	data;
-	// mlx_t		*mlx;
-	// mlx_image_t	*img;
 	uint32_t	textures_pxls[4][TEXTURE_HEIGHT][TEXTURE_WIDTH];
 	uint32_t	bg_colors[2];	
 }	t_game;
@@ -144,10 +92,10 @@ void	ft_free_arr(void **array);
 
 //01 pars
 void	map_parsing(int argc, char **argv, t_game *game);
-void	ft_init_data(t_map_data *data); // ! ALERT static ?
-//static void ft_init_parse(t_parse *parse); //! ALERT static ?
-// static char	get_init_player_dir(char **map); // ! ALERT static ?
-// static void	initial_player_direction(char dir, t_vector_d *player_dir, t_vector_d *player_plane); // ! ALERT static ?
+void	ft_init_data(t_map_data *data); // !!!!
+// static void ft_init_parse(t_parse *parse); // !!!!
+// static char	get_init_player_dir(char **map); // !!!!
+// static void	initial_player_direction(char dir, t_vector_d *player_dir, t_vector_d *player_plane); // !!!!
 
 //02 pars arg
 int 	ft_check_arg(int argc, char **argv);
