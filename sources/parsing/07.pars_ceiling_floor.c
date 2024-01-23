@@ -6,13 +6,13 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:19:17 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 12:39:27 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 13:17:01 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_check_id_nb(char *file, int i)
+int	ft_check_color_value(char *file, int i)
 {
 	int	values[3];
 	int	cur_value;
@@ -56,18 +56,18 @@ int	ft_get_rgb_value_ceil(t_map *data, char *file, int i, t_parse *parse)
 
 int	ft_manage_ceiling(t_map *data, char *file, int i, t_parse *parse)
 {
-	int	stock;
+	int	tmp;
 
 	i += 2;
 	while (file[i] && file[i] == ' ')
 		i++;
 	if (file[i] == '\n')
 		return (-1);
-	stock = i;
-	i = ft_check_id_nb(file, i);
+	tmp = i;
+	i = ft_check_color_value(file, i);
 	if (i == -1)
 		return (-1);
-	if (ft_get_rgb_value_ceil(data, file, stock, parse) == -1)
+	if (ft_get_rgb_value_ceil(data, file, tmp, parse) == -1)
 		return (-1);
 	return (i - 1);
 }
@@ -94,18 +94,18 @@ int	ft_get_rgb_value_floor(t_map *data, char *file, int i, t_parse *parse)
 
 int	ft_manage_floor(t_map *data, char *file, int i, t_parse *parse)
 {
-	int	stock;
+	int	tmp;
 
 	i += 2;
 	while (file[i] && file[i] == ' ')
 		i++;
 	if (file[i] == '\n')
 		return (-1);
-	stock = i;
-	i = ft_check_id_nb(file, i);
+	tmp = i;
+	i = ft_check_color_value(file, i);
 	if (i == -1)
 		return (-1);
-	if (ft_get_rgb_value_floor(data, file, stock, parse) == -1)
+	if (ft_get_rgb_value_floor(data, file, tmp, parse) == -1)
 		return (-1);
 	return (i - 1);
 }

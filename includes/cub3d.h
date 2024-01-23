@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:00:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 12:50:13 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 13:17:01 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int		ft_manage_west_loop(t_map *data, char *file, int i, int len);
 int		ft_manage_west(t_map *data, char *file, int i, t_parse *parse);
 
 //07 pars map
-int		ft_check_id_nb(char *file, int i);
+int		ft_check_color_value(char *file, int i);
 int		ft_get_rgb_value_ceil(t_map *data, char *file, int i, t_parse *parse);
 int		ft_manage_ceiling(t_map *data, char *file, int i, t_parse *parse);
 int		ft_get_rgb_value_floor(t_map *data, char *file, int i, t_parse *parse);

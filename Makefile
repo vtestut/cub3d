@@ -12,13 +12,13 @@ PATH_SRCS	+=	sources/utils/
 SRCS		=	main.c
 SRCS		+=	01.pars_init.c
 SRCS		+=	02.pars_arg.c
-SRCS		+=	03.pars_map_start.c
-SRCS		+=	04.pars_map_fill_data.c
+SRCS		+=	03.pars_file.c
+SRCS		+=	04.pars_textures.c
 SRCS		+=	05.pars_north_south.c
 SRCS		+=	06.pars_east_west.c
 SRCS		+=	07.pars_ceiling_floor.c
-SRCS		+=	08.pars_map_check.c
-SRCS		+=	09.pars_map_fill_utils.c
+SRCS		+=	08.pars_map.c
+SRCS		+=	09.pars_map_utils.c
 SRCS		+=	free.c
 
 
