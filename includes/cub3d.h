@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:00:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 13:17:01 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 16:32:15 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ typedef struct s_player
 
 typedef struct s_game
 {
-	t_player	player;
 	t_map		data;
-	uint32_t	textures_pxls[4][TEXTURE_HEIGHT][TEXTURE_WIDTH];
+	t_player	player;
 	uint32_t	bg_colors[2];	
+	uint32_t	textures_pxls[4][TEXTURE_HEIGHT][TEXTURE_WIDTH];
 }	t_game;
 
 

@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:56:37 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 12:06:33 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 16:46:37 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static char	get_init_player_dir(char **map)
 	return (-1);
 }
 
-static void	initial_player_direction(char dir, t_vector_d *player_dir,
+static void	init_player_dir(char dir, t_vector_d *player_dir,
 		t_vector_d *player_plane)
 {
 	if (dir == 'N')
@@ -111,6 +111,6 @@ void	map_parsing(int argc, char **argv, t_game *game)
 	game->player.dir.y = 0;
 	game->player.plane.x = 0;
 	game->player.plane.y = 0;
-	initial_player_direction(get_init_player_dir(game->data.map), \
+	init_player_dir(get_init_player_dir(game->data.map), \
 							&game->player.dir, &game->player.plane);
 }
