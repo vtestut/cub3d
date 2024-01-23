@@ -6,13 +6,13 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:56:37 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 17:06:16 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:32:28 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void ft_init_parse(t_parse *parse)
+static void	ft_init_parse(t_parse *parse)
 {
 	parse->valid_north = 0;
 	parse->valid_south = 0;
@@ -22,7 +22,7 @@ static void ft_init_parse(t_parse *parse)
 	parse->valid_ceil = 0;
 }
 
-void	ft_init_data(t_map_data *data) //static ?
+void	ft_init_data(t_map *data)
 {
 	data->north_txt = NULL;
 	data->south_txt = NULL;
@@ -34,8 +34,8 @@ void	ft_init_data(t_map_data *data) //static ?
 	data->ceil_color[0] = 0;
 	data->ceil_color[1] = 0;
 	data->ceil_color[2] = 0;
-	data->pos_player_x = 0; // TODO
-	data->pos_player_y = 0; // TODO
+	data->pos_player_x = 0;
+	data->pos_player_y = 0;
 	data->map_index = 0;
 	data->map_max_x = 0;
 	data->map_max_y = 0;
@@ -111,5 +111,6 @@ void	map_parsing(int argc, char **argv, t_game *game)
 	game->player.dir.y = 0;
 	game->player.plane.x = 0;
 	game->player.plane.y = 0;
-	initial_player_direction(get_init_player_dir(game->data.map), &game->player.dir, &game->player.plane);
+	initial_player_direction(get_init_player_dir(game->data.map), \
+							&game->player.dir, &game->player.plane);
 }

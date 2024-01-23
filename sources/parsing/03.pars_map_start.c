@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03.pars_map1.c                                     :+:      :+:    :+:   */
+/*   03.pars_map_start.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:05:15 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 17:02:15 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:17:29 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_fill_map(t_map_data *data, char *file_data)
+void	ft_fill_map(t_map *data, char *file_data)
 {
 	int	i;
 	int	j;
@@ -67,7 +67,7 @@ char	*ft_get_file(char *arg)
 	return (file);
 }
 
-int	ft_check_file(char **argv, t_map_data *data, t_parse *parse)
+int	ft_check_file(char **argv, t_map *data, t_parse *parse)
 {
 	char	*file_data;
 
@@ -93,13 +93,5 @@ int	ft_check_file(char **argv, t_map_data *data, t_parse *parse)
 	}
 	ft_fill_map(data, file_data);
 	free(file_data);
-	return (0);
-}
-
-int	ft_start(int argc, char **argv, t_map_data *data, t_parse *parse)
-{
-	ft_check_arg(argc, argv);
-	if (ft_check_file(argv, data, parse) == -1)
-		return (-1);
 	return (0);
 }

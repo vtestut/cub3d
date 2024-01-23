@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04.pars_manage1.c                                  :+:      :+:    :+:   */
+/*   04.pars_map_fill_data.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:08:16 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 16:49:25 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:17:29 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_check_if_full(t_parse *parse)
 	return (0);
 }
 
-int	ft_fill_first_data(t_map_data *data, char *file_data, int i, t_parse *parse)
+int	ft_fill_first_data(t_map *data, char *file_data, int i, t_parse *parse)
 {
 	if (!ft_strncmp(file_data, "NO", 2))
 		i = ft_manage_north(data, file_data, i, parse);
@@ -41,7 +41,7 @@ int	ft_fill_first_data(t_map_data *data, char *file_data, int i, t_parse *parse)
 	return (i);
 }
 
-int	ft_fill_data(t_map_data *data, char *file_data, int i, t_parse *parse)
+int	ft_fill_data(t_map *data, char *file_data, int i, t_parse *parse)
 {
 	if (i == 0)
 		i = ft_fill_first_data(data, file_data, i, parse);
@@ -64,7 +64,7 @@ int	ft_fill_data(t_map_data *data, char *file_data, int i, t_parse *parse)
 	return (i);
 }
 
-int	ft_check_file_data(t_map_data *data, char *file_data, t_parse *parse)
+int	ft_check_file_data(t_map *data, char *file_data, t_parse *parse)
 {
 	int	i;
 

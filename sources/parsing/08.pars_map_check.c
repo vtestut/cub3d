@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   08.pars_map7.c                                     :+:      :+:    :+:   */
+/*   08.pars_map_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:24:39 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 16:50:26 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:17:29 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_check_map_border_bis(char *file, int max_w, int max_l, t_map_data *data)
+int	ft_check_map_border_bis(char *file, int max_w, int max_l, t_map *data)
 {
 	char	**map;
 	int		i;
@@ -39,7 +39,7 @@ int	ft_check_map_border_bis(char *file, int max_w, int max_l, t_map_data *data)
 	return (0);
 }
 
-int	ft_check_map_border(char *file_data, t_map_data *data)
+int	ft_check_map_border(char *file_data, t_map *data)
 {
 	int	i;
 	int	width;
@@ -105,7 +105,7 @@ int	ft_check_map_loop(char *file_data, int i)
 	return (0);
 }
 
-int	ft_check_map(t_map_data *data, char *file_data)
+int	ft_check_map(t_map *data, char *file_data)
 {
 	int	i;
 

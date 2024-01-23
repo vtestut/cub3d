@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   07.pars_manage4.c                                  :+:      :+:    :+:   */
+/*   07.pars_ceiling_floor.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:19:17 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 16:47:18 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:17:29 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_check_id_nb(char *file_data, int i)
 	return (i);
 }
 
-int	ft_get_rgb_value_ceil(t_map_data *data, char *file, int i, t_parse *parse)
+int	ft_get_rgb_value_ceil(t_map *data, char *file, int i, t_parse *parse)
 {
 	int	j;
 
@@ -54,7 +54,7 @@ int	ft_get_rgb_value_ceil(t_map_data *data, char *file, int i, t_parse *parse)
 	return (0);
 }
 
-int	ft_manage_ceiling(t_map_data *data, char *file_data, int i, t_parse *parse)
+int	ft_manage_ceiling(t_map *data, char *file_data, int i, t_parse *parse)
 {
 	int	stock;
 
@@ -72,7 +72,7 @@ int	ft_manage_ceiling(t_map_data *data, char *file_data, int i, t_parse *parse)
 	return (i - 1);
 }
 
-int	ft_get_rgb_value_floor(t_map_data *data, char *file, int i, t_parse *parse)
+int	ft_get_rgb_value_floor(t_map *data, char *file, int i, t_parse *parse)
 {
 	int	j;
 
@@ -92,7 +92,7 @@ int	ft_get_rgb_value_floor(t_map_data *data, char *file, int i, t_parse *parse)
 	return (0);
 }
 
-int	ft_manage_floor(t_map_data *data, char *file_data, int i, t_parse *parse)
+int	ft_manage_floor(t_map *data, char *file_data, int i, t_parse *parse)
 {
 	int	stock;
 

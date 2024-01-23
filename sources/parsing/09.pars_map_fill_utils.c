@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   06.pars_map8.c                                     :+:      :+:    :+:   */
+/*   09.pars_map_fill_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:29:31 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 16:30:36 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:17:29 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_check_each_char_map(char **map)
 	return (0);
 }
 
-char	**ft_fill_middle(char *file, char **map, t_map_data *data)
+char	**ft_fill_middle(char *file, char **map, t_map *data)
 {
 	int	i;
 	int	j;

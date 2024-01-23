@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05.pars_map3.c                                     :+:      :+:    :+:   */
+/*   05.pars_north_south.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:13:57 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 16:25:39 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:17:29 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_manage_north_loop(t_map_data *data, char *file_data, int i, int len)
+int	ft_manage_north_loop(t_map *data, char *file_data, int i, int len)
 {
 	while (file_data[i] && file_data[i] != '\n')
 	{
@@ -31,7 +31,7 @@ int	ft_manage_north_loop(t_map_data *data, char *file_data, int i, int len)
 	return (i);
 }
 
-int	ft_manage_north(t_map_data *data, char *file_data, int i, t_parse *parse)
+int	ft_manage_north(t_map *data, char *file_data, int i, t_parse *parse)
 {
 	int	len;
 
@@ -49,7 +49,7 @@ int	ft_manage_north(t_map_data *data, char *file_data, int i, t_parse *parse)
 	return (i - 1);
 }
 
-int	ft_manage_south_loop(t_map_data *data, char *file_data, int i, int len)
+int	ft_manage_south_loop(t_map *data, char *file_data, int i, int len)
 {
 	while (file_data[i] && file_data[i] != '\n')
 	{
@@ -68,7 +68,7 @@ int	ft_manage_south_loop(t_map_data *data, char *file_data, int i, int len)
 	return (i);
 }
 
-int	ft_manage_south(t_map_data *data, char *file_data, int i, t_parse *parse)
+int	ft_manage_south(t_map *data, char *file_data, int i, t_parse *parse)
 {
 	int	len;
 

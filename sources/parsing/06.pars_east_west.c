@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   06.pars_mamage3.c                                  :+:      :+:    :+:   */
+/*   06.pars_east_west.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:16:47 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 17:04:23 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:17:29 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_manage_east_loop(t_map_data *data, char *file_data, int i, int len)
+int	ft_manage_east_loop(t_map *data, char *file_data, int i, int len)
 {
 	while (file_data[i] && file_data[i] != '\n')
 	{
@@ -31,7 +31,7 @@ int	ft_manage_east_loop(t_map_data *data, char *file_data, int i, int len)
 	return (i);
 }
 
-int	ft_manage_east(t_map_data *data, char *file_data, int i, t_parse *parse)
+int	ft_manage_east(t_map *data, char *file_data, int i, t_parse *parse)
 {
 	int	len;
 
@@ -49,7 +49,7 @@ int	ft_manage_east(t_map_data *data, char *file_data, int i, t_parse *parse)
 	return (i - 1);
 }
 
-int	ft_manage_west_loop(t_map_data *data, char *file_data, int i, int len)
+int	ft_manage_west_loop(t_map *data, char *file_data, int i, int len)
 {
 	while (file_data[i] && file_data[i] != '\n')
 	{
@@ -68,7 +68,7 @@ int	ft_manage_west_loop(t_map_data *data, char *file_data, int i, int len)
 	return (i);
 }
 
-int	ft_manage_west(t_map_data *data, char *file_data, int i, t_parse *parse)
+int	ft_manage_west(t_map *data, char *file_data, int i, t_parse *parse)
 {
 	int	len;
 

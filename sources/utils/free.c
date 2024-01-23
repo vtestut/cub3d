@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:35:38 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/20 14:45:49 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:17:29 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_free_arr(void **array)
 	free(array);
 }
 
-void	ft_free_texture(t_map_data *data)
+void	ft_free_texture(t_map *data)
 {
 	free(data->north_txt);
 	free(data->south_txt);

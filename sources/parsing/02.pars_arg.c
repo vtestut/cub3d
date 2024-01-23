@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:01:39 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/19 17:06:10 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:21:47 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_check_arg(int argc, char **argv)
 
 	if (argc != 2 || !argv[1][0])
 	{
-		ft_putstr_fd("Error\nusage: ./cub3d path/to/map.cub\n", 2);
+		ft_putstr_fd("Error\nExec with: ./cub3d path/to/map.cub\n", 2);
 		exit(1);
 	}
 	ft_check_format(argv[1]);
@@ -52,5 +52,13 @@ int	ft_check_arg(int argc, char **argv)
 		exit (1);
 	}
 	close(fd);
+	return (0);
+}
+
+int	ft_start(int argc, char **argv, t_map *data, t_parse *parse)
+{
+	ft_check_arg(argc, argv);
+	if (ft_check_file(argv, data, parse) == -1)
+		return (-1);
 	return (0);
 }
