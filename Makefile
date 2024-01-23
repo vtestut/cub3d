@@ -71,3 +71,11 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+# variables spéciales
+# $@ fait référence au nom de la cible
+# $< nom première dépendance
+# $^ liste dépendance
+# $? liste dépendance plus récentes que la cible
+# $* nom fichier, sans son extension
+# CIBLES > DEPENDANCES > REGLES

@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:00:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 11:33:17 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:46:23 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ typedef struct s_game
 /*****************************************************************************/
 
 //free
-void	ft_free_texture(t_map *data);
+void ft_free_texture(t_map *data);
 void	ft_free_arr(void **array);
 
 //01 pars

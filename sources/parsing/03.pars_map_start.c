@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:05:15 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 11:17:29 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:45:48 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	ft_check_file(char **argv, t_map *data, t_parse *parse)
 		ft_putstr_fd("Error\nProblem with file's map\n", 2);
 		ft_free_texture(data);
 		free(file_data);
-		return (-1);
+		return(-1);
 	}
 	ft_fill_map(data, file_data);
 	free(file_data);
