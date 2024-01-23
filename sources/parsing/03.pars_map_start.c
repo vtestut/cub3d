@@ -6,20 +6,20 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:05:15 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 11:45:48 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 12:49:36 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_fill_map(t_map *data, char *file_data)
+void	ft_fill_map(t_map *data, char *file)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	data->map = ft_split(file_data + data->map_index, '\n');
+	data->map = ft_split(file + data->map_index, '\n');
 	data->map_max_x = ft_strlen(data->map[i]);
 	while (data->map[i])
 	{
@@ -69,29 +69,29 @@ char	*ft_get_file(char *arg)
 
 int	ft_check_file(char **argv, t_map *data, t_parse *parse)
 {
-	char	*file_data;
+	char	*file;
 
-	file_data = ft_get_file(argv[1]);
-	if (!file_data)
+	file = ft_get_file(argv[1]);
+	if (!file)
 	{
 		ft_putstr_fd("Error\nFile is empty\n", 2);
 		return (-1);
 	}
-	if (ft_check_file_data(data, file_data, parse))
+	if (ft_check_file_data(data, file, parse))
 	{
 		ft_putstr_fd("Error\nProblem with files's map\n", 2);
 		ft_free_texture(data);
-		free(file_data);
+		free(file);
 		return (-1);
 	}
-	if (ft_check_map(data, file_data))
+	if (ft_check_map(data, file))
 	{
 		ft_putstr_fd("Error\nProblem with file's map\n", 2);
 		ft_free_texture(data);
-		free(file_data);
-		return(-1);
+		free(file);
+		return (-1);
 	}
-	ft_fill_map(data, file_data);
-	free(file_data);
+	ft_fill_map(data, file);
+	free(file);
 	return (0);
 }

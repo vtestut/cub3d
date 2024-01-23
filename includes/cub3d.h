@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:00:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 11:46:23 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 12:50:13 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ typedef struct s_game
 /*****************************************************************************/
 
 //free
-void ft_free_texture(t_map *data);
+void	ft_free_texture(t_map *data);
 void	ft_free_arr(void **array);
 
 //01 pars
@@ -100,41 +100,41 @@ int		ft_check_arg(int argc, char **argv);
 int		ft_start(int argc, char **argv, t_map *data, t_parse *parse);
 
 //03 pars map
-void	ft_fill_map(t_map *data, char *file_data);
+void	ft_fill_map(t_map *data, char *file);
 char	*ft_get_file(char *arg);
 int		ft_check_file(char **argv, t_map *data, t_parse *parse);
 
 //04 pars map
 int		ft_check_if_full(t_parse *parse);
-int		ft_fill_first_data(t_map *data, char *file_data, int i, t_parse *parse);
-int		ft_fill_data(t_map *data, char *file_data, int i, t_parse *parse);
-int		ft_check_file_data(t_map *data, char *file_data, t_parse *parse);
+int		ft_fill_first_data(t_map *data, char *file, int i, t_parse *parse);
+int		ft_fill_data(t_map *data, char *file, int i, t_parse *parse);
+int		ft_check_file_data(t_map *data, char *file, t_parse *parse);
 
 //05 pars map
-int		ft_manage_north_loop(t_map *data, char *file_data, int i, int len);
-int		ft_manage_north(t_map *data, char *file_data, int i, t_parse *parse);
-int		ft_manage_south_loop(t_map *data, char *file_data, int i, int len);
-int		ft_manage_south(t_map *data, char *file_data, int i, t_parse *parse);
+int		ft_manage_north_loop(t_map *data, char *file, int i, int len);
+int		ft_manage_north(t_map *data, char *file, int i, t_parse *parse);
+int		ft_manage_south_loop(t_map *data, char *file, int i, int len);
+int		ft_manage_south(t_map *data, char *file, int i, t_parse *parse);
 
 //06 pars map
-int		ft_manage_east_loop(t_map *data, char *file_data, int i, int len);
-int		ft_manage_east(t_map *data, char *file_data, int i, t_parse *parse);
-int		ft_manage_west_loop(t_map *data, char *file_data, int i, int len);
-int		ft_manage_west(t_map *data, char *file_data, int i, t_parse *parse);
+int		ft_manage_east_loop(t_map *data, char *file, int i, int len);
+int		ft_manage_east(t_map *data, char *file, int i, t_parse *parse);
+int		ft_manage_west_loop(t_map *data, char *file, int i, int len);
+int		ft_manage_west(t_map *data, char *file, int i, t_parse *parse);
 
 //07 pars map
-int		ft_check_id_nb(char *file_data, int i);
+int		ft_check_id_nb(char *file, int i);
 int		ft_get_rgb_value_ceil(t_map *data, char *file, int i, t_parse *parse);
-int		ft_manage_ceiling(t_map *data, char *file_data, int i, t_parse *parse);
+int		ft_manage_ceiling(t_map *data, char *file, int i, t_parse *parse);
 int		ft_get_rgb_value_floor(t_map *data, char *file, int i, t_parse *parse);
-int		ft_manage_floor(t_map *data, char *file_data, int i, t_parse *parse);
+int		ft_manage_floor(t_map *data, char *file, int i, t_parse *parse);
 
 //08 pars map
 int		ft_check_map_border_bis(char *file, int max_w, int max_l, t_map *data);
-int		ft_check_map_border(char *file_data, t_map *data);
-int		ft_check_valid_char(char *file_data, int i);
-int		ft_check_map_loop(char *file_data, int i);
-int		ft_check_map(t_map *data, char *file_data);
+int		ft_check_map_border(char *file, t_map *data);
+int		ft_check_valid_char(char *file, int i);
+int		ft_check_map_loop(char *file, int i);
+int		ft_check_map(t_map *data, char *file);
 
 //09 pars map
 int		ft_check_each_char_map(char **map);

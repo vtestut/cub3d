@@ -6,14 +6,14 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:59:04 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 11:47:07 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:47:27 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_CONVERT_H
 # define FT_CONVERT_H
 
-# include "libft.h
+# include "libft.h"
 
 /**
  * @brief Transforms a string of digits into a long integer.

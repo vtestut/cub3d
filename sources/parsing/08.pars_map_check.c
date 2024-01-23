@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:24:39 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 11:17:29 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 12:39:27 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_check_map_border_bis(char *file, int max_w, int max_l, t_map *data)
 	return (0);
 }
 
-int	ft_check_map_border(char *file_data, t_map *data)
+int	ft_check_map_border(char *file, t_map *data)
 {
 	int	i;
 	int	width;
@@ -50,9 +50,9 @@ int	ft_check_map_border(char *file_data, t_map *data)
 	width = 0;
 	len = 0;
 	max_width = 0;
-	while (file_data[i])
+	while (file[i])
 	{
-		if (file_data[i] == '\n')
+		if (file[i] == '\n')
 		{
 			if (width > max_width)
 				max_width = width;
@@ -63,22 +63,22 @@ int	ft_check_map_border(char *file_data, t_map *data)
 			width++;
 		i++;
 	}
-	if (ft_check_map_border_bis(file_data, max_width, len, data))
+	if (ft_check_map_border_bis(file, max_width, len, data))
 		return (1);
 	return (0);
 }
 
-int	ft_check_valid_char(char *file_data, int i)
+int	ft_check_valid_char(char *file, int i)
 {
-	if (file_data[i] != '\n' && file_data[i] != 'N' && \
-		file_data[i] != 'S' && file_data[i] != 'E' && \
-		file_data[i] != 'W' && file_data[i] != ' ' && \
-		file_data[i] != '0' && file_data[i] != '1')
+	if (file[i] != '\n' && file[i] != 'N' && \
+		file[i] != 'S' && file[i] != 'E' && \
+		file[i] != 'W' && file[i] != ' ' && \
+		file[i] != '0' && file[i] != '1')
 		return (1);
 	return (0);
 }
 
-int	ft_check_map_loop(char *file_data, int i)
+int	ft_check_map_loop(char *file, int i)
 {
 	int	player;
 	int	valid;
@@ -87,16 +87,16 @@ int	ft_check_map_loop(char *file_data, int i)
 	valid = 0;
 	player = 0;
 	newline = 0;
-	while (file_data[i])
+	while (file[i])
 	{
-		if (file_data[i] == 'N' || file_data[i] == 'S' || \
-			file_data[i] == 'E' || file_data[i] == 'W')
+		if (file[i] == 'N' || file[i] == 'S' || \
+			file[i] == 'E' || file[i] == 'W')
 			player++;
-		if (ft_check_valid_char(file_data, i))
+		if (ft_check_valid_char(file, i))
 			return (1);
-		if (file_data[i] == '1')
+		if (file[i] == '1')
 			valid++;
-		if (file_data[i] == '\n')
+		if (file[i] == '\n')
 			newline++;
 		i++;
 	}
@@ -105,17 +105,17 @@ int	ft_check_map_loop(char *file_data, int i)
 	return (0);
 }
 
-int	ft_check_map(t_map *data, char *file_data)
+int	ft_check_map(t_map *data, char *file)
 {
 	int	i;
 
 	i = data->map_index;
-	while (file_data[i] && file_data[i] == '\n')
+	while (file[i] && file[i] == '\n')
 		i++;
 	data->map_index = i;
-	if (ft_check_map_loop(file_data, i))
+	if (ft_check_map_loop(file, i))
 		return (1);
-	if (ft_check_map_border(file_data, data))
+	if (ft_check_map_border(file, data))
 		return (1);
 	return (0);
 }

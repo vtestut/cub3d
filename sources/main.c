@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:58:34 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 11:04:26 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/23 12:06:01 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	map_parsing(argc, argv, &game);
-
 	return (0);
 }
