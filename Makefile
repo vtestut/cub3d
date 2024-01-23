@@ -31,7 +31,7 @@ OBJS		=	$(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
 
 ##########	INCLUDES	#######################################################
 
-INC_DIR		=	-I includes -I libft -I minilibx
+INC_DIR		=	-I includes -I libft 
 
 ##########	MLX			#######################################################
 
