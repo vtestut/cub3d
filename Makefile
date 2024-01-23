@@ -29,20 +29,13 @@ vpath %.c $(PATH_SRCS)
 PATH_OBJS	=	objects
 OBJS		=	$(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
 
-OBJ_DIR = obj
-OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
-DPD = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.d))
-
 ##########	INCLUDES	#######################################################
 
 INC_DIR		=	-I includes -I libft -I minilibx
-INCLUDES	=	includes
-HEADER		=	${INCLUDES}/cub3d.h
 
 ##########	MLX			#######################################################
 
 MLX_DIR		=	minilibx-linux
-MLX			=	libmlx.a
 
 ##########	LIBFT		#######################################################
 
@@ -57,7 +50,6 @@ CFLAGS		+=	-Werror
 CFLAGS		+=	-g #-fsanitize=address
 
 CC			=	clang
-AR			=	ar rcs
 
 ##########	RULES		#######################################################
 
