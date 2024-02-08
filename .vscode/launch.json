@@ -1,0 +1,37 @@
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+/*
+A launch.json file is used to configure how Visual Studio Code launches and debugs your program. 
+It contains configurations for different types of debugging sessions, such as launching a program for debugging, 
+attaching to an already running process, or launching a task before debugging.
+*/
+{
+    "version": "0.2.0",
+        "configurations": [
+            {
+                "name" : "MY Debug C/C++", // Name of this debug configuration, which will be displayed in the debug configuration dropdown
+                "type": "cppdbg", // Specifies the debugger type. For C/C++ debugging, you use "cppdbg".
+                "request": "launch", // Specifies the type of launch. For C/C++ debugging, you use "launch".
+                "program": "/mnt/nfs/homes/vtestut/Documents/cub3d/cub3d", // Specifies the path to the program to debug. This can be an executable file or a core dump.
+                "args": [], // Specifies the arguments to pass to the program to debug. eg. ["arg1", "arg2", "-f", "--verbose", "input.txt"]
+                "stopAtEntry": true, // True or false. Specifies whether to stop at the entry point of the program.
+                "cwd": "/mnt/nfs/homes/vtestut/Documents/cub3d", // Specifies the working directory of the program being debugged.
+                "environment": [], // Specifies the environment variables to pass to the program being debugged. eg. [{"name": "HOME", "value": "/home/user"}]
+                "externalConsole": false, // True or false. Specifies whether to use an external console for the program being debugged.
+                "MIMode": "gdb", // Specifies the debugger mode. For C/C++ debugging, you use "gdb".
+                "setupCommands": [ // Specifies the commands to run before the debugger starts. This is useful for setting breakpoints, changing variables, and so on.
+                    {
+                        "description": "Enable pretty-printing for gdb", // Human-readable description of the command. This is optional
+                        "text": "-enable-pretty-printing", // The actual GDB command to execute. ensure that the commands you specify are compatible with the version of GDB you're using and the debugging environment you're working in.
+                        "ignoreFailures": true // If set to false, the debugging session will stop if the command fails to execute successfully.
+                    }
+                ],
+                "preLaunchTask": "build", // Specifies the task to run before the debugger starts. This is useful for building the program before debugging it.
+                "miDebuggerPath": "/usr/bin/gdb" // Specifies the path to the debugger. This is useful if you want to use a specific version of GDB.
+            }
+        ]
+    }
+    
+    // See the "tasks.json" file in the .vscode folder for the full example

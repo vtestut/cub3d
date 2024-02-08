@@ -1,0 +1,45 @@
+/*tasks.json file is used to define tasks such as building, compiling, or running your program.*/
+{
+    "version": "2.0.0", // la version du format de fichier tasks.json
+    "tasks": [ // An array containing task configurations. Each element in the array represents a single task.
+        {
+            "label": "build", // A human-readable string representing the task. A unique identifier for the task. This string is used to reference the task within Visual Studio Code (UI)
+            "type": "shell", // Il s'agit du type de la tâche. "shell" signifie que la tâche sera exécutée dans un shell (par exemple, bash, cmd, etc.).
+            "command": "make", // La commande à exécuter.
+            "group": { // Specifies the group to which the task belongs. This is useful for grouping tasks in the UI.
+                "kind": "build", // Specifies the kind of group. This can be "build", "test", "deploy", "none", or a custom string.
+                "isDefault": true // Indicates whether the task is the default task in its group. If set to true, this task will be the default build task
+            },
+            "presentation": { // Specifies the presentation options for the task. This is useful for controlling how the task is presented in the UI.
+                "reveal": "always" // Specifies when the task output is revealed. This can be "always", "silent", "never", or a custom string.
+            },
+            "problemMatcher": [] /* 
+            Les "problem matchers" définissent comment VS Code reconnaît les erreurs et les avertissements dans la sortie de la tâche. 
+            Ils peuvent être utilisés pour créer des marqueurs dans l'éditeur et pour afficher les erreurs et les avertissements dans le panneau "Problèmes". 
+            Un "problem matcher" est défini par une expression régulière et un schéma qui décrit comment extraire les informations sur les fichiers, 
+            les lignes, les messages, etc. Si vous ne voulez pas utiliser de "problem matcher", vous pouvez laisser ce champ vide ([]).*/
+        }
+    ]
+}
+
+/************************************************************
+"problemMatcher": {
+    "owner": "cpp",
+    "fileLocation": ["relative", "${workspaceRoot}"],
+    "pattern": {
+        "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+        "file": 1,
+        "line": 2,
+        "column": 3,
+        "severity": 4,
+        "message": 5
+    }
+}
+
+Dans cet exemple, l'expression régulière dans pattern.regexp correspond à la sortie standard de gcc pour les erreurs et les avertissements. 
+Les autres champs dans pattern indiquent à VS Code comment extraire les informations sur le fichier, 
+la ligne, la colonne, la gravité et le message de l'erreur ou de l'avertissement.
+Il existe également des problemMatcher prédéfinis que vous pouvez utiliser. 
+Par exemple, si vous utilisez gcc, vous pouvez simplement utiliser le problemMatcher prédéfini "$gcc" :
+"problemMatcher": "$gcc"
+***************************************************************/

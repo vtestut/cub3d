@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:00:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 16:32:15 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/01/30 14:20:34 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 
 # define TEXTURE_WIDTH 256
 # define TEXTURE_HEIGHT 256
+# define WIN_WIDTH 640		//	! 
+# define WIN_HEIGHT 480		//  ! 
 
 typedef enum e_bg_color{
 	CLR_TOP,
@@ -79,8 +81,9 @@ typedef struct s_game
 	t_player	player;
 	uint32_t	bg_colors[2];	
 	uint32_t	textures_pxls[4][TEXTURE_HEIGHT][TEXTURE_WIDTH];
+	void		*mlx; 		//  !
+	void		*window; 	//  !
 }	t_game;
-
 
 /*****************************************************************************/
 /*							FUNCTIONS										 */
