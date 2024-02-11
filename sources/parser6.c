@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 22:18:24 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 19:43:40 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:19:52 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	check_player_position(t_game *game, char **map_tab)
 		{
 			if (ft_strchr("NSEW", map_tab[i][j]))
 			{
-				game->player.pos_x = (double)j + 0.5;
-				game->player.pos_y = (double)i + 0.5;
+				game->player.pos_x = (float)j + 0.5;
+				game->player.pos_y = (float)i + 0.5;
 				map_tab[i][j] = '0';
 			}
 			j++;

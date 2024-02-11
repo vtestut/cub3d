@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 12:47:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 20:03:14 by vtestut          ###   ########.fr       */
+/*   Created: 2024/01/16 11:39:42 by vtestut           #+#    #+#             */
+/*   Updated: 2024/02/11 20:36:46 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ typedef struct s_data
 	int				*floor;
 	int				*ceiling;
 	unsigned long	hex_floor;
-	unsigned long	hex_ceiling;
+	unsigned long	hex_ceil;
 	int				size;
 	int				index;
-	double			step;
-	double			pos;
+	float			step;
+	float			pos;
 	int				x;
 	int				y;
 }	t_data;
@@ -71,15 +71,15 @@ typedef struct s_ray
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
-	double	camera_x;
-	double	dir_x;
-	double	dir_y;
-	double	side_x;
-	double	side_y;
-	double	delta_x;
-	double	delta_y;
-	double	wall_dist;
-	double	wall_x;
+	float	camera_x;
+	float	dir_x;
+	float	dir_y;
+	float	side_x;
+	float	side_y;
+	float	delta_x;
+	float	delta_y;
+	float	wall_dist;
+	float	wall_x;
 }	t_ray;
 
 typedef struct s_player
@@ -89,12 +89,12 @@ typedef struct s_player
 	int		move_x;
 	int		move_y;
 	int		rotate;
-	double	pos_x;
-	double	pos_y;
-	double	dir_x;
-	double	dir_y;
-	double	plane_x;
-	double	plane_y;
+	float	pos_x;
+	float	pos_y;
+	float	dir_x;
+	float	dir_y;
+	float	plane_x;
+	float	plane_y;
 }	t_player;
 
 typedef struct s_game
@@ -107,7 +107,7 @@ typedef struct s_game
 	int			width;
 	int			map_end;
 	int			**pixl_tex;
-	int			**textures;
+	int			**tex_ar;
 	char		*path;
 	char		**file;
 	char		**map;
@@ -170,7 +170,6 @@ int				check_map(t_game *game, char **map_tab);
 unsigned long	convert_rgb_to_hex(int *rgb_tab);
 int				check_textures(t_data *textures);
 int				check_map_is_at_the_end(t_game *map);
-int				is_a_white_space(char c);
 int				check_position_is_valid(t_game *game, char **map_tab);
 
 // parser8.c
@@ -191,7 +190,7 @@ void			render_window(t_game *game);
 int				render_loop(t_game *game);
 
 // render2.c
-void			set_image_pixel(t_img *image, int x, int y, int color);
+void			img_pixl_utils(t_img *image, int x, int y, int color);
 void			set_img_pixl(t_game *game, t_img *image, int x, int y);
 
 // raycasting.c
@@ -218,11 +217,11 @@ int				move_right(t_game *game);
 int				move_player(t_game *game);
 
 // moves2.c
-int				do_rotation(t_game *game, double rotspeed);
-int				rotation(t_game *game, double rotdir);
-bool			check_for_collision(t_game *game, double x, double y);
-bool			is_valid_pos(t_game *game, double x, double y);
-int				is_valid_move(t_game *game, double new_x, double new_y);
+int				do_rotation(t_game *game, float rotspeed);
+int				rotation(t_game *game, float rotdir);
+bool			check_for_collision(t_game *game, float x, float y);
+bool			is_valid_pos(t_game *game, float x, float y);
+int				is_valid_move(t_game *game, float new_x, float new_y);
 
 // exit_free.c
 void			free_tab(void **tab);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 11:36:48 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 19:53:13 by vtestut          ###   ########.fr       */
+/*   Created: 2024/01/16 11:47:11 by vtestut           #+#    #+#             */
+/*   Updated: 2024/02/11 20:25:59 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	init_data(t_data *textures)
 	textures->floor = 0;
 	textures->ceiling = 0;
 	textures->hex_floor = 0x0;
-	textures->hex_ceiling = 0x0;
+	textures->hex_ceil = 0x0;
 	textures->step = 0.0;
 	textures->pos = 0.0;
 	textures->x = 0;
@@ -72,7 +72,7 @@ void	init_game(t_game *game)
 	game->map = NULL;
 	game->path = NULL;
 	game->file = NULL;
-	game->textures = NULL;
+	game->tex_ar = NULL;
 	game->pixl_tex = NULL;
 	game->win_h = HEIGHT;
 	game->win_w = WIDTH;

@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:32:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 19:44:40 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:35:11 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_textures(t_data *textures)
 		|| check_valid_rgb(textures->ceiling) == 1)
 		return (1);
 	textures->hex_floor = convert_rgb_to_hex(textures->floor);
-	textures->hex_ceiling = convert_rgb_to_hex(textures->ceiling);
+	textures->hex_ceil = convert_rgb_to_hex(textures->ceiling);
 	return (0);
 }
 
@@ -67,15 +67,6 @@ int	check_map_is_at_the_end(t_game *map)
 	return (0);
 }
 
-int	is_a_white_space(char c)
-{
-	if (c != ' ' && c != '\t' && c != '\r'
-		&& c != '\n' && c != '\v' && c != '\f')
-		return (1);
-	else
-		return (0);
-}
-
 int	check_position_is_valid(t_game *game, char **map_tab)
 {
 	int	i;
@@ -85,10 +76,10 @@ int	check_position_is_valid(t_game *game, char **map_tab)
 	j = (int)game->player.pos_x;
 	if (ft_strlen(map_tab[i - 1]) < (size_t)j
 		|| ft_strlen(map_tab[i + 1]) < (size_t)j
-		|| is_a_white_space(map_tab[i][j - 1]) == 0
-		|| is_a_white_space(map_tab[i][j + 1]) == 0
-		|| is_a_white_space(map_tab[i - 1][j]) == 0
-		|| is_a_white_space(map_tab[i + 1][j]) == 0)
+		|| ft_isspace(map_tab[i][j - 1]) == 0
+		|| ft_isspace(map_tab[i][j + 1]) == 0
+		|| ft_isspace(map_tab[i - 1][j]) == 0
+		|| ft_isspace(map_tab[i + 1][j]) == 0)
 		return (1);
 	return (0);
 }

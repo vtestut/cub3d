@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:36:48 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 19:59:50 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:10:09 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	init_mlx(t_game *game)
 
 void	init_textures(t_game *game)
 {
-	game->textures = ft_calloc(5, sizeof * game->textures);
-	if (!game->textures)
+	game->tex_ar = ft_calloc(5, sizeof * game->tex_ar);
+	if (!game->tex_ar)
 		exit_free(game, msg_error("malloc error init textures", 1));
-	game->textures[NORTH] = xpm_to_img(game, game->data.north);
-	game->textures[SOUTH] = xpm_to_img(game, game->data.south);
-	game->textures[EAST] = xpm_to_img(game, game->data.east);
-	game->textures[WEST] = xpm_to_img(game, game->data.west);
+	game->tex_ar[NORTH] = xpm_to_img(game, game->data.north);
+	game->tex_ar[SOUTH] = xpm_to_img(game, game->data.south);
+	game->tex_ar[EAST] = xpm_to_img(game, game->data.east);
+	game->tex_ar[WEST] = xpm_to_img(game, game->data.west);
 }
 
 void	render_game(t_game *game)

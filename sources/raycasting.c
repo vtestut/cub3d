@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 15:40:40 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 20:03:14 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:19:52 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ We initialize the set up for the rays
 void	set_raycasting(int x, t_ray *ray, t_player *player)
 {
 	init_ray(ray);
-	ray->camera_x = 2 * x / (double)WIDTH - 1;
+	ray->camera_x = 2 * x / (float)WIDTH - 1;
 	ray->dir_x = player->dir_x + player->plane_x * ray->camera_x;
 	ray->dir_y = player->dir_y + player->plane_y * ray->camera_x;
 	ray->map_x = (int)player->pos_x;

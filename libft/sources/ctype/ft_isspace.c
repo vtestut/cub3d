@@ -12,9 +12,11 @@
 
 #include "ft_ctype.h"
 
-int	ft_isspace(int c)
+int	ft_isspace(char c)
 {
-	static const char	*spaces = "\t\n\v\f\r ";
-
-	return (ft_strchr(spaces, c) != NULL);
+	if (c != ' ' && c != '\t' && c != '\r'
+		&& c != '\n' && c != '\v' && c != '\f')
+		return (1);
+	else
+		return (0);
 }

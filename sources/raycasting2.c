@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:28:23 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 20:03:14 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:11:18 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	update_pixl_tex(t_game *game, t_data *tex, t_ray *ray, int x)
 	{
 		tex->y = (int)tex->pos & (tex->size - 1);
 		tex->pos += tex->step;
-		color = game->textures[tex->index][tex->size * tex->y + tex->x];
+		color = game->tex_ar[tex->index][tex->size * tex->y + tex->x];
 		if (tex->index == NORTH || tex->index == EAST)
 			color = (color >> 1) & 8355711;
 		if (color > 0)

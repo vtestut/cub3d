@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:40:23 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/30 11:50:51 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:33:09 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ int		ft_isprint(int c);
  * @brief		Check if a given character is a space
  * @return		1 if true, 0 else
 */
-int		ft_isspace(int c);
+int		ft_isspace(char c);
 
 #endif
