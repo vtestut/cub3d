@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:32:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:22:55 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:44:40 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ unsigned long	convert_rgb_to_hex(int *rgb_tab)
 	return (result);
 }
 
-int	check_textures_validity(t_data *textures)
+int	check_textures(t_data *textures)
 {
 	if (!textures->north || !textures->south || !textures->west
 		|| !textures->east)
-		return (err_msg("no texture", 1));
+		return (msg_error("no texture", 1));
 	if (!textures->floor || !textures->ceiling)
-		return (err_msg("no color", 1));
+		return (msg_error("no color", 1));
 	if (check_arg(textures->north, false) == 1
 		|| check_arg(textures->south, false) == 1
 		|| check_arg(textures->west, false) == 1

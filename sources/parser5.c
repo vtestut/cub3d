@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:43:51 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:22:55 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:42:12 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	fill_map_tab(t_game *game, char **map_tab, int index)
 		j = 0;
 		map_tab[i] = malloc(sizeof(char) * (game->width + 1));
 		if (!map_tab[i])
-			return (err_msg("malloc error fill_map_tab", 1));
+			return (msg_error("malloc error fill_map_tab", 1));
 		while (game->file[index][j] && game->file[index][j] != '\n')
 		{
 			map_tab[i][j] = game->file[index][j];
@@ -106,7 +106,7 @@ int	get_map_info(t_game *game, char **file, int i)
 	game->height = count_map_lines(game, file, i);
 	game->map = malloc(sizeof(char *) * (game->height + 1));
 	if (!game->map)
-		return (err_msg("malloc error get_map_info", 1));
+		return (msg_error("malloc error get_map_info", 1));
 	if (fill_map_tab(game, game->map, i) == 1)
 		return (1);
 	return (0);

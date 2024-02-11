@@ -6,13 +6,13 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:28:23 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:27:22 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:03:14 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	get_texture_index(t_game *game, t_ray *ray)
+void	get_texture_idx(t_game *game, t_ray *ray)
 {
 	if (ray->side == 0)
 	{
@@ -30,12 +30,12 @@ void	get_texture_index(t_game *game, t_ray *ray)
 	}
 }
 
-void	update_pixels_tex(t_game *game, t_data *tex, t_ray *ray, int x)
+void	update_pixl_tex(t_game *game, t_data *tex, t_ray *ray, int x)
 {
 	int			y;
 	int			color;
 
-	get_texture_index(game, ray);
+	get_texture_idx(game, ray);
 	tex->x = (int)(ray->wall_x * tex->size);
 	if ((ray->side == 0 && ray->dir_x < 0)
 		|| (ray->side == 1 && ray->dir_y > 0))
@@ -52,12 +52,12 @@ void	update_pixels_tex(t_game *game, t_data *tex, t_ray *ray, int x)
 		if (tex->index == NORTH || tex->index == EAST)
 			color = (color >> 1) & 8355711;
 		if (color > 0)
-			game->pixels_tex[y][x] = color;
+			game->pixl_tex[y][x] = color;
 		y++;
 	}
 }
 
-void	calculate_line_height(t_ray *ray, t_game *game, t_player *player)
+void	find_line_height(t_ray *ray, t_game *game, t_player *player)
 {
 	if (ray->side == 0)
 		ray->wall_dist = (ray->side_x - ray->delta_x);

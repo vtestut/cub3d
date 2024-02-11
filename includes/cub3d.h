@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:47:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:28:53 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:03:14 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_img
 {
 	void	*img;
 	int		*addr;
-	int		pixel_bits;
+	int		pixl_bit;
 	int		size_line;
 	int		endian;
 }	t_img;
@@ -106,7 +106,7 @@ typedef struct s_game
 	int			height;
 	int			width;
 	int			map_end;
-	int			**pixels_tex;
+	int			**pixl_tex;
 	int			**textures;
 	char		*path;
 	char		**file;
@@ -121,8 +121,8 @@ typedef struct s_game
 // main.c
 void			init_mlx(t_game *game);
 void			init_textures(t_game *game);
-void			render_images(t_game *game);
-void			listen_for_input(t_game *game);
+void			render_game(t_game *game);
+void			catch_input(t_game *game);
 
 // parser.c
 int				check_arg(char *arg, bool cub);
@@ -164,65 +164,65 @@ int				check_player_position(t_game *game, char **map_tab);
 int				check_map_elements(t_game *game, char **map_tab);
 int				check_top_or_bottom(char **map_tab, int i, int j);
 int				check_map_sides(t_game *map, char **map_tab);
-int				check_map_validity(t_game *game, char **map_tab);
+int				check_map(t_game *game, char **map_tab);
 
 // parser7.c
 unsigned long	convert_rgb_to_hex(int *rgb_tab);
-int				check_textures_validity(t_data *textures);
+int				check_textures(t_data *textures);
 int				check_map_is_at_the_end(t_game *map);
 int				is_a_white_space(char c);
 int				check_position_is_valid(t_game *game, char **map_tab);
 
 // parser8.c
-void			init_player_north_south(t_player *player);
-void			init_player_east_west(t_player *player);
-void			init_player_direction(t_game *game);
+void			north_south(t_player *player);
+void			east_west(t_player *player);
+void			init_player_dir(t_game *game);
 int				check_valid_rgb(int *rgb);
 
 // init_mlx.c
-void			init_img_clean(t_img *img);
+void			set_clean_img(t_img *img);
 void			init_texture_img(t_game *game, t_img *image, char *path);
 int				*xpm_to_img(t_game *game, char *path);
 
 // render.c
-void			init_pixels_tex(t_game *game);
+void			init_pixl(t_game *game);
 void			init_img(t_game *game, t_img *image, int width, int height);
-void			render_frame(t_game *game);
-int				render(t_game *game);
+void			render_window(t_game *game);
+int				render_loop(t_game *game);
 
 // render2.c
 void			set_image_pixel(t_img *image, int x, int y, int color);
-void			set_frame_image_pixel(t_game *game, t_img *image, int x, int y);
+void			set_img_pixl(t_game *game, t_img *image, int x, int y);
 
 // raycasting.c
 void			init_ray(t_ray *ray);
-void			init_raycasting_info(int x, t_ray *ray, t_player *player);
+void			set_raycasting(int x, t_ray *ray, t_player *player);
 void			set_dda(t_ray *ray, t_player *player);
 void			perform_dda(t_game *game, t_ray *ray);
 int				raycasting(t_player *player, t_game *game);
 
 // raycasting2.c
-void			get_texture_index(t_game *game, t_ray *ray);
-void			update_pixels_tex(t_game *game, t_data *tex, t_ray *ray, int x);
-void			calculate_line_height(t_ray *ray, t_game *game, t_player *player);
+void			get_texture_idx(t_game *game, t_ray *ray);
+void			update_pixl_tex(t_game *game, t_data *tex, t_ray *ray, int x);
+void			find_line_height(t_ray *ray, t_game *game, t_player *player);
 
 // input.c
-int				key_press_handler(int key, t_game *game);
-int				key_release_handler(int key, t_game *game);
+int				key_press(int key, t_game *game);
+int				key_release(int key, t_game *game);
 
 // moves.c
-int				move_player_forward(t_game *game);
-int				move_player_backward(t_game *game);
-int				move_player_left(t_game *game);
-int				move_player_right(t_game *game);
+int				move_front(t_game *game);
+int				move_back(t_game *game);
+int				move_left(t_game *game);
+int				move_right(t_game *game);
 int				move_player(t_game *game);
 
 // moves2.c
-int				rotate_left_right(t_game *game, double rotspeed);
-int				rotate_player(t_game *game, double rotdir);
-bool			is_valid_pos_wall_collision(t_game *game, double x, double y);
+int				do_rotation(t_game *game, double rotspeed);
+int				rotation(t_game *game, double rotdir);
+bool			check_for_collision(t_game *game, double x, double y);
 bool			is_valid_pos(t_game *game, double x, double y);
-int				validate_move(t_game *game, double new_x, double new_y);
+int				is_valid_move(t_game *game, double new_x, double new_y);
 
 // exit_free.c
 void			free_tab(void **tab);
@@ -231,6 +231,6 @@ void			free_map(t_game *game);
 int				free_game(t_game *game);
 void			exit_free(t_game *game, int ret);
 int				quit_cub3d(t_game *game);
-int				err_msg(char *str, int ret);
+int				msg_error(char *str, int ret);
 
 #endif

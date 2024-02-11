@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:36:48 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:24:28 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:53:13 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ int	check_arg(char *arg, bool cub)
 	int	fd;
 
 	if (check_if_directory(arg))
-		return (err_msg("map file is a directory", 1));
+		return (msg_error("map file is a directory", 1));
 	fd = open(arg, O_RDONLY);
 	if (fd == -1)
-		return (err_msg("can't open  map file", 1));
+		return (msg_error("can't open  map file", 1));
 	close(fd);
 	if (cub && check_format(arg))
-		return (err_msg("map file must be in .cub format", 1));
+		return (msg_error("map file must be in .cub format", 1));
 	if (!cub && !is_xpm_file(arg))
-		return (err_msg("Not an .xpm file", 1));
+		return (msg_error("Not an .xpm file", 1));
 	return (0);
 }
 
@@ -73,7 +73,7 @@ void	init_game(t_game *game)
 	game->path = NULL;
 	game->file = NULL;
 	game->textures = NULL;
-	game->pixels_tex = NULL;
+	game->pixl_tex = NULL;
 	game->win_h = HEIGHT;
 	game->win_w = WIDTH;
 	game->fd = 0;
@@ -94,10 +94,10 @@ int	parser(t_game *game, char **argv)
 	start_parse(argv[1], game);
 	if (parse_file(game, game->file) == 1)
 		return (free_game(game));
-	if (check_map_validity(game, game->map) == 1)
+	if (check_map(game, game->map) == 1)
 		return (free_game(game));
-	if (check_textures_validity(&game->data) == 1)
+	if (check_textures(&game->data) == 1)
 		return (free_game(game));
-	init_player_direction(game);
+	init_player_dir(game);
 	return (0);
 }

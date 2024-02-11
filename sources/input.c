@@ -6,13 +6,13 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 20:14:43 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:17:20 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:59:50 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	key_press_handler(int key, t_game *game)
+int	key_press(int key, t_game *game)
 {
 	if (key == XK_Escape)
 		quit_cub3d(game);
@@ -31,7 +31,7 @@ int	key_press_handler(int key, t_game *game)
 	return (0);
 }
 
-int	key_release_handler(int key, t_game *game)
+int	key_release(int key, t_game *game)
 {
 	if (key == XK_Escape)
 		quit_cub3d(game);

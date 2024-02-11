@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_04.c                                        :+:      :+:    :+:   */
+/*   parser4.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:27:02 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:15:06 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:42:12 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	*set_rgb_colors(char *line)
 	rgb = malloc(sizeof(int) * 3);
 	if (!rgb)
 	{
-		err_msg("malloc error set_rgb_colors", 0);
+		msg_error("malloc error set_rgb_colors", 0);
 		return (0);
 	}
 	return (copy_into_rgb_array(rgb_to_convert, rgb));
@@ -82,20 +82,20 @@ int	*set_rgb_colors(char *line)
 int	fill_color_textures(t_data *textures, char *line, int j)
 {
 	if (line[j + 1] && ft_isprint(line[j + 1]))
-		return (err_msg("Invalid floor/ceiling color", 2));
+		return (msg_error("Invalid floor/ceiling color", 2));
 	if (!textures->ceiling && line[j] == 'C')
 	{
 		textures->ceiling = set_rgb_colors(line + j + 1);
 		if (textures->ceiling == 0)
-			return (err_msg("Invalid ceiling color", 2));
+			return (msg_error("Invalid ceiling color", 2));
 	}
 	else if (!textures->floor && line[j] == 'F')
 	{
 		textures->floor = set_rgb_colors(line + j + 1);
 		if (textures->floor == 0)
-			return (err_msg("Invalid floor color", 2));
+			return (msg_error("Invalid floor color", 2));
 	}
 	else
-		return (err_msg("Invalid floor/ceiling color", 2));
+		return (msg_error("Invalid floor/ceiling color", 2));
 	return (0);
 }

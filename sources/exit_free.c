@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:05:02 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:24:28 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:53:13 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ int	free_game(t_game *game)
 {
 	if (game->textures)
 		free_tab((void **)game->textures);
-	if (game->pixels_tex)
-		free_tab((void **)game->pixels_tex);
+	if (game->pixl_tex)
+		free_tab((void **)game->pixl_tex);
 	free_data(&game->data);
 	free_map(game);
 	return (1);
@@ -88,7 +88,7 @@ int	quit_cub3d(t_game *game)
 	return (0);
 }
 
-int	err_msg(char *str, int ret)
+int	msg_error(char *str, int ret)
 {
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(str, 2);

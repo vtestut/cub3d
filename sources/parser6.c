@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_06.c                                        :+:      :+:    :+:   */
+/*   parser6.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 22:18:24 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:20:14 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:43:40 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_player_position(t_game *game, char **map_tab)
 	int	j;
 
 	if (game->player.dir == '0')
-		return (err_msg("no player position", 1));
+		return (msg_error("no player position", 1));
 	i = 0;
 	while (map_tab[i])
 	{
@@ -37,7 +37,7 @@ int	check_player_position(t_game *game, char **map_tab)
 		i++;
 	}
 	if (check_position_is_valid(game, map_tab) == 1)
-		return (err_msg("wrong player position", 1));
+		return (msg_error("wrong player position", 1));
 	return (0);
 }
 
@@ -59,9 +59,9 @@ int	check_map_elements(t_game *game, char **map_tab)
 			|| game->map[i][j] == '\v' || game->map[i][j] == '\f')
 				j++;
 			if (!(ft_strchr("10NSEW", map_tab[i][j])))
-				return (err_msg("invalid char in map file", 1));
+				return (msg_error("invalid char in map file", 1));
 			if (ft_strchr("NSEW", map_tab[i][j]) && game->player.dir != '0')
-				return (err_msg("map must have 1 player", 1));
+				return (msg_error("map must have 1 player", 1));
 			if (ft_strchr("NSEW", map_tab[i][j]) && game->player.dir == '0')
 				game->player.dir = map_tab[i][j];
 			j++;
@@ -111,19 +111,19 @@ int	check_map_sides(t_game *map, char **map_tab)
 }
 
 // launch the map check
-int	check_map_validity(t_game *game, char **map_tab)
+int	check_map(t_game *game, char **map_tab)
 {
 	if (!game->map)
-		return (err_msg("map is missing", 1));
+		return (msg_error("map is missing", 1));
 	if (check_map_sides(game, map_tab) == 1)
-		return (err_msg("map must be surrounded by walls", 1));
+		return (msg_error("map must be surrounded by walls", 1));
 	if (game->height < 3)
-		return (err_msg("map too small", 1));
+		return (msg_error("map too small", 1));
 	if (check_map_elements(game, map_tab) == 1)
 		return (1);
 	if (check_player_position(game, map_tab) == 1)
 		return (1);
 	if (check_map_is_at_the_end(game) == 1)
-		return (err_msg("map must be a the end of file", 1));
+		return (msg_error("map must be a the end of file", 1));
 	return (0);
 }

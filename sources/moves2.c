@@ -6,13 +6,13 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:14:06 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:16:20 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:56:29 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	rotate_left_right(t_game *game, double rotspeed)
+int	do_rotation(t_game *game, double rotspeed)
 {
 	t_player	*p;
 	double		tmp_x;
@@ -27,18 +27,18 @@ int	rotate_left_right(t_game *game, double rotspeed)
 	return (1);
 }
 
-int	rotate_player(t_game *game, double rotdir)
+int	rotation(t_game *game, double rotdir)
 {
 	int		moved;
 	double	rotspeed;
 
 	moved = 0;
 	rotspeed = ROTSPEED * rotdir;
-	moved += rotate_left_right(game, rotspeed);
+	moved += do_rotation(game, rotspeed);
 	return (moved);
 }
 
-bool	is_valid_pos_wall_collision(t_game *game, double x, double y)
+bool	check_for_collision(t_game *game, double x, double y)
 {
 	if (game->map[(int)y][(int)x] == '0')
 		return (true);
@@ -47,12 +47,12 @@ bool	is_valid_pos_wall_collision(t_game *game, double x, double y)
 
 bool	is_valid_pos(t_game *game, double x, double y)
 {
-	if (is_valid_pos_wall_collision(game, x, y))
+	if (check_for_collision(game, x, y))
 		return (true);
 	return (false);
 }
 
-int	validate_move(t_game *game, double new_x, double new_y)
+int	is_valid_move(t_game *game, double new_x, double new_y)
 {
 	int	moved;
 

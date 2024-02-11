@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_02.c                                        :+:      :+:    :+:   */
+/*   parser2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:52:54 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:13:39 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:42:12 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	count_lines(char *path)
 	n_line = 0;
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		err_msg("can't open file", 1);
+		msg_error("can't open file", 1);
 	else
 	{
 		line = get_next_line(fd);
@@ -52,12 +52,12 @@ void	start_parse(char *path, t_game *game)
 	game->file = ft_calloc(game->n_line + 1, sizeof(char *));
 	if (game->file == NULL)
 	{
-		err_msg("malloc error at start parse", 0);
+		msg_error("malloc error at start parse", 0);
 		return ;
 	}
 	game->fd = open(path, O_RDONLY);
 	if (game->fd < 0)
-		err_msg("can't open file", 1);
+		msg_error("can't open file", 1);
 	else
 	{
 		fill_map(row, col, i, game);

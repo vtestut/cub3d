@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_03.c                                        :+:      :+:    :+:   */
+/*   parser3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:06:12 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:12:43 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:42:12 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	skip_spaces(t_game *game, char **map, int i, int j)
 			&& !ft_isdigit(map[i][j]))
 		{
 			if (fill_direction_textures(&game->data, map[i], j) == 1)
-				return (err_msg("Invalid texture", 1));
+				return (msg_error("Invalid texture", 1));
 			return (3);
 		}	
 		else
@@ -83,7 +83,7 @@ int	skip_spaces(t_game *game, char **map, int i, int j)
 	else if (ft_isdigit(map[i][j]))
 	{
 		if (create_map(game, map, i) == 1)
-			return (err_msg("problem with map description", 1));
+			return (msg_error("problem with map description", 1));
 		return (0);
 	}
 	return (4);
@@ -127,7 +127,7 @@ void	fill_map(int row, int col, int i, t_game *game)
 		game->file[row] = ft_calloc(ft_strlen(line) + 1, sizeof(char));
 		if (!game->file[row])
 		{
-			err_msg("malloc error", 0);
+			msg_error("malloc error", 0);
 			return (free_tab((void **)game->file));
 		}
 		while (line[i] != '\0')

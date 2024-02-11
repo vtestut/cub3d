@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 15:40:40 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:27:22 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:03:14 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ We initialize the set up for the rays
 - map_x/y = current square of the ray
 - delta_x/y = distance to go to the next x or y.
 */
-void	init_raycasting_info(int x, t_ray *ray, t_player *player)
+void	set_raycasting(int x, t_ray *ray, t_player *player)
 {
 	init_ray(ray);
 	ray->camera_x = 2 * x / (double)WIDTH - 1;
@@ -128,11 +128,11 @@ int	raycasting(t_player *player, t_game *game)
 	ray = game->ray;
 	while (x < game->win_w)
 	{
-		init_raycasting_info(x, &ray, player);
+		set_raycasting(x, &ray, player);
 		set_dda(&ray, player);
 		perform_dda(game, &ray);
-		calculate_line_height(&ray, game, player);
-		update_pixels_tex(game, &game->data, &ray, x);
+		find_line_height(&ray, game, player);
+		update_pixl_tex(game, &game->data, &ray, x);
 		x++;
 	}
 	return (0);

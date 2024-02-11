@@ -6,13 +6,13 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:04:24 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:17:29 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:46:02 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_player_north_south(t_player *player)
+void	north_south(t_player *player)
 {
 	if (player->dir == 'S')
 	{
@@ -32,7 +32,7 @@ void	init_player_north_south(t_player *player)
 		return ;
 }
 
-void	init_player_east_west(t_player *player)
+void	east_west(t_player *player)
 {
 	if (player->dir == 'W')
 	{
@@ -52,10 +52,10 @@ void	init_player_east_west(t_player *player)
 		return ;
 }
 
-void	init_player_direction(t_game *game)
+void	init_player_dir(t_game *game)
 {
-	init_player_north_south(&game->player);
-	init_player_east_west(&game->player);
+	north_south(&game->player);
+	east_west(&game->player);
 }
 
 int	check_valid_rgb(int *rgb)
@@ -66,7 +66,7 @@ int	check_valid_rgb(int *rgb)
 	while (i < 3)
 	{
 		if (rgb[i] < 0 || rgb[i] > 255)
-			return (err_msg("invalid color value", 1));
+			return (msg_error("invalid color value", 1));
 		i++;
 	}
 	return (0);
