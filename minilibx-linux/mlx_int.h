@@ -5,7 +5,7 @@
 ** Login   <ol@epitech.net>
 ** 
 ** Started on  Mon Jul 31 16:45:48 2000 Charlie Root
-** Last update Wed May 25 16:44:16 2011 Olivier Crouzec
+** Last update Wed May 25 16:44:16 2011 Olivier Crouzet
 */
 
 
@@ -114,6 +114,8 @@ typedef struct	s_xvar
 	int			do_flush;
 	int			decrgb[6];
 	Atom		wm_delete_window;
+	Atom		wm_protocols;
+	int 		end_loop;
 }				t_xvar;
 
 

@@ -6,13 +6,13 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:21:43 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/30 11:50:51 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 15:15:02 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 

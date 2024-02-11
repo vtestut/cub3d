@@ -5,7 +5,7 @@ static char * mossy_xpm[] = {
 ".	c #545454",
 "+	c #484848",
 "@	c #DCDCDC",
-"#	c #CCC400",
+"#	c #map400",
 "$	c #B4AC00",
 "%	c #202020",
 "&	c #383838",

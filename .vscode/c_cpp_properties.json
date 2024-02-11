@@ -1,19 +1,16 @@
-/*
-The c_cpp_properties.json file is used to configure IntelliSense, 
-which provides code completion, syntax highlighting, and other intelligent code editing features in VSCode
-By configuring c_cpp_properties.json, you can ensure that IntelliSense accurately understands your 
-project's include paths, compiler options, defines, and other settings.
-*/
 {
     "configurations": [
         {
             "name": "Linux",
-            "includePath": ["/mnt/nfs/homes/vtestut/Documents/cub3d/**"],
+            "includePath": [
+                "/mnt/nfs/homes/vtestut/Documents/cub3d/**"
+            ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c99",
             "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-x64"
+            "intelliSenseMode": "gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4

@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:29:09 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/30 11:50:51 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 15:16:06 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
  * @warning		str must be null-terminated
  * @warning		str must not be null
  */
-int		ft_strlen(const char *str);
+// int		ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
+
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
@@ -202,7 +204,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * @param n
  * @return
  */
-int		ft_strncmp(const char *s1, const char *s2, int n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
  * copies the string pointed to by src, to the buffer pointed to by dest.

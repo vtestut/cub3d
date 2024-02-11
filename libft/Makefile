@@ -1,4 +1,4 @@
-##########	TARGET		#######################################################
+##########	PROGRAM		#######################################################
 
 NAME 		=	libft.a
 
@@ -157,8 +157,8 @@ $(NAME): 		$(OBJS)
 				$(AR) $@ $^
 
 $(OBJS): 		$(PATH_OBJS)/%.o: %.c $(HEADER)
-				@mkdir -p $(PATH_OBJS)
-				@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
+				mkdir -p $(PATH_OBJS)
+				$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
 
 clean:
 	 			$(RM) -R $(PATH_OBJS)

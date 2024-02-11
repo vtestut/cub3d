@@ -66,7 +66,7 @@ static char * west_xpm[] = {
 "x 	c #F2F2F2",
 "y 	c #F6F6F6",
 "z 	c #8B8B8B",
-"A 	c #CCCCCC",
+"A 	c #mapmap",
 "B 	c #C3C3C3",
 "C 	c #E2E2E2",
 "D 	c #585858",
