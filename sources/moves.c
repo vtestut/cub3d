@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:31:24 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:37:03 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 17:56:33 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	move_player_forward(t_game *game)
 	double	new_x;
 	double	new_y;
 
-	new_x = game->player.pos_x + game->player.dir_x * MOVESPEED;
-	new_y = game->player.pos_y + game->player.dir_y * MOVESPEED;
+	new_x = game->player.pos_x + game->player.dir_x * SPEED;
+	new_y = game->player.pos_y + game->player.dir_y * SPEED;
 	return (validate_move(game, new_x, new_y));
 }
 
@@ -27,8 +27,8 @@ int	move_player_backward(t_game *game)
 	double	new_x;
 	double	new_y;
 
-	new_x = game->player.pos_x - game->player.dir_x * MOVESPEED;
-	new_y = game->player.pos_y - game->player.dir_y * MOVESPEED;
+	new_x = game->player.pos_x - game->player.dir_x * SPEED;
+	new_y = game->player.pos_y - game->player.dir_y * SPEED;
 	return (validate_move(game, new_x, new_y));
 }
 
@@ -37,8 +37,8 @@ int	move_player_left(t_game *game)
 	double	new_x;
 	double	new_y;
 
-	new_x = game->player.pos_x + game->player.dir_y * MOVESPEED;
-	new_y = game->player.pos_y - game->player.dir_x * MOVESPEED;
+	new_x = game->player.pos_x + game->player.dir_y * SPEED;
+	new_y = game->player.pos_y - game->player.dir_x * SPEED;
 	return (validate_move(game, new_x, new_y));
 }
 
@@ -47,8 +47,8 @@ int	move_player_right(t_game *game)
 	double	new_x;
 	double	new_y;
 
-	new_x = game->player.pos_x - game->player.dir_y * MOVESPEED;
-	new_y = game->player.pos_y + game->player.dir_x * MOVESPEED;
+	new_x = game->player.pos_x - game->player.dir_y * SPEED;
+	new_y = game->player.pos_y + game->player.dir_x * SPEED;
 	return (validate_move(game, new_x, new_y));
 }
 

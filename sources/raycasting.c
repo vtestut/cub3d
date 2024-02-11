@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 22:40:40 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:35:56 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 18:00:34 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,10 @@ We initialize the set up for the rays
 - map_x/y = current square of the ray
 - deltadist_x/y = distance to go to the next x or y.
 */
-
 void	init_raycasting_info(int x, t_ray *ray, t_player *player)
 {
 	init_ray(ray);
-	ray->camera_x = 2 * x / (double)WIN_WIDTH - 1;
+	ray->camera_x = 2 * x / (double)WIDTH - 1;
 	ray->dir_x = player->dir_x + player->plane_x * ray->camera_x;
 	ray->dir_y = player->dir_y + player->plane_y * ray->camera_x;
 	ray->map_x = (int)player->pos_x;
@@ -61,7 +60,6 @@ void	init_raycasting_info(int x, t_ray *ray, t_player *player)
 - if x or y < 0 go the next x or y to the left
 - if x or y > 0 go the next x or y to the right
 */
-
 void	set_dda(t_ray *ray, t_player *player)
 {
 	if (ray->dir_x < 0)
@@ -119,7 +117,6 @@ void	perform_dda(t_game *game, t_ray *ray)
 			hit = 1;
 	}
 }
-
 
 // Initialize the set up for the rays
 int	raycasting(t_player *player, t_game *game)

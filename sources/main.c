@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:36:48 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 00:54:05 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 17:53:35 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_mlx(t_game *game)
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		exit_free(game, err_msg("mlx_init failed", 1));
-	game->win = mlx_new_window(game->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
+	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "Cub3D");
 	if (!game->win)
 		exit_free(game, err_msg("Could not create mlx window", 1));
 	return ;
