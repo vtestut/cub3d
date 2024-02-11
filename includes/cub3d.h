@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:47:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:15:53 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 18:28:53 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,56 +63,56 @@ typedef struct s_data
 
 typedef struct s_ray
 {
-	double	camera_x;
-	double	dir_x;
-	double	dir_y;
 	int		map_x;
 	int		map_y;
 	int		step_x;
 	int		step_y;
-	double	sidedist_x;
-	double	sidedist_y;
-	double	deltadist_x;
-	double	deltadist_y;
-	double	wall_dist;
-	double	wall_x;
 	int		side;
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
+	double	camera_x;
+	double	dir_x;
+	double	dir_y;
+	double	side_x;
+	double	side_y;
+	double	delta_x;
+	double	delta_y;
+	double	wall_dist;
+	double	wall_x;
 }	t_ray;
 
 typedef struct s_player
 {
 	char	dir;
+	int		has_moved;
+	int		move_x;
+	int		move_y;
+	int		rotate;
 	double	pos_x;
 	double	pos_y;
 	double	dir_x;
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
-	int		has_moved;
-	int		move_x;
-	int		move_y;
-	int		rotate;
 }	t_player;
 
 typedef struct s_game
 {
-	void		*mlx;
-	void		*win;
-	int			win_height;
-	int			win_width;
+	int			win_h;
+	int			win_w;
 	int			fd;
 	int			n_line;
-	char		*path;
-	char		**file;
 	int			height;
 	int			width;
-	int			index_end_of_map;
-	char		**map;
-	int			**texture_pixels;
+	int			map_end;
+	int			**pixels_tex;
 	int			**textures;
+	char		*path;
+	char		**file;
+	char		**map;
+	void		*mlx;
+	void		*win;
 	t_ray		ray;
 	t_data		data;
 	t_player	player;
@@ -185,7 +185,7 @@ void			init_texture_img(t_game *game, t_img *image, char *path);
 int				*xpm_to_img(t_game *game, char *path);
 
 // render.c
-void			init_texture_pixels(t_game *game);
+void			init_pixels_tex(t_game *game);
 void			init_img(t_game *game, t_img *image, int width, int height);
 void			render_frame(t_game *game);
 int				render(t_game *game);
@@ -203,7 +203,7 @@ int				raycasting(t_player *player, t_game *game);
 
 // raycasting2.c
 void			get_texture_index(t_game *game, t_ray *ray);
-void			update_texture_pixels(t_game *game, t_data *tex, t_ray *ray, int x);
+void			update_pixels_tex(t_game *game, t_data *tex, t_ray *ray, int x);
 void			calculate_line_height(t_ray *ray, t_game *game, t_player *player);
 
 // input.c

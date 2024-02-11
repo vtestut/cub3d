@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:36:48 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:53:35 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 18:24:28 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	init_textures(t_game *game)
 
 void	render_images(t_game *game)
 {
-	init_texture_pixels(game);
+	init_pixels_tex(game);
 	init_ray(&game->ray);
 	raycasting(&game->player, game);
 	render_frame(game);

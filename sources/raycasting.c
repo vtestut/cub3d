@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 15:40:40 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:06:56 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 18:27:22 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	init_ray(t_ray *ray)
 	ray->map_y = 0;
 	ray->step_x = 0;
 	ray->step_y = 0;
-	ray->sidedist_x = 0;
-	ray->sidedist_y = 0;
-	ray->deltadist_x = 0;
-	ray->deltadist_y = 0;
+	ray->side_x = 0;
+	ray->side_y = 0;
+	ray->delta_x = 0;
+	ray->delta_y = 0;
 	ray->wall_dist = 0;
 	ray->wall_x = 0;
 	ray->side = 0;
@@ -38,7 +38,7 @@ We initialize the set up for the rays
 - camera_x -> Where is the camera (-1 = left, 0 = center, 1 = right)
 - dir_x/y = direction of the ray
 - map_x/y = current square of the ray
-- deltadist_x/y = distance to go to the next x or y.
+- delta_x/y = distance to go to the next x or y.
 */
 void	init_raycasting_info(int x, t_ray *ray, t_player *player)
 {
@@ -48,14 +48,14 @@ void	init_raycasting_info(int x, t_ray *ray, t_player *player)
 	ray->dir_y = player->dir_y + player->plane_y * ray->camera_x;
 	ray->map_x = (int)player->pos_x;
 	ray->map_y = (int)player->pos_y;
-	ray->deltadist_x = fabs(1 / ray->dir_x); // retourne la valeur absolue d'un nombre à virgule flottante
-	ray->deltadist_y = fabs(1 / ray->dir_y);
+	ray->delta_x = fabs(1 / ray->dir_x); // retourne la valeur absolue d'un nombre à virgule flottante
+	ray->delta_y = fabs(1 / ray->dir_y);
 }
 
 /*
 - We are doing the initial set up for the dda
 - dda algorithm will jump one square in each loop eiter in a x or y direction
-- ray->sidedist_x or y = distance from the ray start position to the
+- ray->side_x or y = distance from the ray start position to the
 	next x or y position
 - if x or y < 0 go the next x or y to the left
 - if x or y > 0 go the next x or y to the right
@@ -65,22 +65,22 @@ void	set_dda(t_ray *ray, t_player *player)
 	if (ray->dir_x < 0)
 	{
 		ray->step_x = -1;
-		ray->sidedist_x = (player->pos_x - ray->map_x) * ray->deltadist_x;
+		ray->side_x = (player->pos_x - ray->map_x) * ray->delta_x;
 	}
 	else
 	{
 		ray->step_x = 1;
-		ray->sidedist_x = (ray->map_x + 1.0 - player->pos_x) * ray->deltadist_x;
+		ray->side_x = (ray->map_x + 1.0 - player->pos_x) * ray->delta_x;
 	}
 	if (ray->dir_y < 0)
 	{
 		ray->step_y = -1;
-		ray->sidedist_y = (player->pos_y - ray->map_y) * ray->deltadist_y;
+		ray->side_y = (player->pos_y - ray->map_y) * ray->delta_y;
 	}
 	else
 	{
 		ray->step_y = 1;
-		ray->sidedist_y = (ray->map_y + 1.0 - player->pos_y) * ray->deltadist_y;
+		ray->side_y = (ray->map_y + 1.0 - player->pos_y) * ray->delta_y;
 	}
 }
 
@@ -96,15 +96,15 @@ void	perform_dda(t_game *game, t_ray *ray)
 	hit = 0;
 	while (hit == 0)
 	{
-		if (ray->sidedist_x < ray->sidedist_y)
+		if (ray->side_x < ray->side_y)
 		{
-			ray->sidedist_x += ray->deltadist_x;
+			ray->side_x += ray->delta_x;
 			ray->map_x += ray->step_x;
 			ray->side = 0;
 		}
 		else
 		{
-			ray->sidedist_y += ray->deltadist_y;
+			ray->side_y += ray->delta_y;
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
@@ -126,13 +126,13 @@ int	raycasting(t_player *player, t_game *game)
 
 	x = 0;
 	ray = game->ray;
-	while (x < game->win_width)
+	while (x < game->win_w)
 	{
 		init_raycasting_info(x, &ray, player);
 		set_dda(&ray, player);
 		perform_dda(game, &ray);
 		calculate_line_height(&ray, game, player);
-		update_texture_pixels(game, &game->data, &ray, x);
+		update_pixels_tex(game, &game->data, &ray, x);
 		x++;
 	}
 	return (0);

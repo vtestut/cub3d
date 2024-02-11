@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:32:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:05:28 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 18:22:55 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	check_map_is_at_the_end(t_game *map)
 	int	i;
 	int	j;
 
-	i = map->index_end_of_map;
+	i = map->map_end;
 	while (map->file[i])
 	{
 		j = 0;

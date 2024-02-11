@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:43:51 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:04:32 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 18:22:55 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	count_map_lines(t_game *game, char **file, int i)
 			break ;
 		i++;
 	}
-	game->index_end_of_map = i;
+	game->map_end = i;
 	return (i - index_value);
 }
 

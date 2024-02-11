@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:28:23 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:07:36 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 18:27:22 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	get_texture_index(t_game *game, t_ray *ray)
 	}
 }
 
-void	update_texture_pixels(t_game *game, t_data *tex, t_ray *ray, int x)
+void	update_pixels_tex(t_game *game, t_data *tex, t_ray *ray, int x)
 {
 	int			y;
 	int			color;
@@ -41,7 +41,7 @@ void	update_texture_pixels(t_game *game, t_data *tex, t_ray *ray, int x)
 		|| (ray->side == 1 && ray->dir_y > 0))
 		tex->x = tex->size - tex->x - 1;
 	tex->step = 1.0 * tex->size / ray->line_height;
-	tex->pos = (ray->draw_start - game->win_height / 2
+	tex->pos = (ray->draw_start - game->win_h / 2
 			+ ray->line_height / 2) * tex->step;
 	y = ray->draw_start;
 	while (y < ray->draw_end)
@@ -52,7 +52,7 @@ void	update_texture_pixels(t_game *game, t_data *tex, t_ray *ray, int x)
 		if (tex->index == NORTH || tex->index == EAST)
 			color = (color >> 1) & 8355711;
 		if (color > 0)
-			game->texture_pixels[y][x] = color;
+			game->pixels_tex[y][x] = color;
 		y++;
 	}
 }
@@ -60,16 +60,16 @@ void	update_texture_pixels(t_game *game, t_data *tex, t_ray *ray, int x)
 void	calculate_line_height(t_ray *ray, t_game *game, t_player *player)
 {
 	if (ray->side == 0)
-		ray->wall_dist = (ray->sidedist_x - ray->deltadist_x);
+		ray->wall_dist = (ray->side_x - ray->delta_x);
 	else
-		ray->wall_dist = (ray->sidedist_y - ray->deltadist_y);
-	ray->line_height = (int)(game->win_height / ray->wall_dist);
-	ray->draw_start = -(ray->line_height) / 2 + game->win_height / 2;
+		ray->wall_dist = (ray->side_y - ray->delta_y);
+	ray->line_height = (int)(game->win_h / ray->wall_dist);
+	ray->draw_start = -(ray->line_height) / 2 + game->win_h / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
-	ray->draw_end = ray->line_height / 2 + game->win_height / 2;
-	if (ray->draw_end >= game->win_height)
-		ray->draw_end = game->win_height - 1;
+	ray->draw_end = ray->line_height / 2 + game->win_h / 2;
+	if (ray->draw_end >= game->win_h)
+		ray->draw_end = game->win_h - 1;
 	if (ray->side == 0)
 		ray->wall_x = player->pos_y + ray->wall_dist * ray->dir_y;
 	else

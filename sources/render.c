@@ -6,28 +6,28 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:30:04 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:16:37 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 18:24:28 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_texture_pixels(t_game *game)
+void	init_pixels_tex(t_game *game)
 {
 	int	i;
 
-	if (game->texture_pixels)
-		free_tab((void **)game->texture_pixels);
-	game->texture_pixels = ft_calloc(game->win_height + 1,
-			sizeof * game->texture_pixels);
-	if (!game->texture_pixels)
+	if (game->pixels_tex)
+		free_tab((void **)game->pixels_tex);
+	game->pixels_tex = ft_calloc(game->win_h + 1,
+			sizeof * game->pixels_tex);
+	if (!game->pixels_tex)
 		exit_free(game, err_msg("malloc error init_texture", 1));
 	i = 0;
-	while (i < game->win_height)
+	while (i < game->win_h)
 	{
-		game->texture_pixels[i] = ft_calloc(game->win_width + 1,
-				sizeof * game->texture_pixels);
-		if (!game->texture_pixels[i])
+		game->pixels_tex[i] = ft_calloc(game->win_w + 1,
+				sizeof * game->pixels_tex);
+		if (!game->pixels_tex[i])
 			exit_free(game, err_msg("malloc error init_texture", 1));
 		i++;
 	}
@@ -51,12 +51,12 @@ void	render_frame(t_game *game)
 	int		y;
 
 	image.img = NULL;
-	init_img(game, &image, game->win_width, game->win_height);
+	init_img(game, &image, game->win_w, game->win_h);
 	y = 0;
-	while (y < game->win_height)
+	while (y < game->win_h)
 	{
 		x = 0;
-		while (x < game->win_width)
+		while (x < game->win_w)
 		{
 			set_frame_image_pixel(game, &image, x, y);
 			x++;

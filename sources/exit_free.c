@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:05:02 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 18:17:42 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 18:24:28 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ int	free_game(t_game *game)
 {
 	if (game->textures)
 		free_tab((void **)game->textures);
-	if (game->texture_pixels)
-		free_tab((void **)game->texture_pixels);
+	if (game->pixels_tex)
+		free_tab((void **)game->pixels_tex);
 	free_data(&game->data);
 	free_map(game);
 	return (1);

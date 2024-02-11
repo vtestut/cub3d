@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:36:48 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:53:16 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 18:24:28 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,14 @@ void	init_game(t_game *game)
 	game->path = NULL;
 	game->file = NULL;
 	game->textures = NULL;
-	game->texture_pixels = NULL;
-	game->win_height = HEIGHT;
-	game->win_width = WIDTH;
+	game->pixels_tex = NULL;
+	game->win_h = HEIGHT;
+	game->win_w = WIDTH;
 	game->fd = 0;
 	game->n_line = 0;
 	game->height = 0;
 	game->width = 0;
-	game->index_end_of_map = 0;
+	game->map_end = 0;
 	init_data(&game->data);
 	init_player(&game->player);
 }
