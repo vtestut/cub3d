@@ -6,14 +6,13 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:47:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:12:43 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 17:40:23 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-// # include "libft.h"
 # include "../libft/includes/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include <errno.h>
@@ -51,10 +50,6 @@ enum e_texture_index
 
 typedef unsigned long	t_ulong;
 
-/* ---------------------------------------------------------------------------*
-							STRUCTURES
- --------------------------------------------------------------------------- */
-
 typedef struct s_img
 {
 	void	*img;
@@ -85,7 +80,6 @@ typedef struct s_data
 typedef struct s_ray
 {
 	double	camera_x;
-	// tout mettre en float??
 	double	dir_x;
 	double	dir_y;
 	int		map_x;
@@ -140,10 +134,6 @@ typedef struct s_game
 	t_player	player;
 }	t_game;
 
-/* ---------------------------------------------------------------------------*
-							FUNCTIONS
- --------------------------------------------------------------------------- */
-
 // main.c
 void			init_mlx(t_game *game);
 void			init_textures(t_game *game);
@@ -151,7 +141,7 @@ void			render_images(t_game *game);
 void			listen_for_input(t_game *game);
 
 // parsing_01.c
-int				check_arg(char *arg, bool cub); // cub sert a quoi??
+int				check_arg(char *arg, bool cub);
 void			init_player(t_player *player);
 void			init_data(t_data *textures);
 void			init_game(t_game *game);
@@ -160,7 +150,7 @@ int				parser(t_game *game, char **argv);
 // parsing_02.c
 int				count_lines(char *path);
 void			start_parse(char *path, t_game *game);
-bool			is_xpm_file(char *arg); // sert a quoi ?
+bool			is_xpm_file(char *arg);
 bool			check_format(char *argv);
 bool			check_if_directory(char *arg);
 
@@ -210,7 +200,7 @@ void			init_img_clean(t_img *img);
 void			init_texture_img(t_game *game, t_img *image, char *path);
 int				*xpm_to_img(t_game *game, char *path);
 
-// ! my_render_01.c
+// my_render_01.c
 void			init_texture_pixels(t_game *game);
 void			init_img(t_game *game, t_img *image, int width, int height);
 void			render_frame(t_game *game);
@@ -250,7 +240,7 @@ bool			is_valid_pos_wall_collision(t_game *game, double x, double y);
 bool			is_valid_pos(t_game *game, double x, double y);
 int				validate_move(t_game *game, double new_x, double new_y);
 
-// ! my_exit_free.c
+// my_exit_free.c
 void			free_tab(void **tab);
 void			free_data(t_data *textures);
 void			free_map(t_game *game);
