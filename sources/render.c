@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 11:30:04 by vtestut          #+#    #+#             */
-/*   Updated: 2024/01/02 13:45:01 by vtestut         ###   ########.fr       */
+/*   Created: 2024/01/09 11:30:04 by vtestut           #+#    #+#             */
+/*   Updated: 2024/02/11 17:36:35 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,6 @@ void	render_frame(t_game *game)
 	mlx_destroy_image(game->mlx, image.img);
 }
 
-// static void	render_raycast(t_game *game)
-// {
-// 	init_texture_pixels(game);
-// 	init_ray(&game->ray);
-// 	raycasting(&game->player, game);
-// 	render_frame(game);
-// }
-
-
-
 int	render(t_game *game)
 {
 	game->player.has_moved += move_player(game);
@@ -87,52 +77,3 @@ int	render(t_game *game)
 	render_images(game);
 	return (0);
 }
-
-// void	render_images(t_game *game)
-// {
-// 	init_texture_pixels(game);
-// 	init_ray(&game->ray);
-// 	raycasting(&game->player, game);
-// 	render_frame(game);
-// 	// render_raycast(game);
-// 	// if (BONUS)
-// 	// 	render_minimap(game);
-// }
-
-// ! int	render(t_game *game) 
-// {
-// 	game->player.has_moved += move_player(game);
-// 	if (game->player.has_moved == 0)
-// 		return (0);
-// 	init_texture_pixels(game);
-// 	init_ray(&game->ray);
-// 	raycasting(&game->player, game);
-// 	render_frame(game);
-// 	return (0);
-// ! }
-
-// static void	render_raycast(t_game *game)
-// {
-// 	init_texture_pixels(game);
-// 	init_ray(&game->ray);
-// 	raycasting(&game->player, game);
-// 	render_frame(game);
-// }
-
-
-
-// int	render(t_game *game)
-// {
-// 	game->player.has_moved += move_player(game);
-// 	if (game->player.has_moved == 0)
-// 		return (0);
-// 	render_images(game);
-// 	return (0);
-// }
-
-// void	render_images(t_game *game)
-// {
-// 	render_raycast(game);
-// 	// if (BONUS)
-// 	// 	render_minimap(game);
-// }

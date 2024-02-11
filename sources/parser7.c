@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_07                                          :+:      :+:    :+:   */
+/*   parser7.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 22:18:24 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/10 21:55:22 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 17:35:30 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ unsigned long	convert_rgb_to_hex(int *rgb_tab)
 	return (result);
 }
 
-int	check_textures_validity(t_data *textures) // bool utile? maybe just add the xpm function here and remove it from check arg?
+int	check_textures_validity(t_data *textures)
 {
 	if (!textures->north || !textures->south || !textures->west
 		|| !textures->east)

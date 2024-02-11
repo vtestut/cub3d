@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_pos.c                                       :+:      :+:    :+:   */
+/*   moves2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 12:57:06 by vtestut          #+#    #+#             */
-/*   Updated: 2024/01/09 13:49:34 by vtestut         ###   ########.fr       */
+/*   Created: 2024/01/09 12:57:06 by vtestut           #+#    #+#             */
+/*   Updated: 2024/02/11 17:36:55 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,10 @@ bool	is_valid_pos_wall_collision(t_game *game, double x, double y)
 	return (false);
 }
 
-// static bool	is_valid_pos_in_map(t_game *game, double x, double y)
-// {
-// 	if (x < 0.25 || x >= game->width - 1.25)
-// 		return (false);
-// 	if (y < 0.25 || y >= game->height -0.25)
-// 		return (false);
-// 	return (true);
-// }
+
 
 bool	is_valid_pos(t_game *game, double x, double y)
 {
-	// if (!BONUS && is_valid_pos_in_map(game, x, y))
-	// 	return (true);
-	// if (BONUS && is_valid_pos_wall_collision(game, x, y))
-	// 	return (true);
-	// return (false);
-	// if (!BONUS && is_valid_pos_in_map(game, x, y))
-	// 	return (true);
 	if (is_valid_pos_wall_collision(game, x, y))
 		return (true);
 	return (false);
