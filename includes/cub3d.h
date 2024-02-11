@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:47:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:40:23 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 17:47:13 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,15 @@
 
 # include "../libft/includes/libft.h"
 # include "../minilibx-linux/mlx.h"
-# include <errno.h>
-# include <fcntl.h>
 # include <math.h>
-# include <stdbool.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <sys/types.h>
 # include <sys/stat.h>
-# include <unistd.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
 
 # define WIN_WIDTH 960 
 # define WIN_HEIGHT 720
 
-# define TEX_SIZE 64
+# define SIZE 64
 
 # ifndef O_DIRECTORY
 #  define O_DIRECTORY 00200000

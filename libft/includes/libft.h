@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:05:01 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/30 11:50:51 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 17:46:24 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <pthread.h>
+# include <stdarg.h>
+# include <string.h>
+# include <fcntl.h>
+# include <stdio.h>
 
 # include "ft_convert.h"
 # include "ft_ctype.h"

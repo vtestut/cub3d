@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_01.c                                        :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:36:48 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:09:57 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 17:47:13 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	init_data(t_data *textures)
 	textures->south = NULL;
 	textures->west = NULL;
 	textures->east = NULL;
-	textures->size = TEX_SIZE;
+	textures->size = SIZE;
 	textures->floor = 0;
 	textures->ceiling = 0;
 	textures->hex_floor = 0x0;
