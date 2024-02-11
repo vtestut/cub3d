@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 11:31:24 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:56:33 by vtestut          ###   ########.fr       */
+/*   Created: 2024/02/06 21:13:24 by vtestut           #+#    #+#             */
+/*   Updated: 2024/02/11 18:15:01 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,3 @@ int	move_player(t_game *game)
 		moved += rotate_player(game, game->player.rotate);
 	return (moved);
 }
-// 

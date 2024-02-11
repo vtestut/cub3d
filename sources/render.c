@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 11:30:04 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:36:35 by vtestut          ###   ########.fr       */
+/*   Created: 2024/02/06 11:30:04 by vtestut           #+#    #+#             */
+/*   Updated: 2024/02/11 18:16:37 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	init_img(t_game *game, t_img *image, int width, int height)
 			&image->size_line, &image->endian);
 	return ;
 }
-
-
 
 void	render_frame(t_game *game)
 {

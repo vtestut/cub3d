@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 11:31:03 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:37:15 by vtestut          ###   ########.fr       */
+/*   Created: 2024/02/06 20:14:43 by vtestut           #+#    #+#             */
+/*   Updated: 2024/02/11 18:17:20 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,3 @@ int	key_release_handler(int key, t_game *game)
 		game->player.rotate = 0;
 	return (0);
 }
-

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 11:33:53 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:37:22 by vtestut          ###   ########.fr       */
+/*   Created: 2024/01/28 14:53:13 by vtestut           #+#    #+#             */
+/*   Updated: 2024/02/11 18:17:01 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,3 @@ int	*xpm_to_img(t_game *game, char *path)
 	mlx_destroy_image(game->mlx, tmp.img);
 	return (buffer);
 }
-
