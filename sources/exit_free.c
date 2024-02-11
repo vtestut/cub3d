@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:33:02 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 17:37:28 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/11 17:38:47 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,4 @@ int	err_msg(char *str, int ret)
 	ft_putstr_fd(str, 2);
 	ft_putstr_fd("\n", 2);
 	return (ret);
-/* 	ft_putstr_fd(RED "cub3D: Error", 2);
-	if (detail)
-	{
-		ft_putstr_fd(": ", 2);
-		ft_putstr_fd(detail, 2);
-	}
-	if (str)
-	{
-		ft_putstr_fd(": ", 2);
-		ft_putstr_fd(str, 2);
-	}
-	ft_putstr_fd("\n" RESET, 2);
-	return (ret); */
 }
