@@ -1,4 +1,4 @@
-cub3d
+.vscode/
 objects/
 */*.o
-.vscode/
+cub3d
