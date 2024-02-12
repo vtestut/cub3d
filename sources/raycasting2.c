@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:28:23 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 15:42:26 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 16:18:32 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ void	find_line_height(t_ray *ray, t_game *game, t_player *player)
 		ray->wall_x = player->pos_y + ray->wall_dist * ray->dir_y;
 	else
 		ray->wall_x = player->pos_x + ray->wall_dist * ray->dir_x;
-	ray->wall_x -= floor(ray->wall_x); //It rounds a floating-point number down to the nearest integer that is less than or equal to the given value.
+	ray->wall_x -= floor(ray->wall_x);
 }

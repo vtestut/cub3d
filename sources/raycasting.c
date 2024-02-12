@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 15:40:40 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 15:32:43 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 16:21:06 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,6 @@ void	init_ray(t_ray *ray)
 	ray->draw_end = 0;
 }
 
-/*
-We initialize the set up for the rays
-- camera_x -> Where is the camera (-1 = left, 0 = center, 1 = right)
-- dir_x/y = direction of the ray
-- map_x/y = current square of the ray
-- delta_x/y = distance to go to the next x or y.
-*/
-/*	initialise le rayon avec la direction, la position actuelle sur la grille,
-	et la distance à parcourir pour atteindre le prochain carré en x ou y. */
 void	set_raycasting(int x, t_ray *ray, t_player *player)
 {
 	init_ray(ray);
@@ -50,20 +41,10 @@ void	set_raycasting(int x, t_ray *ray, t_player *player)
 	ray->dir_y = player->dir_y + player->plan_y * ray->camera_x;
 	ray->map_x = (int)player->pos_x;
 	ray->map_y = (int)player->pos_y;
-	ray->delta_x = fabs(1 / ray->dir_x); // retourne la valeur absolue d'un nombre à virgule flottante
+	ray->delta_x = fabs(1 / ray->dir_x);
 	ray->delta_y = fabs(1 / ray->dir_y);
 }
 
-/*
-- We are doing the initial set up for the dda
-- dda algorithm will jump one square in each loop eiter in a x or y direction
-- ray->side_x or y = distance from the ray start position to the
-	next x or y position
-- if x or y < 0 go the next x or y to the left
-- if x or y > 0 go the next x or y to the right
-*/
-/*	détermine la direction du mvoe et la distance du début du rayon 
-	à la prochaine position en x ou y.*/
 void	set_dda(t_ray *ray, t_player *player)
 {
 	if (ray->dir_x < 0)
@@ -88,11 +69,6 @@ void	set_dda(t_ray *ray, t_player *player)
 	}
 }
 
-/*
-- We implement the DDA algorithm -> the loop will increment 1 square 
--   until we hit a wall
-- If the sidedistx < sidedisty, x is the closest point from the ray
-*/
 void	perform_dda(t_game *game, t_ray *ray)
 {
 	int	hit;

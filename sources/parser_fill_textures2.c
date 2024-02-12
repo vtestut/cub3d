@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:27:02 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 14:20:22 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 16:13:26 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ int	create_map(t_game *game, char **file, int i)
 	return (0);
 }
 
-int	no_digit(char *str)
+bool	no_digit(char *str)
 {
 	int		i;
 	bool	digit;
 
 	i = 0;
-	digit = 0; // true
+	digit = true;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]))
-			digit = 1;
+		if (ft_isdigit(str[i]) == 0)
+			digit = false;
 		i++;
 	}
 	return (digit);
@@ -44,7 +44,7 @@ int	*copy_into_rgb_tab(char **rgb_tab, int *rgb)
 	while (rgb_tab[++i])
 	{
 		rgb[i] = ft_atoi(rgb_tab[i]);
-		if (rgb[i] == -1 || no_digit(rgb_tab[i]) == 0)
+		if (rgb[i] == -1 || no_digit(rgb_tab[i]) == true)
 		{
 			ft_free_tab((void **)rgb_tab);
 			free(rgb);
