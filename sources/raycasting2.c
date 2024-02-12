@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:28:23 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 17:16:15 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 17:58:06 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	set_texture_pxl(t_game *game, t_tex *tex, t_ray *ray, int x)
 		tex->y = (int)tex->pos & (tex->size - 1);
 		tex->pos += tex->step;
 		color = game->tex_arr[tex->index][tex->size * tex->y + tex->x];
-		if (tex->index == NORTH || tex->index == EAST)
-			color = (color >> 1) & 8355711;
+		// if (tex->index == NORTH || tex->index == EAST)
+		// 	color = (color >> 1) & 8355711;
 		if (color > 0)
 			game->tex_pxl[y][x] = color;
 		y++;
