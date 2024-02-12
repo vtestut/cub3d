@@ -65,20 +65,20 @@ $(PATH_OBJS)%.o: $(PATH_SRCS)%.c
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@ $(INCLUDES) $(LIBFT) $(MLX) -lXext -lX11 -lm
 
-#$(LIBFT):
-#	make -C $(PATH_LIBFT)
+$(LIBFT):
+	make -C $(PATH_LIBFT)
 
-#$(MLX):
-#	make -C $(PATH_MLX)
+$(MLX):
+	make -C $(PATH_MLX)
 
 clean:
 	rm -rf $(PATH_OBJS)
-#	make -C $(PATH_LIBFT) clean	
-#	make -C $(PATH_MLX) clean
+	make -C $(PATH_LIBFT) clean	
+	make -C $(PATH_MLX) clean
 
 fclean: clean
 	rm -f $(NAME)
-#	make -C $(PATH_LIBFT) fclean
+	make -C $(PATH_LIBFT) fclean
 
 re: fclean all
 
