@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 15:40:40 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 16:21:06 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 17:18:44 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	set_raycasting(int x, t_ray *ray, t_player *player)
 	ray->delta_y = fabs(1 / ray->dir_y);
 }
 
-void	set_dda(t_ray *ray, t_player *player)
+void	dda_setup(t_ray *ray, t_player *player)
 {
 	if (ray->dir_x < 0)
 	{
@@ -69,7 +69,7 @@ void	set_dda(t_ray *ray, t_player *player)
 	}
 }
 
-void	perform_dda(t_game *game, t_ray *ray)
+void	do_dda_algo(t_game *game, t_ray *ray)
 {
 	int	hit;
 
@@ -108,8 +108,8 @@ int	raycasting(t_player *player, t_game *game)
 	while (x < game->win_w)
 	{
 		set_raycasting(x, &ray, player);
-		set_dda(&ray, player);
-		perform_dda(game, &ray);
+		dda_setup(&ray, player);
+		do_dda_algo(game, &ray);
 		find_line_height(&ray, game, player);
 		set_texture_pxl(game, &game->tex, &ray, x);
 		x++;
