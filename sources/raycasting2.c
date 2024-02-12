@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:28:23 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 17:57:59 by hvercell         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:20:45 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	get_texture_idx(t_game *game, t_ray *ray)
 	}
 }
 
-/*	détermine la texture à appliquer sur chq pixel de la ligne pour un
-	rayon donné, en fonction de l'intersection du rayon avec un mur */
 void	set_texture_pxl(t_game *game, t_tex *tex, t_ray *ray, int x)
 {
 	int			y;
@@ -57,7 +55,6 @@ void	set_texture_pxl(t_game *game, t_tex *tex, t_ray *ray, int x)
 	}
 }
 
-// détermine la hauteur de la ligne à display pour ce rayon.
 void	find_line_height(t_ray *ray, t_game *game, t_player *player)
 {
 	if (ray->side == 0)

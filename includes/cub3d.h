@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:39:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 16:18:12 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 17:56:50 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 
-# define WIDTH 960 
-# define HEIGHT 720
+# define WIDTH 640 
+# define HEIGHT 480
 # define SIZE 64
-# define SPEED 0.06
+# define SPEED 0.05
 # define ROTSPEED 0.04
 
 enum e_NSEW
@@ -191,8 +191,8 @@ int				*xpm_to_img(t_game *game, char *path);
 // raycasting.c
 void			init_ray(t_ray *ray);
 void			set_raycasting(int x, t_ray *ray, t_player *player);
-void			set_dda(t_ray *ray, t_player *player);
-void			perform_dda(t_game *game, t_ray *ray);
+void			dda_setup(t_ray *ray, t_player *player);
+void			do_dda_algo(t_game *game, t_ray *ray);
 int				raycasting(t_player *player, t_game *game);
 
 // raycasting2.c
