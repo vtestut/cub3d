@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:39:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 14:23:15 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 15:05:02 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define WIDTH 960 
 # define HEIGHT 720
 # define SIZE 64
-# define SPEED 0.0600
-# define ROTSPEED 0.060
+# define SPEED 0.06
+# define ROTSPEED 0.04
 
 enum e_NSEW
 {
