@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:39:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 15:05:02 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 15:39:34 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,11 +175,6 @@ void			east_west(t_player *player);
 void			init_player_dir(t_game *game);
 int				check_valid_rgb(int *rgb);
 
-// init_struct.c
-void			init_player(t_player *player);
-void			init_data(t_tex *tex);
-void			init_game(t_game *game);
-
 // init_mlx.c
 void			init_img(t_img *img);
 void			create_texture(t_game *game, t_img *image, char *path);
@@ -207,10 +202,6 @@ void			get_texture_idx(t_game *game, t_ray *ray);
 void			set_texture_pxl(t_game *game, t_tex *tex, t_ray *ray, int x);
 void			find_line_height(t_ray *ray, t_game *game, t_player *player);
 
-// input.c
-int				key_press(int key, t_game *game);
-int				key_release(int key, t_game *game);
-
 // moves.c
 int				move_front(t_game *game);
 int				move_back(t_game *game);
@@ -224,6 +215,13 @@ int				rotation(t_game *game, float rotdir);
 int				check_for_collision(t_game *game, float x, float y);
 int				is_valid_pos(t_game *game, float x, float y);
 int				is_valid_move(t_game *game, float new_x, float new_y);
+
+// utils.c
+void			init_player(t_player *player);
+void			init_data(t_tex *tex);
+void			init_game(t_game *game);
+int				key_press(int key, t_game *game);
+int				key_release(int key, t_game *game);
 
 // exit_free.c
 void			free_textures(t_tex *tex);
