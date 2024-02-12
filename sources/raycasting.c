@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 15:40:40 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 14:26:13 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 15:32:43 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ We initialize the set up for the rays
 - map_x/y = current square of the ray
 - delta_x/y = distance to go to the next x or y.
 */
+/*	initialise le rayon avec la direction, la position actuelle sur la grille,
+	et la distance à parcourir pour atteindre le prochain carré en x ou y. */
 void	set_raycasting(int x, t_ray *ray, t_player *player)
 {
 	init_ray(ray);
@@ -60,6 +62,8 @@ void	set_raycasting(int x, t_ray *ray, t_player *player)
 - if x or y < 0 go the next x or y to the left
 - if x or y > 0 go the next x or y to the right
 */
+/*	détermine la direction du mvoe et la distance du début du rayon 
+	à la prochaine position en x ou y.*/
 void	set_dda(t_ray *ray, t_player *player)
 {
 	if (ray->dir_x < 0)
@@ -118,7 +122,6 @@ void	perform_dda(t_game *game, t_ray *ray)
 	}
 }
 
-// Initialize the set up for the rays
 int	raycasting(t_player *player, t_game *game)
 {
 	t_ray	ray;

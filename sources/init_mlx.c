@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 14:53:13 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 14:27:17 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 15:28:03 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	create_texture(t_game *game, t_img *img, char *path)
 	img->img = mlx_xpm_file_to_image(game->mlx, path,
 			&game->tex.size, &game->tex.size);
 	if (img->img == NULL)
-		exit_free(game, msg_error("xpm_file_to_img failed", 1));
+		exit_free(game, msg_error("xpm_file_to_image failed", 1));
 	img->addr = (int *)mlx_get_data_addr(img->img, &img->pxl_bit,
 			&img->line_size, &img->endian);
 	return ;

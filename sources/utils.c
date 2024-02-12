@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 16:06:50 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 14:28:13 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 15:38:46 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,42 @@ void	init_game(t_game *game)
 	game->height = 0;
 	game->width = 0;
 	game->map_end = 0;
+}
+
+int	key_press(int key, t_game *game)
+{
+	if (key == XK_Escape)
+		exit_mlx(game);
+	if (key == XK_Left)
+		game->player.rotate -= 1;
+	if (key == XK_Right)
+		game->player.rotate += 1;
+	if (key == XK_w)
+		game->player.move_y = 1;
+	if (key == XK_a)
+		game->player.move_x = -1;
+	if (key == XK_s)
+		game->player.move_y = -1;
+	if (key == XK_d)
+		game->player.move_x = 1;
+	return (0);
+}
+
+int	key_release(int key, t_game *game)
+{
+	if (key == XK_Escape)
+		exit_mlx(game);
+	if (key == XK_w && game->player.move_y == 1)
+		game->player.move_y = 0;
+	if (key == XK_s && game->player.move_y == -1)
+		game->player.move_y = 0;
+	if (key == XK_a && game->player.move_x == -1)
+		game->player.move_x += 1;
+	if (key == XK_d && game->player.move_x == 1)
+		game->player.move_x -= 1;
+	if (key == XK_Left && game->player.rotate <= 1)
+		game->player.rotate = 0;
+	if (key == XK_Right && game->player.rotate >= -1)
+		game->player.rotate = 0;
+	return (0);
 }
