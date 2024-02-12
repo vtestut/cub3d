@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:39:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 15:39:34 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 16:18:12 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ int				parse_file(t_game *game, char **map);
 
 // parser_fill_textures2.c
 int				create_map(t_game *game, char **file, int i);
-int				no_digit(char *str);
+bool			no_digit(char *str);
 int				*copy_into_rgb_tab(char **rgb_tab, int *rgb);
 int				*set_rgb_colors(char *line);
 int				get_colors(t_tex *tex, char *line, int j);
@@ -175,11 +175,6 @@ void			east_west(t_player *player);
 void			init_player_dir(t_game *game);
 int				check_valid_rgb(int *rgb);
 
-// init_mlx.c
-void			init_img(t_img *img);
-void			create_texture(t_game *game, t_img *image, char *path);
-int				*xpm_to_img(t_game *game, char *path);
-
 // display.c
 void			init_pxl(t_game *game);
 void			create_image(t_game *game, t_img *image, int width, int height);
@@ -189,6 +184,9 @@ int				display_loop(t_game *game);
 // display2.c
 void			img_pxl_utils(t_img *image, int x, int y, int color);
 void			set_img_pxl(t_game *game, t_img *image, int x, int y);
+void			init_img(t_img *img);
+void			create_texture(t_game *game, t_img *image, char *path);
+int				*xpm_to_img(t_game *game, char *path);
 
 // raycasting.c
 void			init_ray(t_ray *ray);
