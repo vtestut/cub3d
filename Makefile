@@ -6,13 +6,11 @@ NAME		=	cub3d
 
 PATH_SRCS 	=	sources/
 SRCS		= 	main.c
-SRCS		+= 	catch_input.c
 SRCS		+= 	display.c
 SRCS		+= 	display2.c
 SRCS		+= 	exit_free.c
 SRCS		+= 	init_mlx.c
 SRCS		+= 	init_player.c
-SRCS		+= 	init_struct.c
 SRCS		+= 	moves.c
 SRCS		+= 	moves2.c
 SRCS		+= 	parser_check_content.c
@@ -24,6 +22,7 @@ SRCS		+= 	parser_utils.c
 SRCS		+= 	parser.c
 SRCS		+= 	raycasting.c
 SRCS		+= 	raycasting2.c
+SRCS		+= 	utils.c
 
 vpath %.c $(PATH_SRCS)	
 
