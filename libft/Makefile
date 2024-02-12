@@ -71,6 +71,7 @@ SRCS_MEMO	+=	ft_memelemset.c
 SRCS_MEMO	+=	ft_memmove.c
 SRCS_MEMO	+=	ft_memset.c
 SRCS_MEMO	+=	ft_realloc.c
+SRCS_MEMO	+=	ft_free_tab.c
 
 SRCS_OUTP	=	ft_putchar_fd.c
 SRCS_OUTP	+=	ft_putendl_fd.c
@@ -157,7 +158,7 @@ $(NAME): 		$(OBJS)
 				$(AR) $@ $^
 
 $(OBJS): 		$(PATH_OBJS)/%.o: %.c $(HEADER)
-				mkdir -p $(PATH_OBJS)
+				@mkdir -p $(PATH_OBJS)
 				$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
 
 clean:

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser5.c                                          :+:      :+:    :+:   */
+/*   parser_fill_map.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:43:51 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 19:42:12 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 14:26:13 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// change all spaces into walls.
-void	change_space_into_wall(t_game *game)
+void	change_spaces_to_walls(t_game *game)
 {
 	int	i;
 	int	j;
@@ -23,8 +22,8 @@ void	change_space_into_wall(t_game *game)
 	{
 		j = 0;
 		while (game->map[i][j] == ' ' || game->map[i][j] == '\t'
-		|| game->map[i][j] == '\r'
-		|| game->map[i][j] == '\v' || game->map[i][j] == '\f')
+		|| game->map[i][j] == '\r' || game->map[i][j] == '\v'
+		|| game->map[i][j] == '\f')
 			j++;
 		while (game->map[i][++j])
 		{
@@ -36,40 +35,38 @@ void	change_space_into_wall(t_game *game)
 	}
 }
 
-// find the biggest line of the map.
-size_t	find_biggest_len(t_game *game, int i)
+size_t	find_biggest_line(t_game *game, int i)
 {
-	size_t	biggest_len;
+	size_t	line;
 
-	biggest_len = ft_strlen(game->file[i]);
+	line = ft_strlen(game->file[i]);
 	while (game->file[i])
 	{
-		if (ft_strlen(game->file[i]) > biggest_len)
-			biggest_len = ft_strlen(game->file[i]);
+		if (ft_strlen(game->file[i]) > line)
+			line = ft_strlen(game->file[i]);
 		i++;
 	}
-	return (biggest_len);
+	return (line);
 }
 
-// fill the map tab with the map data.
 int	fill_map_tab(t_game *game, char **map_tab, int index)
 {
 	int		i;
 	int		j;
 
-	game->width = find_biggest_len(game, index);
+	game->width = find_biggest_line(game, index);
 	i = 0;
 	while (i < game->height)
 	{
 		j = 0;
 		map_tab[i] = malloc(sizeof(char) * (game->width + 1));
 		if (!map_tab[i])
-			return (msg_error("malloc error fill_map_tab", 1));
+			return (msg_error("malloc failed", 1));
 		while (game->file[index][j] && game->file[index][j] != '\n')
 		{
 			map_tab[i][j] = game->file[index][j];
 			j++;
-		}	
+		}
 		while (j < game->width)
 			map_tab[i][j++] = '\0';
 		i++;
@@ -79,7 +76,6 @@ int	fill_map_tab(t_game *game, char **map_tab, int index)
 	return (0);
 }
 
-// counts the number of lines in the map.
 int	count_map_lines(t_game *game, char **file, int i)
 {
 	int	index_value;
@@ -100,14 +96,13 @@ int	count_map_lines(t_game *game, char **file, int i)
 	return (i - index_value);
 }
 
-// get the map data and fill the game structure with it.
 int	get_map_info(t_game *game, char **file, int i)
 {
 	game->height = count_map_lines(game, file, i);
 	game->map = malloc(sizeof(char *) * (game->height + 1));
 	if (!game->map)
-		return (msg_error("malloc error get_map_info", 1));
-	if (fill_map_tab(game, game->map, i) == 1)
+		return (msg_error("malloc failed", 1));
+	if (fill_map_tab(game, game->map, i))
 		return (1);
 	return (0);
 }

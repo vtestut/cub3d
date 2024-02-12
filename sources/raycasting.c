@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 15:40:40 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 20:19:52 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 14:26:13 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_ray(t_ray *ray)
 	ray->wall_dist = 0;
 	ray->wall_x = 0;
 	ray->side = 0;
-	ray->line_height = 0;
+	ray->line_h = 0;
 	ray->draw_start = 0;
 	ray->draw_end = 0;
 }
@@ -44,8 +44,8 @@ void	set_raycasting(int x, t_ray *ray, t_player *player)
 {
 	init_ray(ray);
 	ray->camera_x = 2 * x / (float)WIDTH - 1;
-	ray->dir_x = player->dir_x + player->plane_x * ray->camera_x;
-	ray->dir_y = player->dir_y + player->plane_y * ray->camera_x;
+	ray->dir_x = player->dir_x + player->plan_x * ray->camera_x;
+	ray->dir_y = player->dir_y + player->plan_y * ray->camera_x;
 	ray->map_x = (int)player->pos_x;
 	ray->map_y = (int)player->pos_y;
 	ray->delta_x = fabs(1 / ray->dir_x); // retourne la valeur absolue d'un nombre à virgule flottante
@@ -132,7 +132,7 @@ int	raycasting(t_player *player, t_game *game)
 		set_dda(&ray, player);
 		perform_dda(game, &ray);
 		find_line_height(&ray, game, player);
-		update_pixl_tex(game, &game->data, &ray, x);
+		set_texture_pxl(game, &game->tex, &ray, x);
 		x++;
 	}
 	return (0);

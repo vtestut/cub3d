@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:36:59 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/20 14:43:02 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 13:32:24 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,5 +129,7 @@ void	*ft_memset(void *dest, int v, size_t n);
  * @return The new memory area on success, NULL otherwise
  */
 void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
+
+void	ft_free_tab(void **tab);
 
 #endif

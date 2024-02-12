@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:39:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 20:36:46 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 14:23:15 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define SPEED 0.0600
 # define ROTSPEED 0.060
 
-enum e_texture_index
+enum e_NSEW
 {
 	NORTH = 0,
 	SOUTH = 1,
@@ -38,12 +38,27 @@ typedef struct s_img
 {
 	void	*img;
 	int		*addr;
-	int		pixl_bit;
-	int		size_line;
+	int		pxl_bit;
+	int		line_size;
 	int		endian;
 }	t_img;
 
-typedef struct s_data
+typedef struct s_player
+{
+	char	dir;
+	int		has_moved;
+	int		move_x;
+	int		move_y;
+	int		rotate;
+	float	pos_x;
+	float	pos_y;
+	float	dir_x;
+	float	dir_y;
+	float	plan_x;
+	float	plan_y;
+}	t_player;
+
+typedef struct s_tex
 {
 	char			*north;
 	char			*south;
@@ -51,15 +66,15 @@ typedef struct s_data
 	char			*east;
 	int				*floor;
 	int				*ceiling;
-	unsigned long	hex_floor;
-	unsigned long	hex_ceil;
+	unsigned long	hexa_floor;
+	unsigned long	hexa_ceil;
 	int				size;
 	int				index;
 	float			step;
 	float			pos;
 	int				x;
 	int				y;
-}	t_data;
+}	t_tex;
 
 typedef struct s_ray
 {
@@ -68,7 +83,7 @@ typedef struct s_ray
 	int		step_x;
 	int		step_y;
 	int		side;
-	int		line_height;
+	int		line_h;
 	int		draw_start;
 	int		draw_end;
 	float	camera_x;
@@ -82,116 +97,103 @@ typedef struct s_ray
 	float	wall_x;
 }	t_ray;
 
-typedef struct s_player
-{
-	char	dir;
-	int		has_moved;
-	int		move_x;
-	int		move_y;
-	int		rotate;
-	float	pos_x;
-	float	pos_y;
-	float	dir_x;
-	float	dir_y;
-	float	plane_x;
-	float	plane_y;
-}	t_player;
-
 typedef struct s_game
 {
-	int			win_h;
-	int			win_w;
-	int			fd;
-	int			n_line;
-	int			height;
-	int			width;
-	int			map_end;
-	int			**pixl_tex;
-	int			**tex_ar;
 	char		*path;
-	char		**file;
 	char		**map;
+	char		**file;
+	int			fd;
+	int			nb_line;
+	int			map_end;
 	void		*mlx;
 	void		*win;
+	int			win_h;
+	int			win_w;
+	int			**tex_arr;
+	int			**tex_pxl;
+	int			height;
+	int			width;
 	t_ray		ray;
-	t_data		data;
+	t_tex		tex;
 	t_player	player;
 }	t_game;
 
 // main.c
 void			init_mlx(t_game *game);
 void			init_textures(t_game *game);
-void			render_game(t_game *game);
+void			display_game(t_game *game);
 void			catch_input(t_game *game);
 
 // parser.c
-int				check_arg(char *arg, bool cub);
-void			init_player(t_player *player);
-void			init_data(t_data *textures);
-void			init_game(t_game *game);
+int				is_xpm_file(char *argv);
+int				check_format(char *argv);
+int				is_directory(char *argv);
+int				check_arg(char *argv, bool cub);
 int				parser(t_game *game, char **argv);
 
-// parser2.c
+// parser_gnl.c
 int				count_lines(char *path);
-void			start_parse(char *path, t_game *game);
-bool			is_xpm_file(char *arg);
-bool			check_format(char *argv);
-bool			check_if_directory(char *arg);
+void			fill_map_gnl(int row, int col, int i, t_game *game);
+void			start_fill_map(char *path, t_game *game);
 
-// parser3.c
+// parser_fill_textures.c
 char			*get_texture_path(char *line, int j);
-int				fill_direction_textures(t_data *textures, char *line, int j);
-int				skip_spaces(t_game *game, char **map, int i, int j);
+int				get_direction_textures(t_tex *tex, char *line, int j);
+int				skip_spaces_fill_tex(t_game *game, char **map, int i, int j);
 int				parse_file(t_game *game, char **map);
-void			fill_map(int row, int col, int i, t_game *game);
 
-// parser4.c
+// parser_fill_textures2.c
 int				create_map(t_game *game, char **file, int i);
-bool			no_digit(char *str);
-int				*copy_into_rgb_array(char **rgb_to_convert, int *rgb);
+int				no_digit(char *str);
+int				*copy_into_rgb_tab(char **rgb_tab, int *rgb);
 int				*set_rgb_colors(char *line);
-int				fill_color_textures(t_data *textures, char *line, int j);
+int				get_colors(t_tex *tex, char *line, int j);
 
-// parser5.c
-void			change_space_into_wall(t_game *game);
-size_t			find_biggest_len(t_game *game, int i);
+// parser_fill_map.c
+void			change_spaces_to_walls(t_game *game);
+size_t			find_biggest_line(t_game *game, int i);
 int				fill_map_tab(t_game *game, char **map_tab, int index);
 int				count_map_lines(t_game *game, char **file, int i);
 int				get_map_info(t_game *game, char **file, int i);
 
-// parser6.c
-int				check_player_position(t_game *game, char **map_tab);
-int				check_map_elements(t_game *game, char **map_tab);
-int				check_top_or_bottom(char **map_tab, int i, int j);
-int				check_map_sides(t_game *map, char **map_tab);
+// parser_check_content.c
+int				check_player_pos(t_game *game, char **map_tab);
+int				check_map_char(t_game *game, char **map_tab);
+int				check_walls_utils(char **map_tab, int i, int j);
+int				check_walls(t_game *map, char **map_tab);
 int				check_map(t_game *game, char **map_tab);
 
-// parser7.c
-unsigned long	convert_rgb_to_hex(int *rgb_tab);
-int				check_textures(t_data *textures);
-int				check_map_is_at_the_end(t_game *map);
-int				check_position_is_valid(t_game *game, char **map_tab);
+// parser_utils.c
+unsigned long	rgb_to_hexa(int *rgb_tab);
+int				check_textures(t_tex *tex);
+int				check_map_is_eof(t_game *map);
+int				check_pos_is_valid(t_game *game, char **map_tab);
 
-// parser8.c
+// init_player.c
 void			north_south(t_player *player);
 void			east_west(t_player *player);
 void			init_player_dir(t_game *game);
 int				check_valid_rgb(int *rgb);
 
+// init_struct.c
+void			init_player(t_player *player);
+void			init_data(t_tex *tex);
+void			init_game(t_game *game);
+
 // init_mlx.c
-void			set_clean_img(t_img *img);
-void			init_texture_img(t_game *game, t_img *image, char *path);
+void			init_img(t_img *img);
+void			create_texture(t_game *game, t_img *image, char *path);
 int				*xpm_to_img(t_game *game, char *path);
 
-// render.c
-void			init_pixl(t_game *game);
-void			init_img(t_game *game, t_img *image, int width, int height);
-void			render_window(t_game *game);
-int				render_loop(t_game *game);
+// display.c
+void			init_pxl(t_game *game);
+void			create_image(t_game *game, t_img *image, int width, int height);
+void			display_window(t_game *game);
+int				display_loop(t_game *game);
 
-// render2.c
-void			img_pixl_utils(t_img *image, int x, int y, int color);
-void			set_img_pixl(t_game *game, t_img *image, int x, int y);
+// display2.c
+void			img_pxl_utils(t_img *image, int x, int y, int color);
+void			set_img_pxl(t_game *game, t_img *image, int x, int y);
 
 // raycasting.c
 void			init_ray(t_ray *ray);
@@ -202,7 +204,7 @@ int				raycasting(t_player *player, t_game *game);
 
 // raycasting2.c
 void			get_texture_idx(t_game *game, t_ray *ray);
-void			update_pixl_tex(t_game *game, t_data *tex, t_ray *ray, int x);
+void			set_texture_pxl(t_game *game, t_tex *tex, t_ray *ray, int x);
 void			find_line_height(t_ray *ray, t_game *game, t_player *player);
 
 // input.c
@@ -219,17 +221,15 @@ int				move_player(t_game *game);
 // moves2.c
 int				do_rotation(t_game *game, float rotspeed);
 int				rotation(t_game *game, float rotdir);
-bool			check_for_collision(t_game *game, float x, float y);
-bool			is_valid_pos(t_game *game, float x, float y);
+int				check_for_collision(t_game *game, float x, float y);
+int				is_valid_pos(t_game *game, float x, float y);
 int				is_valid_move(t_game *game, float new_x, float new_y);
 
 // exit_free.c
-void			free_tab(void **tab);
-void			free_data(t_data *textures);
-void			free_map(t_game *game);
+void			free_textures(t_tex *tex);
 int				free_game(t_game *game);
 void			exit_free(t_game *game, int ret);
-int				quit_cub3d(t_game *game);
+int				exit_mlx(t_game *game);
 int				msg_error(char *str, int ret);
 
 #endif

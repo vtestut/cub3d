@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser8.c                                          :+:      :+:    :+:   */
+/*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:04:24 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 19:46:02 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 14:26:13 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	north_south(t_player *player)
 	{
 		player->dir_x = 0;
 		player->dir_y = 1;
-		player->plane_x = -0.66;
-		player->plane_y = 0;
+		player->plan_x = -0.66;
+		player->plan_y = 0;
 	}
 	else if (player->dir == 'N')
 	{
 		player->dir_x = 0;
 		player->dir_y = -1;
-		player->plane_x = 0.66;
-		player->plane_y = 0;
+		player->plan_x = 0.66;
+		player->plan_y = 0;
 	}
 	else
 		return ;
@@ -38,15 +38,15 @@ void	east_west(t_player *player)
 	{
 		player->dir_x = -1;
 		player->dir_y = 0;
-		player->plane_x = 0;
-		player->plane_y = -0.66;
+		player->plan_x = 0;
+		player->plan_y = -0.66;
 	}
 	else if (player->dir == 'E')
 	{
 		player->dir_x = 1;
 		player->dir_y = 0;
-		player->plane_x = 0;
-		player->plane_y = 0.66;
+		player->plan_x = 0;
+		player->plan_y = 0.66;
 	}
 	else
 		return ;

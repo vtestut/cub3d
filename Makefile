@@ -6,23 +6,24 @@ NAME		=	cub3d
 
 PATH_SRCS 	=	sources/
 SRCS		= 	main.c
+SRCS		+= 	catch_input.c
+SRCS		+= 	display.c
+SRCS		+= 	display2.c
 SRCS		+= 	exit_free.c
 SRCS		+= 	init_mlx.c
-SRCS		+= 	input.c
+SRCS		+= 	init_player.c
+SRCS		+= 	init_struct.c
 SRCS		+= 	moves.c
 SRCS		+= 	moves2.c
+SRCS		+= 	parser_check_content.c
+SRCS		+= 	parser_fill_map.c
+SRCS		+= 	parser_fill_textures.c
+SRCS		+= 	parser_fill_textures2.c 	
+SRCS		+= 	parser_gnl.c
+SRCS		+= 	parser_utils.c
+SRCS		+= 	parser.c
 SRCS		+= 	raycasting.c
 SRCS		+= 	raycasting2.c
-SRCS		+= 	render.c
-SRCS		+= 	render2.c
-SRCS		+= 	parser.c
-SRCS		+= 	parser2.c
-SRCS		+= 	parser3.c
-SRCS		+= 	parser4.c
-SRCS		+= 	parser5.c
-SRCS		+= 	parser6.c
-SRCS		+= 	parser7.c 	
-SRCS		+= 	parser8.c
 
 vpath %.c $(PATH_SRCS)	
 
@@ -45,7 +46,7 @@ MLX			=	minilibx-linux/libmlx.a
 
 ##########	COMPILATION	#######################################################
 
-CC			= 	clang
+CC			= 	cc
 CFLAGS		=	-Wall
 CFLAGS		+=	-Wextra
 CFLAGS		+=	-Werror
@@ -66,20 +67,20 @@ $(PATH_OBJS)%.o: $(PATH_SRCS)%.c
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@ $(INCLUDES) $(LIBFT) $(MLX) -lXext -lX11 -lm
 
-# $(LIBFT):
-# 	make -C $(PATH_LIBFT)
+$(LIBFT):
+	make -C $(PATH_LIBFT)
 
-# $(MLX):
-# 	make -C $(PATH_MLX)
+$(MLX):
+	make -C $(PATH_MLX)
 
 clean:
 	rm -rf $(PATH_OBJS)
-# make -C $(PATH_LIBFT) clean	
-# make -C $(PATH_MLX) clean
+	make -C $(PATH_LIBFT) clean	
+	make -C $(PATH_MLX) clean
 
 fclean: clean
 	rm -f $(NAME)
-# make -C $(PATH_LIBFT) fclean
+	make -C $(PATH_LIBFT) fclean
 
 re: fclean all
 

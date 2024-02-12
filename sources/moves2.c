@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:14:06 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 20:19:52 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 13:39:14 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	do_rotation(t_game *game, float rotspeed)
 	tmp_x = p->dir_x;
 	p->dir_x = p->dir_x * cos(rotspeed) - p->dir_y * sin(rotspeed);
 	p->dir_y = tmp_x * sin(rotspeed) + p->dir_y * cos(rotspeed);
-	tmp_x = p->plane_x;
-	p->plane_x = p->plane_x * cos(rotspeed) - p->plane_y * sin(rotspeed);
-	p->plane_y = tmp_x * sin(rotspeed) + p->plane_y * cos(rotspeed);
+	tmp_x = p->plan_x;
+	p->plan_x = p->plan_x * cos(rotspeed) - p->plan_y * sin(rotspeed);
+	p->plan_y = tmp_x * sin(rotspeed) + p->plan_y * cos(rotspeed);
 	return (1);
 }
 
@@ -38,18 +38,18 @@ int	rotation(t_game *game, float rotdir)
 	return (moved);
 }
 
-bool	check_for_collision(t_game *game, float x, float y)
+int	check_for_collision(t_game *game, float x, float y)
 {
 	if (game->map[(int)y][(int)x] == '0')
-		return (true);
-	return (false);
+		return (1);
+	return (0);
 }
 
-bool	is_valid_pos(t_game *game, float x, float y)
+int	is_valid_pos(t_game *game, float x, float y)
 {
 	if (check_for_collision(game, x, y))
-		return (true);
-	return (false);
+		return (1);
+	return (0);
 }
 
 int	is_valid_move(t_game *game, float new_x, float new_y)

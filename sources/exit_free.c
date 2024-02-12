@@ -6,63 +6,41 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:05:02 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/11 20:10:46 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 13:35:01 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	free_tab(void **tab)
+void	free_textures(t_tex *tex)
 {
-	size_t	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	if (tab)
-	{
-		free(tab);
-		tab = NULL;
-	}
-}
-
-void	free_data(t_data *textures)
-{
-	if (textures->north)
-		free(textures->north);
-	if (textures->south)
-		free(textures->south);
-	if (textures->west)
-		free(textures->west);
-	if (textures->east)
-		free(textures->east);
-	if (textures->floor)
-		free(textures->floor);
-	if (textures->ceiling)
-		free(textures->ceiling);
-}
-
-void	free_map(t_game *game)
-{
-	if (game->fd > 0)
-		close(game->fd);
-	if (game->file)
-		free_tab((void **)game->file);
-	if (game->map)
-		free_tab((void **)game->map);
+	if (tex->north)
+		free(tex->north);
+	if (tex->south)
+		free(tex->south);
+	if (tex->west)
+		free(tex->west);
+	if (tex->east)
+		free(tex->east);
+	if (tex->floor)
+		free(tex->floor);
+	if (tex->ceiling)
+		free(tex->ceiling);
 }
 
 int	free_game(t_game *game)
 {
-	if (game->tex_ar)
-		free_tab((void **)game->tex_ar);
-	if (game->pixl_tex)
-		free_tab((void **)game->pixl_tex);
-	free_data(&game->data);
-	free_map(game);
+	if (game->tex_arr)
+		ft_free_tab((void **)game->tex_arr);
+	if (game->tex_pxl)
+		ft_free_tab((void **)game->tex_pxl);
+	if (game->fd > 0)
+		close(game->fd);
+	if (game->file)
+		ft_free_tab((void **)game->file);
+	if (game->map)
+		ft_free_tab((void **)game->map);
+	free_textures(&game->tex);
 	return (1);
 }
 
@@ -82,7 +60,7 @@ void	exit_free(t_game *game, int ret)
 	exit(ret);
 }
 
-int	quit_cub3d(t_game *game)
+int	exit_mlx(t_game *game)
 {
 	exit_free(game, 0);
 	return (0);
