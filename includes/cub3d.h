@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:39:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 16:18:12 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 17:18:44 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,8 +191,8 @@ int				*xpm_to_img(t_game *game, char *path);
 // raycasting.c
 void			init_ray(t_ray *ray);
 void			set_raycasting(int x, t_ray *ray, t_player *player);
-void			set_dda(t_ray *ray, t_player *player);
-void			perform_dda(t_game *game, t_ray *ray);
+void			dda_setup(t_ray *ray, t_player *player);
+void			do_dda_algo(t_game *game, t_ray *ray);
 int				raycasting(t_player *player, t_game *game);
 
 // raycasting2.c
