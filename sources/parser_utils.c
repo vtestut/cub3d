@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser7.c                                          :+:      :+:    :+:   */
+/*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:32:26 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 14:04:46 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 17:40:42 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	check_pos_is_valid(t_game *game, char **map)
 	i = (int)game->player.pos_y;
 	j = (int)game->player.pos_x;
 	if (ft_strlen(map[i - 1]) < (size_t)j || ft_strlen(map[i + 1]) < (size_t)j
-		|| ft_isspace(map[i][j - 1]) == 0 || ft_isspace(map[i][j + 1]) == 0
-		|| ft_isspace(map[i - 1][j]) == 0 || ft_isspace(map[i + 1][j]) == 0)
+		|| ft_isspace(map[i][j - 1]) != 0 || ft_isspace(map[i][j + 1]) != 0
+		|| ft_isspace(map[i - 1][j]) != 0 || ft_isspace(map[i + 1][j]) != 0)
 		return (1);
 	return (0);
 }

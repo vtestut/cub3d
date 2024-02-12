@@ -20,6 +20,7 @@ SRCS_CONV	+=	ft_atoi.c
 SRCS_CONV	+=	ft_itoa.c
 SRCS_CONV	+=	ft_strtoi.c
 SRCS_CONV	+=	ft_strtol.c
+SRCS_CONV	+=	ft_atoi_maxint.c
 
 SRCS_CTYP	=	ft_isalnum.c
 SRCS_CTYP	+=	ft_isalpha.c

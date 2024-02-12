@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:59:04 by vtestut           #+#    #+#             */
-/*   Updated: 2024/01/23 11:47:27 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 16:42:52 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,7 @@ int		ft_strtoi(const char *str, char **endptr, int base);
  * 					of)
  */
 long	ft_strtol(const char *s, char **endptr, int base);
+
+int		ft_atoi_maxint(const char *nptr, int *nb);
 
 #endif

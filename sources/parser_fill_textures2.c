@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_fill_textures2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:27:02 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 16:13:26 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/12 18:15:16 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,14 @@ bool	no_digit(char *str)
 int	*copy_into_rgb_tab(char **rgb_tab, int *rgb)
 {
 	int		i;
+	int		err;
 
 	i = -1;
+	err = 0;
 	while (rgb_tab[++i])
 	{
-		rgb[i] = ft_atoi(rgb_tab[i]);
-		if (rgb[i] == -1 || no_digit(rgb_tab[i]) == true)
+		err = ft_atoi_maxint(rgb_tab[i], &rgb[i]);
+		if (err != 0)
 		{
 			ft_free_tab((void **)rgb_tab);
 			free(rgb);
