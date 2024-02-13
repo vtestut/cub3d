@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:39:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/13 19:43:59 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/13 19:50:25 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 
-# define WIDTH 320 
-# define HEIGHT 240
+# define WIDTH 600
+# define HEIGHT 500
 # define SIZE 64
-# define SPEED 0.06
-# define ROTSPEED 0.04
+# define SPEED 0.02
+# define ROTSPEED 0.01
 
 enum e_NSEW
 {
