@@ -6,7 +6,7 @@
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:39:42 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 17:56:50 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/13 19:43:59 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 
-# define WIDTH 640 
-# define HEIGHT 480
+# define WIDTH 320 
+# define HEIGHT 240
 # define SIZE 64
-# define SPEED 0.05
+# define SPEED 0.06
 # define ROTSPEED 0.04
 
 enum e_NSEW
@@ -139,13 +139,14 @@ void			start_fill_map(char *path, t_game *game);
 // parser_fill_textures.c
 char			*get_texture_path(char *line, int j);
 int				get_direction_textures(t_tex *tex, char *line, int j);
+int				create_map(t_game *game, char **file, int i);
 int				skip_spaces_fill_tex(t_game *game, char **map, int i, int j);
 int				parse_file(t_game *game, char **map);
 
 // parser_fill_textures2.c
-int				create_map(t_game *game, char **file, int i);
 bool			no_digit(char *str);
 int				*copy_into_rgb_tab(char **rgb_tab, int *rgb);
+int				check_rgb(char **rgb_tab);
 int				*set_rgb_colors(char *line);
 int				get_colors(t_tex *tex, char *line, int j);
 

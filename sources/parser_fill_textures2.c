@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser_fill_textures2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:27:02 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 18:15:16 by hvercell         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:38:54 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	create_map(t_game *game, char **file, int i)
-{
-	if (get_map_info(game, file, i))
-		return (1);
-	change_spaces_to_walls(game);
-	return (0);
-}
 
 bool	no_digit(char *str)
 {
@@ -57,6 +49,34 @@ int	*copy_into_rgb_tab(char **rgb_tab, int *rgb)
 	return (rgb);
 }
 
+int	check_rgb(char **rgb_tab)
+{
+	int	n;
+	int	digit_count;
+	int	i;
+	int	j;
+
+	i = 0;
+	while (rgb_tab && rgb_tab[i])
+	{
+		digit_count = 0;
+		n = ft_strlen(rgb_tab[i]);
+		j = 0;
+		while (rgb_tab[i] && rgb_tab[i][j])
+		{
+			if (ft_isdigit(rgb_tab[i][j]))
+				digit_count++;
+			else if (rgb_tab[i][j] != ' ' && rgb_tab[i][j] != '\n')
+				return (0);
+			j++;
+		}
+		if (digit_count < 1 || digit_count > 3)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	*set_rgb_colors(char *line)
 {
 	char	**rgb_tab;
@@ -65,6 +85,11 @@ int	*set_rgb_colors(char *line)
 
 	rgb_tab = ft_split(line, ',');
 	count = 0;
+	if (check_rgb(rgb_tab) == 0)
+	{
+		ft_free_tab((void **)rgb_tab);
+		return (0);
+	}
 	while (rgb_tab[count])
 		count++;
 	if (count != 3)

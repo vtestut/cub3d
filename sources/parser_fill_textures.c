@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser3.c                                          :+:      :+:    :+:   */
+/*   parser_fill_textures.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtestut <vtestut@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:06:12 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 13:58:09 by vtestut          ###   ########.fr       */
+/*   Updated: 2024/02/13 19:38:16 by vtestut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,14 @@ int	get_direction_textures(t_tex *tex, char *line, int j)
 		tex->east = get_texture_path(line, j + 2);
 	else
 		return (1);
+	return (0);
+}
+
+int	create_map(t_game *game, char **file, int i)
+{
+	if (get_map_info(game, file, i))
+		return (1);
+	change_spaces_to_walls(game);
 	return (0);
 }
 
