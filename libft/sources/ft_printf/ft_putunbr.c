@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+// print unsigned number
 size_t	ft_putunbr(const unsigned int n)
 {
 	if (n / 10)

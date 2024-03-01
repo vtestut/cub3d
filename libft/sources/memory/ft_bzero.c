@@ -3,27 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
+/*   By: v <v@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 20:53:08 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 18:28:35 by hvercell         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:48:30 by v                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_memory.h"
-
-// void	ft_bzero(void *s, size_t n)
-// {
-// 	unsigned char	*p;
-
-// 	p = (unsigned char *)s;
-// 	while (n != 0)
-// 	{
-// 		*p = '\0';
-// 		p++;
-// 		n--;
-// 	}
-// }
 
 void	ft_bzero(void *s, size_t n)
 {

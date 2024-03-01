@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
+/*   By: v <v@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 20:57:30 by vtestut           #+#    #+#             */
-/*   Updated: 2024/02/12 17:12:08 by hvercell         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:46:09 by v                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (nb);
 }
-
-// int	ft_atoi(char *str)
-// {
-// 	long	val;
-// 	char	*_restrict;
-
-// 	val = ft_strtol(str, &_restrict, 10);
-// 	if (_restrict != str + ft_strlen(str))
-// 		return (0);
-// 	return ((int)val);
-// }
